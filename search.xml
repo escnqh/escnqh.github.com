@@ -3,6 +3,42 @@
   
     
     <entry>
+      <title><![CDATA[在Blog中添加音乐]]></title>
+      <url>/2017/06/06/%E5%9C%A8Blog%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90/</url>
+      <content type="html"><![CDATA[<p>在Blog中添加音乐播放器有两种，一种是歌单另一种是在一篇文章中插入歌曲，以网易云为例介绍一下这两种方法</p>
+<h2 id="歌单或者单曲播放器"><a href="#歌单或者单曲播放器" class="headerlink" title="歌单或者单曲播放器"></a>歌单或者单曲播放器</h2><p>这种播放器依靠网易云音乐生成的外链播放器</p>
+<p><img src="/images/20170606211501.jpg" alt="此处输入图片的描述"></p>
+<p><img src="/images/20170606212001.jpg" alt="此处输入图片的描述"></p>
+<p><img src="/images/20170606211330.jpg" alt="此处输入图片的描述"></p>
+<p>代码如下：</p>
+<pre><code>&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=450 src=&quot;//music.163.com/outchain/player?type=0&amp;id=427685783&amp;auto=1&amp;height=430&quot;&gt;&lt;/iframe&gt;
+</code></pre><p>效果如下，可以在Blog相应的位置中添加代码段即可显示播放器效果，修改歌单只需要在网易云音乐中将相应的歌单修改即可。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=427685783&auto=0&height=430"></iframe>
+
+<p>嘿嘿其实这里有一个坑就是你拿到我上面的示例代码后直接粘贴会发现音乐是自动播放的，其实在代码中将<code>auto=1</code>属性改为<code>auto=0</code>即可。<br>或者，直接在生成外链播放器时把自动播放取消。</p>
+<p>相应的，单首歌也可以用这种方法生成播放器，插入到文章中。</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=5054922&auto=0&height=66"></iframe>
+
+<p>文章最后送大家一首Notting Hill中的Ain’t no sunshine。</p>
+<p>ps:由于版权原因可能有的歌单和单曲不能生成播放。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 技术闲谈 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 博客搭建 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[Java_Collection]]></title>
       <url>/2017/06/06/Java-Collection/</url>
       <content type="html"><![CDATA[<h2 id="Collection层次结构"><a href="#Collection层次结构" class="headerlink" title="Collection层次结构"></a>Collection层次结构</h2><p><img src="http://img.blog.csdn.net/20130821151227718?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaXRsd2M=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Collection层次结构"></p>
@@ -1255,42 +1291,6 @@ public void onSensorChanged(SensorEvent event) {
         <tags>
             
             <tag> 传感器 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[在Blog中添加音乐]]></title>
-      <url>/2017/06/06/%E5%9C%A8Blog%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90/</url>
-      <content type="html"><![CDATA[<p>在Blog中添加音乐播放器有两种，一种是歌单另一种是在一篇文章中插入歌曲，以网易云为例介绍一下这两种方法</p>
-<h2 id="歌单或者单曲播放器"><a href="#歌单或者单曲播放器" class="headerlink" title="歌单或者单曲播放器"></a>歌单或者单曲播放器</h2><p>这种播放器依靠网易云音乐生成的外链播放器</p>
-<p><img src="/images/20170606211501.jpg" alt="此处输入图片的描述"></p>
-<p><img src="/images/20170606212001.jpg" alt="此处输入图片的描述"></p>
-<p><img src="/images/20170606211330.jpg" alt="此处输入图片的描述"></p>
-<p>代码如下：</p>
-<pre><code>&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=450 src=&quot;//music.163.com/outchain/player?type=0&amp;id=427685783&amp;auto=1&amp;height=430&quot;&gt;&lt;/iframe&gt;
-</code></pre><p>效果如下，可以在Blog相应的位置中添加代码段即可显示播放器效果，修改歌单只需要在网易云音乐中将相应的歌单修改即可。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=427685783&auto=0&height=430"></iframe>
-
-<p>嘿嘿其实这里有一个坑就是你拿到我上面的示例代码后直接粘贴会发现音乐是自动播放的，其实在代码中将<code>auto=1</code>属性改为<code>auto=0</code>即可。<br>或者，直接在生成外链播放器时把自动播放取消。</p>
-<p>相应的，单首歌也可以用这种方法生成播放器，插入到文章中。</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=5054922&auto=0&height=66"></iframe>
-
-<p>文章最后送大家一首Notting Hill中的Ain’t no sunshine。</p>
-<p>ps:由于版权原因可能有的歌单和单曲不能生成播放。</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 技术闲谈 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> 博客搭建 </tag>
             
         </tags>
         
