@@ -1263,7 +1263,10 @@ public void onSensorChanged(SensorEvent event) {
     <entry>
       <title><![CDATA[在Blog中添加音乐]]></title>
       <url>/2017/06/06/%E5%9C%A8Blog%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<p>在Blog中添加音乐播放器有两种，一种是歌单另一种是在一篇文章中插入歌曲，以网易云为例介绍一下这两种方法</p>
+<h2 id="歌单播放器"><a href="#歌单播放器" class="headerlink" title="歌单播放器"></a>歌单播放器</h2><p>这种播放器依靠网易云音乐生成的外链播放器</p>
+<p><img src="/images/20170606211501" alt="此处输入图片的描述"></p>
+]]></content>
       
         <categories>
             
@@ -1274,7 +1277,7 @@ public void onSensorChanged(SensorEvent event) {
         
         <tags>
             
-            <tag> 博客 </tag>
+            <tag> 博客搭建 </tag>
             
         </tags>
         

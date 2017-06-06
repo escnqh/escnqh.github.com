@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://escnqh.github.io/2017/06/06/%E5%9C%A8Blog%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90/</loc>
+    <lastmod>2017-06-06T13:16:22.944Z</lastmod>
+    <data>
+        <display>
+        <title>在Blog中添加音乐</title>
+        <pubTime>2017-06-06T11:53:30.000Z</pubTime>
+        
+        <tag>博客搭建</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术闲谈" url="http://escnqh.github.io/categories/%E6%8A%80%E6%9C%AF%E9%97%B2%E8%B0%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://escnqh.github.io/2017/06/06/Java-final-%E5%92%8C-static/</loc>
     <lastmod>2017-06-06T12:44:18.389Z</lastmod>
     <data>
@@ -138,26 +158,6 @@
            
              
               <breadCrumb title="Android学习笔记" url="http://escnqh.github.io/categories/Android%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://escnqh.github.io/2017/06/06/%E5%9C%A8Blog%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90/</loc>
-    <lastmod>2017-06-06T11:55:01.724Z</lastmod>
-    <data>
-        <display>
-        <title>在Blog中添加音乐</title>
-        <pubTime>2017-06-06T11:53:30.000Z</pubTime>
-        
-        <tag>博客</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术闲谈" url="http://escnqh.github.io/categories/%E6%8A%80%E6%9C%AF%E9%97%B2%E8%B0%88/"/>
           
         </display>
     </data>
