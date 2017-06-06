@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="新的开始," />
+  <meta name="keywords" content="自定义view," />
 
 
 
@@ -100,17 +100,17 @@
 
 
 
-<meta name="description" content="我在2016年4月份的时候用githubpages+hexo搭建了自己的博客，期间积累了几篇自己的学习笔记。 然而良久没有更新，自己写的也不勤，然后就在2017年6月1日，我使用的多说评论第三方评论工具被关停了==加上我刚刚换了固态硬盘，博客配置文件丢失，所以我就趁这个机会重新换了个主题next，重头整理搭建我的博客。 六月是一个新的开始，明天就是高考过去两年，这两年的时间里我变了很多，比起当时可">
-<meta name="keywords" content="新的开始">
+<meta name="description" content="参考于：由Ru_Zhan投稿的微信文章添加动态位移，静态位移，缩放等动画，保证动画状态的平滑衔接。 RecyclerView，ListView这些具有Item复用性的View，想要对其Item做动画，需要注意以下几点：   如果要一点击，让所有Item做动画的效果。例如，上图的编辑和取消，这样的动态动画。可以对所有ViewHolder中的View直接做动画。但是需要在onBindViewHolde">
+<meta name="keywords" content="自定义view">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World——写在迁移了我的Blog之后">
-<meta property="og:url" content="http://escnqh.github.io/2017/06/06/hello-world/index.html">
+<meta property="og:title" content="对RecyclerView Item做动画">
+<meta property="og:url" content="http://escnqh.github.io/2017/06/06/对RecyclerView-Item做动画/index.html">
 <meta property="og:site_name" content="Escnqh">
-<meta property="og:description" content="我在2016年4月份的时候用githubpages+hexo搭建了自己的博客，期间积累了几篇自己的学习笔记。 然而良久没有更新，自己写的也不勤，然后就在2017年6月1日，我使用的多说评论第三方评论工具被关停了==加上我刚刚换了固态硬盘，博客配置文件丢失，所以我就趁这个机会重新换了个主题next，重头整理搭建我的博客。 六月是一个新的开始，明天就是高考过去两年，这两年的时间里我变了很多，比起当时可">
-<meta property="og:updated_time" content="2017-06-06T11:50:44.222Z">
+<meta property="og:description" content="参考于：由Ru_Zhan投稿的微信文章添加动态位移，静态位移，缩放等动画，保证动画状态的平滑衔接。 RecyclerView，ListView这些具有Item复用性的View，想要对其Item做动画，需要注意以下几点：   如果要一点击，让所有Item做动画的效果。例如，上图的编辑和取消，这样的动态动画。可以对所有ViewHolder中的View直接做动画。但是需要在onBindViewHolde">
+<meta property="og:updated_time" content="2017-06-06T12:04:14.515Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World——写在迁移了我的Blog之后">
-<meta name="twitter:description" content="我在2016年4月份的时候用githubpages+hexo搭建了自己的博客，期间积累了几篇自己的学习笔记。 然而良久没有更新，自己写的也不勤，然后就在2017年6月1日，我使用的多说评论第三方评论工具被关停了==加上我刚刚换了固态硬盘，博客配置文件丢失，所以我就趁这个机会重新换了个主题next，重头整理搭建我的博客。 六月是一个新的开始，明天就是高考过去两年，这两年的时间里我变了很多，比起当时可">
+<meta name="twitter:title" content="对RecyclerView Item做动画">
+<meta name="twitter:description" content="参考于：由Ru_Zhan投稿的微信文章添加动态位移，静态位移，缩放等动画，保证动画状态的平滑衔接。 RecyclerView，ListView这些具有Item复用性的View，想要对其Item做动画，需要注意以下几点：   如果要一点击，让所有Item做动画的效果。例如，上图的编辑和取消，这样的动态动画。可以对所有ViewHolder中的View直接做动画。但是需要在onBindViewHolde">
 
 
 
@@ -138,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://escnqh.github.io/2017/06/06/hello-world/"/>
+  <link rel="canonical" href="http://escnqh.github.io/2017/06/06/对RecyclerView-Item做动画/"/>
 
 
 
 
 
-  <title>Hello World——写在迁移了我的Blog之后 | Escnqh</title>
+  <title>对RecyclerView Item做动画 | Escnqh</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -294,7 +294,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://escnqh.github.io/2017/06/06/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://escnqh.github.io/2017/06/06/对RecyclerView-Item做动画/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大胖倪的慢灵魂">
@@ -311,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World——写在迁移了我的Blog之后</h1>
+          <h1 class="post-title" itemprop="name headline">对RecyclerView Item做动画</h1>
         
 
         <div class="post-meta">
@@ -323,7 +323,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T11:03:57+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T20:02:57+08:00">
                 2017-06-06
               </time>
             
@@ -346,8 +346,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂谈笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">杂谈笔记</span>
+                  <a href="/categories/Android学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Android学习笔记</span>
                   </a>
                 </span>
 
@@ -363,7 +363,7 @@
 
           
           
-             <span id="/2017/06/06/hello-world/" class="leancloud_visitors" data-flag-title="Hello World——写在迁移了我的Blog之后">
+             <span id="/2017/06/06/对RecyclerView-Item做动画/" class="leancloud_visitors" data-flag-title="对RecyclerView Item做动画">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -391,12 +391,152 @@
       
 
       
-        <p>我在2016年4月份的时候用<code>githubpages+hexo</code>搭建了自己的博客，期间积累了几篇自己的学习笔记。</p>
-<p>然而良久没有更新，自己写的也不勤，然后就在2017年6月1日，我使用的<code>多说评论</code>第三方评论工具被关停了==加上我刚刚换了固态硬盘，博客配置文件丢失，所以我就趁这个机会重新换了个主题<code>next</code>，重头整理搭建我的博客。</p>
-<p>六月是一个新的开始，明天就是高考过去两年，这两年的时间里我变了很多，比起当时可能我依旧很迷茫。<br>比如我现在纠结的是放弃别的事情，一心准备考研还是好好搞技术毕业去找工作。昨晚上友仔大君的话确实是对的，我不适合考研，我不适合静心去读书刷题。然而我现在的技术还很烂，去找工作自己有没有多少本事。<br>今年上半年发生了很多事情，在和组里的伙伴们做完<code>家庭助手</code>这个比赛项目之后我自己在心里给自己放了一个假。一泄气就到了今天。我想我心里有很多压力一直得不到释放，总总原因积累了很长时间。直到现在我才醒悟，旁人都开着车从我身边急驰而去，我要抓紧跟上。</p>
-<p>我给自己半年时间吧，可能等半年后我才能找到自己的路。这半年弥足珍贵。</p>
-<p>提醒自己，心太浮躁了。</p>
+        <p><strong>参考于：<a href="http://mp.weixin.qq.com/s?__biz=MzAxMTI4MTkwNQ==&amp;mid=2650820629&amp;idx=1&amp;sn=dafee7298419df6c9161368db7f7198d&amp;scene=4#wechat_redirect" target="_blank" rel="external">由Ru_Zhan投稿的微信文章</a></strong><br>添加动态位移，静态位移，缩放等动画，保证动画状态的平滑衔接。</p>
+<p>RecyclerView，ListView这些具有Item复用性的View，想要对其Item做动画，需要注意以下几点： </p>
+<ol>
+<li>如果要一点击，让所有Item做动画的效果。例如，上图的编辑和取消，这样的动态动画。可以对所有ViewHolder中的View直接做动画。但是需要在onBindViewHolder方法中对复用的item做静态动画，保证动画状态的平滑衔接。</li>
+<li>每一个Item的特有属性。例如，上图checkbox的选中状态，都需要把状态字段放到对应的Java bean中，<br>并在onBindViewHolder方法从java bean取出状态值，设置到view里。</li>
+</ol>
+<h1 id="1-对View的处理"><a href="#1-对View的处理" class="headerlink" title="1.对View的处理"></a>1.对View的处理</h1><p>首先，创建一个View，他是RecyclerView Item的根布局，名字为：SlideRelativeLayout，这里我们重写onFinishInflate，在View树创建完毕之后找到我们需要做动画的子View：</p>
+<pre><code>@Override
+protected void onFinishInflate() {
+    super.onFinishInflate();
+    mCheckBox = (CheckBox) findViewById(R.id.item_checkbox);
+    mContentSlide = (RelativeLayout) findViewById(R.id.item_content_rl);
+    setOffset(35);
+}
+</code></pre><p>然后，设计4个方法，分别为：<br>动态的打开动画</p>
+<pre><code>@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+public void openAnimation() {
+    ValueAnimator valueAnimator = new ValueAnimator();
+    valueAnimator.setIntValues(0, 1);
+    valueAnimator.setDuration(300);
+    valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+        @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
+        @Override
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            float fraction = valueAnimator.getAnimatedFraction();
+            int endX = (int) (-mOffset * fraction);
+            doAnimationSet(endX, fraction);
+        }
+    });
+    valueAnimator.start();
+}
+</code></pre><p>动态的关闭动画</p>
+<pre><code>@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+public void closeAnimation() {
+    ValueAnimator valueAnimator = new ValueAnimator();
+    valueAnimator.setIntValues(0, 1);
+    valueAnimator.setDuration(150);
+    valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
+        @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
+        @Override
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            float fraction = valueAnimator.getAnimatedFraction();
+            int endX = (int) (-mOffset * (1 - fraction));
+            doAnimationSet(endX, (1 - fraction));
+        }
+    });
+    valueAnimator.start();
+}
+</code></pre><p>静态的打开动画</p>
+<pre><code>public void open() {
+    mContentSlide.scrollTo(-mOffset, 0);
+}
+</code></pre><p>静态的关闭动画</p>
+<pre><code>public void close() {
+        mContentSlide.scrollTo(0, 0);
+    }
+}
+</code></pre><p>对子View做动画我采取的策略是：使用属性动画，在每一帧动画里获取到对应的值，对子View做相应的动画，例如：动态的打开动画，onAnimationUpdate方法，显示每一贞动画都会回调一次。</p>
+<p>这样RecylerView Item带有动态动画和静态动画的View就设计好了。</p>
+<h1 id="2。对ViewHolder的处理"><a href="#2。对ViewHolder的处理" class="headerlink" title="2。对ViewHolder的处理"></a>2。对ViewHolder的处理</h1><p>在bind方法中使用静态动画，动态动画对外提供方法调用</p>
+<pre><code>private class SlideViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+    private SlideRelativeLayout mSlideRelativeLayout;
+    private CheckBox mCheckBox;
+    private ItemBean mItemBean;
+
+    public SlideViewHolder(View itemView) {
+        super(itemView);
+        mSlideRelativeLayout = (SlideRelativeLayout) itemView.findViewById(R.id.item_root);
+        mCheckBox = (CheckBox) itemView.findViewById(R.id.item_checkbox);
+        itemView.setOnClickListener(this);
+    }
+
+    public void bind(ItemBean itemBean) {
+        mItemBean = itemBean;
+        mCheckBox.setChecked(itemBean.isChecked());
+        switch (mState) {
+            case NORMAL:
+                mSlideRelativeLayout.close();
+                break;
+
+            case SLIDE:
+                mSlideRelativeLayout.open();
+                break;
+        }
+    }
+
+    public void openItemAnimation() {
+        mSlideRelativeLayout.openAnimation();
+    }
+
+    public void closeItemAnimation() {
+        mSlideRelativeLayout.closeAnimation();
+    }
+
+    public void setCheckBox() {
+        mCheckBox.setChecked(!mCheckBox.isChecked());
+        mItemBean.setChecked(mCheckBox.isChecked());
+    }
+
+    @Override
+    public void onClick(View view) {
+        setCheckBox();
+    }
+}
+</code></pre><p>可以看到静态动画在bind里调用，打开或者关闭是由mState变量决定的。而动态的滑动需要手动调用：</p>
+<p>那怎么来使用这些动画呢？ </p>
+<p>动态动画的使用方法：存储所有创建出来的ViewHolder，统一调用动态动画方法。并设置mState变量值，防止滑动时动画不能平滑衔接。</p>
+<pre><code>public void openItemAnimation() {
+    mState = SLIDE;
+    for (SlideViewHolder holder : mSlideViewHolders) {
+        holder.openItemAnimation();
+    }
+}
+
+public void closeItemAnimation() {
+    mState = NORMAL;
+    for (SlideViewHolder holder : mSlideViewHolders) {
+        holder.closeItemAnimation();
+    }
+}
+</code></pre><p>而外面又是这样调用的：</p>
+<pre><code>private void editItems(){
+    if (&quot;编辑&quot;.equals(mRightTV.getText().toString())) {
+        mRightTV.setText(&quot;取消&quot;);
+        mSlideAdapter.openItemAnimation();
+    } else if (&quot;取消&quot;.equals(mRightTV.getText().toString())) {
+        mRightTV.setText(&quot;编辑&quot;);
+        mSlideAdapter.closeItemAnimation();
+    }
+}
+</code></pre><p>总体就是：点击按钮 – 变量ViewHolder集合做动态动画，并设置mState变量 – 手机滑动屏幕走bind方法又是根据mState做静态动画，动画从而平滑的衔接起来。</p>
+<p>动态动画起先，设置状态值，引导处理正确的静态动画，RecyclerView item的动画处理是不是变简单了。</p>
+<p>还有，对item的特殊数据需要在对应的java bean里设置值，在bind方法取值设置到item中去。</p>
+<h1 id="在这个过程中遇到的问题"><a href="#在这个过程中遇到的问题" class="headerlink" title="在这个过程中遇到的问题"></a>在这个过程中遇到的问题</h1><pre><code>@Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        SlideViewHolder slideViewHolder;
+//        View view;
+//        view=inflater.inflate(R.layout.item, parent,false);
+        slideViewHolder = new SlideViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item,parent,false));
+        mSlideViewHolders.add(slideViewHolder);
+        return slideViewHolder;
+    }
+</code></pre><p>中<code>slideViewHolder = new SlideViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item,parent,false));</code><br>每次都会崩这里后来发现是XML里我自定义View的名称写错了，但是在改bug的时候并没有报错所以改了很久，然后就顺便学习了一下[什么是Context][2]我们总是用到，但是否想过Context到底是什么呢？</p>
+<h2 id="2-http-www-jianshu-com-p-94e0f9ab3f1d"><a href="#2-http-www-jianshu-com-p-94e0f9ab3f1d" class="headerlink" title="  [2]: http://www.jianshu.com/p/94e0f9ab3f1d"></a>  [2]: <a href="http://www.jianshu.com/p/94e0f9ab3f1d" target="_blank" rel="external">http://www.jianshu.com/p/94e0f9ab3f1d</a></h2>
       
     </div>
 
@@ -430,7 +570,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/新的开始/" rel="tag"># 新的开始</a>
+            <a href="/tags/自定义view/" rel="tag"># 自定义view</a>
           
         </div>
       
@@ -443,14 +583,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/06/06/Android-多线程/" rel="next" title="Android 多线程">
+                <i class="fa fa-chevron-left"></i> Android 多线程
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/06/在Blog中添加音乐/" rel="prev" title="在Blog中添加音乐">
-                在Blog中添加音乐 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/06/建造者模式（Builder-Pattern）/" rel="prev" title="建造者模式（Builder Pattern）">
+                建造者模式（Builder Pattern） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -523,8 +667,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/0.jpg"
@@ -633,6 +786,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-对View的处理"><span class="nav-number">1.</span> <span class="nav-text">1.对View的处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2。对ViewHolder的处理"><span class="nav-number">2.</span> <span class="nav-text">2。对ViewHolder的处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在这个过程中遇到的问题"><span class="nav-number">3.</span> <span class="nav-text">在这个过程中遇到的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-http-www-jianshu-com-p-94e0f9ab3f1d"><span class="nav-number">3.1.</span> <span class="nav-text">  [2]: http://www.jianshu.com/p/94e0f9ab3f1d</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

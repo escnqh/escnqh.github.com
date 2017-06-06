@@ -1,0 +1,1462 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Java基础知识," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Collection层次结构  Collection子接口       Set,List   集合中只能放置对象的引用,不能放置原生数据类型,       我们需要使用原生数据类型的封装类才能加入到集合中   Ordered与Sorted接口Ordered排序,按照某种由具体情况决定的顺序排序,是后天指定的   Sorted排序,按照天然顺序进行排序,是先天指定的   List实现类包括">
+<meta name="keywords" content="Java基础知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java_Collection">
+<meta property="og:url" content="http://escnqh.github.io/2017/06/06/Java-Collection/index.html">
+<meta property="og:site_name" content="Escnqh">
+<meta property="og:description" content="Collection层次结构  Collection子接口       Set,List   集合中只能放置对象的引用,不能放置原生数据类型,       我们需要使用原生数据类型的封装类才能加入到集合中   Ordered与Sorted接口Ordered排序,按照某种由具体情况决定的顺序排序,是后天指定的   Sorted排序,按照天然顺序进行排序,是先天指定的   List实现类包括">
+<meta property="og:image" content="http://img.blog.csdn.net/20130821151227718?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaXRsd2M=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://my.csdn.net/uploads/201206/02/1338603398_8372.jpg">
+<meta property="og:updated_time" content="2017-06-06T12:13:10.191Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java_Collection">
+<meta name="twitter:description" content="Collection层次结构  Collection子接口       Set,List   集合中只能放置对象的引用,不能放置原生数据类型,       我们需要使用原生数据类型的封装类才能加入到集合中   Ordered与Sorted接口Ordered排序,按照某种由具体情况决定的顺序排序,是后天指定的   Sorted排序,按照天然顺序进行排序,是先天指定的   List实现类包括">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20130821151227718?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaXRsd2M=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://escnqh.github.io/2017/06/06/Java-Collection/"/>
+
+
+
+
+
+  <title>Java_Collection | Escnqh</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Escnqh</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Blog of Escape4nqh's life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-message">
+          <a href="/message" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-external-link"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://escnqh.github.io/2017/06/06/Java-Collection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大胖倪的慢灵魂">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Escnqh">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java_Collection</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T20:12:19+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Java学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/06/Java-Collection/" class="leancloud_visitors" data-flag-title="Java_Collection">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Collection层次结构"><a href="#Collection层次结构" class="headerlink" title="Collection层次结构"></a>Collection层次结构</h2><p><img src="http://img.blog.csdn.net/20130821151227718?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaXRsd2M=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Collection层次结构"></p>
+<p><img src="http://my.csdn.net/uploads/201206/02/1338603398_8372.jpg" alt="Collection层次结构"></p>
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><pre><code>子接口  
+    Set,List  
+集合中只能放置对象的引用,不能放置原生数据类型,  
+    我们需要使用原生数据类型的封装类才能加入到集合中  
+</code></pre><h2 id="Ordered与Sorted接口"><a href="#Ordered与Sorted接口" class="headerlink" title="Ordered与Sorted接口"></a>Ordered与Sorted接口</h2><pre><code>Ordered排序,按照某种由具体情况决定的顺序排序,是后天指定的  
+Sorted排序,按照天然顺序进行排序,是先天指定的  
+</code></pre><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><pre><code>实现类包括  
+    LinkedList,Vector,ArrayList  
+列表接口,继承与Collection,可以按索引的顺序访问,有索引的Collection  
+    具有列表的功能,元素顺序均是按添加的先后进行排列的,  
+    允许重复的元素,允许多个null元素  
+</code></pre><h2 id="List常用方法"><a href="#List常用方法" class="headerlink" title="List常用方法"></a>List常用方法</h2><pre><code>package com.itlwc;  
+
+import java.util.ArrayList;  
+import java.util.List;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        List list = new ArrayList();  
+        // 向列表的尾部追加指定的元素  
+        list.add(&quot;lwc&quot;);  
+        // 在列表的指定位置插入指定元素  
+        list.add(1, &quot;nxj&quot;);  
+        // 追加指定 collection 中的所有元素到此列表的结尾  
+        list.addAll(new ArrayList());  
+        // 从列表中移除所有元素  
+        list.clear();  
+        // 如果列表包含指定的元素,则返回true  
+        list.contains(&quot;nxj&quot;);  
+        // 如果列表包含指定 collection 的所有元素,则返回 true  
+        list.containsAll(new ArrayList());  
+        // 比较指定的对象与列表是否相等  
+        list.equals(new ArrayList());  
+        // 返回列表中指定位置的元素  
+        list.get(0);  
+        // 返回列表的哈希码值  
+        list.hashCode();  
+        // 返回列表中首次出现指定元素的索引,如果列表不包含此元素,则返回 -1  
+        list.indexOf(&quot;lwc&quot;);  
+        // 返回列表中最后出现指定元素的索引,如果列表不包含此元素,则返回 -1  
+        list.lastIndexOf(&quot;lwc&quot;);  
+        // 如果列表不包含元素,则返回 true  
+        list.isEmpty();  
+        // 移除列表中指定位置的元素  
+        list.remove(0);  
+        // 移除列表中出现的首个指定元素  
+        list.remove(&quot;lwc&quot;);  
+        // 从列表中移除指定 collection 中包含的所有元素  
+        list.removeAll(new ArrayList());  
+        // 用指定元素替换列表中指定位置的元素  
+        list.set(0, &quot;lp&quot;);  
+        // 返回列表中的元素数  
+        list.size();  
+        // 返回列表中指定的fromIndex(包括)和toIndex(不包括)之间的部分视图  
+        list.subList(1, 2);  
+        // 返回以正确顺序包含列表中的所有元素的数组  
+        list.toArray();  
+        // 返回以正确顺序包含列表中所有元素的数组  
+        list.toArray(new String[] { &quot;a&quot;, &quot;b&quot; });  
+    }  
+}  
+</code></pre><h2 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h2><pre><code>构造方法  
+    public ArrayList()  
+    public ArrayList(int initialCapacity)  
+    public ArrayList(Collection c)  
+ArrayList依赖于数组实现的,初始长度为10的Object[],并且可随需要而增加的动态数组  
+    当元素超过10,那么ArrayList底层会新生成一个数组,长度为原来的1.5倍+1,  
+    然后将原数组内容复制到新数组中,并且后续增加的内容会放到新数组中,  
+    当新数组无法容纳增加的元素,重复该过程  
+ArrayList对随机访问性能很好,但进行大量插入,删除操作,性能很差,  
+    因为操作之后后续元素需要移动  
+</code></pre><h2 id="遍历ArrayList"><a href="#遍历ArrayList" class="headerlink" title="遍历ArrayList"></a>遍历ArrayList</h2><pre><code>package com.itlwc;  
+
+import java.util.ArrayList;  
+import java.util.Iterator;  
+import java.util.List;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        List&lt;String&gt; list = new ArrayList&lt;String&gt;();  
+        list.add(&quot;lwc&quot;);  
+        list.add(&quot;nxj&quot;);  
+        // 方法一  
+        Iterator&lt;String&gt; ite1 = list.iterator();  
+        while (ite1.hasNext()) {  
+            String str = ite1.next();  
+            System.out.println(str);  
+        }  
+        System.out.println(&quot;---------------------&quot;);  
+        // 方法二(方法一的变形)  
+        for (Iterator&lt;String&gt; ite2 = list.iterator(); ite2.hasNext();) {  
+            String str = ite2.next();  
+            System.out.println(str);  
+        }  
+        System.out.println(&quot;---------------------&quot;);  
+        // 方法三  
+        for(String s : list){  
+            System.out.println(s);  
+        }  
+    }  
+}  
+/* 
+打印结果: 
+    lwc 
+    nxj 
+    --------------------- 
+    lwc 
+    nxj 
+    --------------------- 
+    lwc 
+    nxj 
+*/  
+</code></pre><h2 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h2><pre><code>向量,历史比较悠久,Java诞生就有了,特点与ArrayList相同,  
+    不同的是Vector操作元素的方法是同步的,同一时刻只能有一个线程访问,没有特殊需求都使用ArrayList  
+构造方法  
+    public Vector()  
+    public Vector(int initialCapacity)  
+    public Vector(int initialCapacity,int capacityIncrement)  
+        第一个参数是初始容量,第二个参数是当Vector满时的增量  
+    public Vector(Collection c)  
+Vector也是依赖数组实现的 
+</code></pre><p>案例：</p>
+<pre><code>package com.itlwc;  
+
+import java.util.Enumeration;  
+import java.util.Vector;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        Vector v = new Vector();  
+        v.add(&quot;123&quot;);  
+        v.add(&quot;lwc&quot;);  
+        v.add(&quot;你好&quot;);  
+        // Vector转换为枚举  
+        Enumeration e = v.elements();  
+        while (e.hasMoreElements()) {  
+            System.out.println(e.nextElement());  
+        }  
+    }  
+}
+</code></pre><h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><pre><code>Vector的子类
+</code></pre><p>案例：</p>
+<pre><code>package com.itlwc;
+
+import java.util.Enumeration;  
+import java.util.Stack;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        Stack stack = new Stack();  
+        // 向栈里面压一个整数  
+        stack.push(new Integer(123));  
+        stack.push(&quot;lwc&quot;);  
+        stack.push(new Double(88.88));  
+        // 遍历  
+        Enumeration items = stack.elements();  
+        while (items.hasMoreElements()) {  
+            System.out.print(items.nextElement() + &quot; &quot;);  
+        }  
+        System.out.println();  
+        // 出栈  
+        while (stack.size() != 0) {  
+            System.out.print(stack.pop() + &quot; &quot;);  
+        }  
+    }  
+}  
+/* 
+打印结果: 
+    123 lwc 88.88  
+    88.88 lwc 123 
+*/  
+</code></pre><h2 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h2><pre><code>LinkedList功能与ArrayList,Vector相同,内部是依赖双链表实现的,  
+    因此有很好的插入和删除性能,但随机访问元素的性能很差  
+构造方法  
+    public LinkedList()  
+    public LinkedList(Collection c)  
+LinkedList类中有一个Entry内部类,Entry内部类包含3个部分向前的引用,向后的引用,数据  
+    header.next = header.previous = header;  
+</code></pre><h2 id="遍历LinkedList"><a href="#遍历LinkedList" class="headerlink" title="遍历LinkedList"></a>遍历LinkedList</h2><pre><code>package com.itlwc;  
+
+import java.util.LinkedList;  
+import java.util.List;  
+import java.util.ListIterator;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        List link = new LinkedList();  
+        link.add(123);  
+        link.add(&quot;lwc&quot;);  
+        link.add(8.8);  
+        link.add(&quot;nxj&quot;);  
+        link.add(520);  
+        printList(link);  
+        printReversedList(link);  
+    }  
+
+
+private static void printList(List link) {  
+    System.out.println(&quot;正序链表中的元素&quot;);  
+    // 的到链表的迭代器,位置指向链头  
+    ListIterator li = link.listIterator();  
+    // 判断迭代器中是否有下一个元素  
+    while (li.hasNext()) {  
+        // 返回下个元素  
+        System.out.print(li.next() + &quot; &quot;);  
+    }  
+    System.out.println();  
+}  
+
+private static void printReversedList(List link) {  
+    System.out.println(&quot;逆向链表中的元素&quot;);  
+    // 的到链表的迭代器,位置指向link.size()结尾  
+    ListIterator li = link.listIterator(link.size());  
+    // 判断迭代器中是否有前一个元素  
+    while (li.hasPrevious()) {  
+        // 返回前一个元素  
+        System.out.print(li.previous() + &quot; &quot;);  
+    }  
+    System.out.println();  
+}  
+}  
+/* 
+打印结果: 
+    正序链表中的元素 
+    123 lwc 8.8 nxj 520  
+    逆向链表中的元素 
+    520 nxj 8.8 lwc 123  
+*/
+</code></pre><h2 id="自定义LinkedList结构"><a href="#自定义LinkedList结构" class="headerlink" title="自定义LinkedList结构"></a>自定义LinkedList结构</h2><pre><code>package com.itlwc;  
+
+class Node {  
+    Node previous;// 前驱  
+    String data;// 数据  
+    Node next;// 后驱  
+
+    public Node(String data) {  
+        this.data = data;  
+    }  
+}  
+
+public class Test {  
+    public static void main(String[] args) {  
+        Node node1 = new Node(&quot;node1&quot;);  
+        Node node2 = new Node(&quot;node2&quot;);  
+        Node node3 = new Node(&quot;node3&quot;);  
+        node1.next = node2;  
+        node2.previous = node1;  
+        node2.next = node3;  
+        node3.previous = node2;  
+        node3.next = node1;  
+        node1.previous = node3;  
+
+        // 增加node4  
+        Node node4 = new Node(&quot;node4&quot;);  
+        node1.next = node4;  
+        node4.previous = node1;  
+        node4.next = node2;  
+        node2.previous = node4;  
+        // 删除node4  
+        node1.next = node2;  
+        node2.previous = node1;  
+        node4.previous = null;  
+        node4.next = null;  
+
+    }  
+}  
+</code></pre><h2 id="依赖倒置原理"><a href="#依赖倒置原理" class="headerlink" title="依赖倒置原理"></a>依赖倒置原理</h2><pre><code>依赖应该尽量在抽象层进行,避免在具体层进行,  
+    在实际开发中尽量使用接口类型的引用,避免采用具体类型的引用  
+</code></pre><p>案例：</p>
+<pre><code>package com.itlwc;  
+
+import java.util.LinkedList;  
+import java.util.List;  
+
+public class Test {  
+    //如果我们需要传入参数是ArrayList就需要改动代码  
+    public void printLinkedList(LinkedList ll){  
+        System.out.println(ll);  
+    }  
+    //如果我们传入参数是List的子类,我们不需要改动代码,灵活性大  
+    public void printList(List l){  
+        System.out.println(l);  
+    }  
+}
+</code></pre><h2 id="将数组转换为列表"><a href="#将数组转换为列表" class="headerlink" title="将数组转换为列表"></a>将数组转换为列表</h2><pre><code>package com.itlwc;  
+
+import java.util.Arrays;  
+import java.util.List;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        String[] str = { &quot;l&quot;, &quot;w&quot;, &quot;c&quot; };  
+        //使用Java类库中java.util.Arrays类的静态方法asList()  
+        List l = Arrays.asList(str);  
+        System.out.println(str);  
+    }  
+
+}  
+/* 
+打印结果: 
+    [l, w, c] 
+*/  
+</code></pre><h2 id="ArrayList-VS-LinkedList"><a href="#ArrayList-VS-LinkedList" class="headerlink" title="ArrayList VS LinkedList"></a>ArrayList VS LinkedList</h2><pre><code>ArrayList底层采用数组实现,LinkedList底层采用双链表实现  
+如果为列表增加对象  
+    ArrayList是ArrayList底层数组维护的,LinkedList是LinkedList底层Entry对象维护的  
+    LinkedList底层Entry结构  
+        Entry{  
+            Entry previous;  
+            Object element;  
+            Entry next;  
+        }  
+        其中element就是我们添加的元素,最后将生成的Entry对象加入到链表中  
+插入和删除操作时,采用LinkedList好,搜索时,采用ArrayList好  
+</code></pre><h2 id="List遍历"><a href="#List遍历" class="headerlink" title="List遍历"></a>List<map>遍历</map></h2><pre><code>package com.itlwc;  
+
+import java.util.ArrayList;  
+import java.util.HashMap;  
+import java.util.Iterator;  
+import java.util.List;  
+import java.util.Map;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        Map&lt;Integer, String&gt; map1 = new HashMap&lt;Integer, String&gt;();  
+        map1.put(new Integer(1), &quot;lwc&quot;);  
+        map1.put(new Integer(2), &quot;nxj&quot;);  
+        Map&lt;Integer, String&gt; map2 = new HashMap&lt;Integer, String&gt;();  
+        map2.put(new Integer(3), &quot;tom&quot;);  
+        map2.put(new Integer(4), &quot;cat&quot;);  
+        List&lt;Map&lt;Integer, String&gt;&gt; list = new ArrayList&lt;Map&lt;Integer, String&gt;&gt;();  
+        list.add(map1);  
+        list.add(map2);  
+        // 方法一  
+        Iterator&lt;Map&lt;Integer, String&gt;&gt; ite1 = list.iterator();  
+        while (ite1.hasNext()) {  
+            Map&lt;Integer, String&gt; m = ite1.next();  
+            System.out.println(m);  
+        }  
+        System.out.println(&quot;-----------------------------&quot;);  
+        // 方法二(方法一的变形)  
+        for (Iterator&lt;Map&lt;Integer, String&gt;&gt; ite2 = list.iterator(); ite2.hasNext();) {  
+            Map&lt;Integer, String&gt; m = ite2.next();  
+            System.out.println(m);  
+        }  
+        System.out.println(&quot;-----------------------------&quot;);  
+        // 方法三:  
+        for (Map&lt;Integer, String&gt; m : list) {  
+            System.out.println(m);  
+        }  
+    }  
+}  
+/*  
+打印结果:  
+    {1=lwc, 2=nxj} 
+    {3=tom, 4=cat} 
+    ----------------------------- 
+    {1=lwc, 2=nxj} 
+    {3=tom, 4=cat} 
+    ----------------------------- 
+    {1=lwc, 2=nxj} 
+    {3=tom, 4=cat} 
+*/  
+</code></pre><h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><pre><code>实现类  
+    HashSet,LinkedHashSet  
+子接口  
+    SortSet  
+    实现类  
+        TreeSet  
+不包含重复元素,最多包含一个null,元素没有顺序  
+</code></pre><h2 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h2><pre><code>HashSet不是Ordered也不是Sorted,存储对象引用时是按照哈希策略来实现的,  
+    HashSet中是否存在一个对象是通过equals()和hashCode()协同判断  
+不保证顺序  
+构造方法  
+    public HashSet()    
+    public HashSet(int initialCapacity)    
+    public HashSet(Collection c)  
+HashSet底层是使用HashMap实现的  
+HashSet的add()方法详解:  
+    判断已经存储在集合中的对象hashCode值是否与增加对象的hashCode值一致  
+    如果不一致,直接加进去  
+    如果一致,再进行equals()比较  
+        如果equals()返回true,对象已经存在不增加进去  
+        如果equals()返回false,把对象增加进去  
+</code></pre><h2 id="LinkedHashSet"><a href="#LinkedHashSet" class="headerlink" title="LinkedHashSet"></a>LinkedHashSet</h2><pre><code>LinkedHashSet是Ordered,采用双链表实现的  
+有固定顺序,也就是插入顺序  
+LinkedHashSet底层是使用LinkedHashMap实现的  
+构造方法  
+    public LinkedHashSet()    
+    public LinkedHashSet(int initialCapacity)    
+    public LinkedHashSet(Collection c)  
+</code></pre><h2 id="SortedSet接口"><a href="#SortedSet接口" class="headerlink" title="SortedSet接口"></a>SortedSet接口</h2><pre><code>保证迭代器按照元素递增顺序遍历的集合,可以按照元素的自然顺序进行排序  
+常用方法  
+    Object first()  
+         返回此有序集合中当前第一个(最小的)元素  
+    Object last()  
+        返回此有序集合中最后一个(最大的)元素  
+    SortedSet headSet(Object toElement)  
+        返回此有序集合的部分视图,其元素严格小于toElement  
+    SortedSet tailSet(Object fromElement)  
+        返回此有序集合的部分视图,其元素大于或等于fromElement  
+    SortedSet subSet(Object fromElement,Object toElement)  
+        返回此有序集合的部分视图,元素范围从fromElement(包括)到toElement(不包括)  
+    Comparator comparator()  
+        返回与此有序集合关联的比较器,如果使用元素的自然顺序,则返回 null  
+</code></pre><h2 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h2><pre><code>TreeSet是SortedSet接口的实现,元素不论以什么元素插入,在遍历的时候,都会以天然顺序遍历  
+TreeSet底层是使用TreeMap实现的  
+构造方法  
+    public TreeSet()  
+    public TreeSet(SortedSet s)    
+    public TreeSet(int initialCapacity)  
+    public TreeSet(Comparator&lt;? super E&gt;)  
+    public TreeSet(Collection c)  
+因为TreeSet是带排序的,所以想要为TreeSet增加自定义类型,必须指定排序规则
+</code></pre><h2 id="TreeSet排序规则Comparator案例"><a href="#TreeSet排序规则Comparator案例" class="headerlink" title="TreeSet排序规则Comparator案例"></a>TreeSet排序规则Comparator案例</h2><pre><code>package com.itlwc;  
+
+import java.util.Comparator;  
+import java.util.Iterator;  
+import java.util.TreeSet;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        TreeSet set = new TreeSet(new PersonComparator());  
+        set.add(new Person(&quot;lwc&quot;, 80));  
+        set.add(new Person(&quot;nxj&quot;, 70));  
+        set.add(new Person(&quot;lp&quot;, 60));  
+        set.add(new Person(&quot;fy&quot;, 75));  
+        Iterator ite = set.iterator();  
+        while (ite.hasNext()) {  
+            Person p = (Person)ite.next();  
+            System.out.println(p.name);  
+        }  
+    }  
+}  
+
+class Person {  
+    String name;  
+    int score;  
+
+    public Person(String name, int score) {  
+        this.name = name;  
+        this.score = score;  
+    }  
+}  
+
+class PersonComparator implements Comparator {  
+    public int compare(Object o1, Object o2) {  
+        Person p1 = (Person) o1;  
+        Person p2 = (Person) o2;  
+        return p1.score - p2.score;  
+    }  
+}  
+</code></pre><h2 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h2><p>操作Collection类的工具类,类中方法都是静态的</p>
+<h2 id="Collections常用方法"><a href="#Collections常用方法" class="headerlink" title="Collections常用方法"></a>Collections常用方法</h2><pre><code>package com.itlwc;  
+
+import java.util.ArrayList;  
+import java.util.Collections;  
+import java.util.Comparator;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        // 将所有元素从一个列表复制到另一个列表  
+        Collections.copy(new ArrayList(), new ArrayList());  
+        // 如果两个指定collection中没有相同的元素,则返回 true  
+        Collections.disjoint(new ArrayList(), new ArrayList());  
+        // 使用指定元素替换指定列表中的所有元素  
+        Collections.fill(new ArrayList(), new Object());  
+        // 返回指定 collection 中等于指定对象的元素数  
+        Collections.frequency(new ArrayList(), new Object());  
+        // 返回指定源列表中第一次出现指定目标列表的起始位置,如果没有出现这样的列表,则返回 -1  
+        Collections.indexOfSubList(new ArrayList(), new ArrayList());  
+        // 根据元素的自然顺序，返回给定 collection 的最大元素  
+        Collections.max(new ArrayList());  
+        // //根据元素的自然顺序，返回给定 collection 的最大元素  
+        Collections.min(new ArrayList());  
+        // 使用另一个值替换列表中出现的所有某一指定值  
+        Collections.replaceAll(new ArrayList(), &quot;oldVal&quot;, &quot;newVal&quot;);  
+        // 反转指定列表中元素的顺序  
+        Collections.reverse(new ArrayList());  
+        // 返回一个比较器,它强行反转  
+        Collections.reverseOrder();  
+        // 返回一个比较器,它强行反转指定比较器的顺序  
+        Collections.reverseOrder(new Comparator() {  
+            @Override  
+            public int compare(Object o1, Object o2) {  
+                return 0;  
+            }  
+        });  
+        // 使用默认随机源随机更改指定列表的序列  
+        Collections.shuffle(new ArrayList());  
+        // 根据元素的自然顺序对指定列表按升序进行排序  
+        Collections.sort(new ArrayList());  
+        // 根据元素的自然顺序对指定列表按降序进行排序  
+        Collections.sort(new ArrayList(), Collections.reverseOrder());  
+        // 在指定列表的指定位置处交换元素  
+        Collections.swap(new ArrayList(), 1, 2);  
+
+    }  
+}  
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/qr-wechat.png" alt="大胖倪的慢灵魂 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>感觉有用打赏一个呗~</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java基础知识/" rel="tag"># Java基础知识</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/06/Java-多态的性质/" rel="next" title="Java_多态的性质">
+                <i class="fa fa-chevron-left"></i> Java_多态的性质
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/0.jpg"
+               alt="大胖倪的慢灵魂" />
+          <p class="site-author-name" itemprop="name">大胖倪的慢灵魂</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/escnqh" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.facebook.com/escqpe4nqh" target="_blank" title="Facebook">
+                  
+                    <i class="fa fa-fw fa-facebook"></i>
+                  
+                  Facebook
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3129397934" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://rannver.github.io/" title="友仔倩颖" target="_blank">友仔倩颖</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://lostcarl.top/" title="友仔小奇" target="_blank">友仔小奇</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection层次结构"><span class="nav-number">1.</span> <span class="nav-text">Collection层次结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collection"><span class="nav-number">2.</span> <span class="nav-text">Collection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ordered与Sorted接口"><span class="nav-number">3.</span> <span class="nav-text">Ordered与Sorted接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">4.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List常用方法"><span class="nav-number">5.</span> <span class="nav-text">List常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList"><span class="nav-number">6.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历ArrayList"><span class="nav-number">7.</span> <span class="nav-text">遍历ArrayList</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vector"><span class="nav-number">8.</span> <span class="nav-text">Vector</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stack"><span class="nav-number">9.</span> <span class="nav-text">Stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LinkedList"><span class="nav-number">10.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历LinkedList"><span class="nav-number">11.</span> <span class="nav-text">遍历LinkedList</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义LinkedList结构"><span class="nav-number">12.</span> <span class="nav-text">自定义LinkedList结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖倒置原理"><span class="nav-number">13.</span> <span class="nav-text">依赖倒置原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将数组转换为列表"><span class="nav-number">14.</span> <span class="nav-text">将数组转换为列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArrayList-VS-LinkedList"><span class="nav-number">15.</span> <span class="nav-text">ArrayList VS LinkedList</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List遍历"><span class="nav-number">16.</span> <span class="nav-text">List遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set"><span class="nav-number">17.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HashSet"><span class="nav-number">18.</span> <span class="nav-text">HashSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LinkedHashSet"><span class="nav-number">19.</span> <span class="nav-text">LinkedHashSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SortedSet接口"><span class="nav-number">20.</span> <span class="nav-text">SortedSet接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeSet"><span class="nav-number">21.</span> <span class="nav-text">TreeSet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TreeSet排序规则Comparator案例"><span class="nav-number">22.</span> <span class="nav-text">TreeSet排序规则Comparator案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collections"><span class="nav-number">23.</span> <span class="nav-text">Collections</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Collections常用方法"><span class="nav-number">24.</span> <span class="nav-text">Collections常用方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大胖倪的慢灵魂</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+  <span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
+  <span id="showDays"></span>
+</div>
+
+
+<script>
+    var birthDay = new Date('06/6/2017');
+    var now = new Date();
+    var duration = now.getTime() - birthDay.getTime();
+    var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+    document.getElementById('showDays').innerHTML='本站已运行' + total + '天';
+</script>
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2135790"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("dMByvkAcYAurSgoVkt10NzfI-gzGzoHsz", "UJb8yeYa8jCKmOKCgUD8VNT0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

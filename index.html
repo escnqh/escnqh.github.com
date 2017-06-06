@@ -291,7 +291,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://escnqh.github.io/2017/06/06/pageabout/">
+    <link itemprop="mainEntityOfPage" href="http://escnqh.github.io/2017/06/06/Java-Collection/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大胖倪的慢灵魂">
@@ -310,7 +310,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/06/pageabout/" itemprop="url">pageabout</a></h1>
+                <a class="post-title-link" href="/2017/06/06/Java-Collection/" itemprop="url">Java_Collection</a></h1>
         
 
         <div class="post-meta">
@@ -322,7 +322,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T17:38:09+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T20:12:19+08:00">
                 2017-06-06
               </time>
             
@@ -333,6 +333,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Java学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -340,7 +362,1796 @@
 
           
           
-             <span id="/2017/06/06/pageabout/" class="leancloud_visitors" data-flag-title="pageabout">
+             <span id="/2017/06/06/Java-Collection/" class="leancloud_visitors" data-flag-title="Java_Collection">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Collection层次结构"><a href="#Collection层次结构" class="headerlink" title="Collection层次结构"></a>Collection层次结构</h2><p><img src="http://img.blog.csdn.net/20130821151227718?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvaXRsd2M=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Collection层次结构"></p>
+<p><img src="http://my.csdn.net/uploads/201206/02/1338603398_8372.jpg" alt="Collection层次结构"></p>
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><pre><code>子接口  
+    Set,List  
+集合中只能放置对象的引用,不能放置原生数据类型,  
+    我们需要使用原生数据类型的封装类才能加入到集合中  
+</code></pre><h2 id="Ordered与Sorted接口"><a href="#Ordered与Sorted接口" class="headerlink" title="Ordered与Sorted接口"></a>Ordered与Sorted接口</h2><pre><code>Ordered排序,按照某种由具体情况决定的顺序排序,是后天指定的  
+Sorted排序,按照天然顺序进行排序,是先天指定的  
+</code></pre><h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><pre><code>实现类包括  
+    LinkedList,Vector,ArrayList  
+列表接口,继承与Collection,可以按索引的顺序访问,有索引的Collection  
+    具有列表的功能,元素顺序均是按添加的先后进行排列的,  
+    允许重复的元素,允许多个null元素  
+</code></pre><h2 id="List常用方法"><a href="#List常用方法" class="headerlink" title="List常用方法"></a>List常用方法</h2><pre><code>package com.itlwc;  
+
+import java.util.ArrayList;  
+import java.util.List;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        List list = new ArrayList();  
+        // 向列表的尾部追加指定的元素  
+        list.add(&quot;lwc&quot;);  
+        // 在列表的指定位置插入指定元素  
+        list.add(1, &quot;nxj&quot;);  
+        // 追加指定 collection 中的所有元素到此列表的结尾  
+        list.addAll(new ArrayList());  
+        // 从列表中移除所有元素  
+        list.clear();  
+        // 如果列表包含指定的元素,则返回true  
+        list.contains(&quot;nxj&quot;);  
+        // 如果列表包含指定 collection 的所有元素,则返回 true  
+        list.containsAll(new ArrayList());  
+        // 比较指定的对象与列表是否相等  
+        list.equals(new ArrayList());  
+        // 返回列表中指定位置的元素  
+        list.get(0);  
+        // 返回列表的哈希码值  
+        list.hashCode();  
+        // 返回列表中首次出现指定元素的索引,如果列表不包含此元素,则返回 -1  
+        list.indexOf(&quot;lwc&quot;);  
+        // 返回列表中最后出现指定元素的索引,如果列表不包含此元素,则返回 -1  
+        list.lastIndexOf(&quot;lwc&quot;);  
+        // 如果列表不包含元素,则返回 true  
+        list.isEmpty();  
+        // 移除列表中指定位置的元素  
+        list.remove(0);  
+        // 移除列表中出现的首个指定元素  
+        list.remove(&quot;lwc&quot;);  
+        // 从列表中移除指定 collection 中包含的所有元素  
+        list.removeAll(new ArrayList());  
+        // 用指定元素替换列表中指定位置的元素  
+        list.set(0, &quot;lp&quot;);  
+        // 返回列表中的元素数  
+        list.size();  
+        // 返回列表中指定的fromIndex(包括)和toIndex(不包括)之间的部分视图  
+        list.subList(1, 2);  
+        // 返回以正确顺序包含列表中的所有元素的数组  
+        list.toArray();  
+        // 返回以正确顺序包含列表中所有元素的数组  
+        list.toArray(new String[] { &quot;a&quot;, &quot;b&quot; });  
+    }  
+}  
+</code></pre><h2 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h2><pre><code>构造方法  
+    public ArrayList()  
+    public ArrayList(int initialCapacity)  
+    public ArrayList(Collection c)  
+ArrayList依赖于数组实现的,初始长度为10的Object[],并且可随需要而增加的动态数组  
+    当元素超过10,那么ArrayList底层会新生成一个数组,长度为原来的1.5倍+1,  
+    然后将原数组内容复制到新数组中,并且后续增加的内容会放到新数组中,  
+    当新数组无法容纳增加的元素,重复该过程  
+ArrayList对随机访问性能很好,但进行大量插入,删除操作,性能很差,  
+    因为操作之后后续元素需要移动  
+</code></pre><h2 id="遍历ArrayList"><a href="#遍历ArrayList" class="headerlink" title="遍历ArrayList"></a>遍历ArrayList</h2><pre><code>package com.itlwc;  
+
+import java.util.ArrayList;  
+import java.util.Iterator;  
+import java.util.List;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        List&lt;String&gt; list = new ArrayList&lt;String&gt;();  
+        list.add(&quot;lwc&quot;);  
+        list.add(&quot;nxj&quot;);  
+        // 方法一  
+        Iterator&lt;String&gt; ite1 = list.iterator();  
+        while (ite1.hasNext()) {  
+            String str = ite1.next();  
+            System.out.println(str);  
+        }  
+        System.out.println(&quot;---------------------&quot;);  
+        // 方法二(方法一的变形)  
+        for (Iterator&lt;String&gt; ite2 = list.iterator(); ite2.hasNext();) {  
+            String str = ite2.next();  
+            System.out.println(str);  
+        }  
+        System.out.println(&quot;---------------------&quot;);  
+        // 方法三  
+        for(String s : list){  
+            System.out.println(s);  
+        }  
+    }  
+}  
+/* 
+打印结果: 
+    lwc 
+    nxj 
+    --------------------- 
+    lwc 
+    nxj 
+    --------------------- 
+    lwc 
+    nxj 
+*/  
+</code></pre><h2 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h2><pre><code>向量,历史比较悠久,Java诞生就有了,特点与ArrayList相同,  
+    不同的是Vector操作元素的方法是同步的,同一时刻只能有一个线程访问,没有特殊需求都使用ArrayList  
+构造方法  
+    public Vector()  
+    public Vector(int initialCapacity)  
+    public Vector(int initialCapacity,int capacityIncrement)  
+        第一个参数是初始容量,第二个参数是当Vector满时的增量  
+    public Vector(Collection c)  
+Vector也是依赖数组实现的 
+</code></pre><p>案例：</p>
+<pre><code>package com.itlwc;  
+
+import java.util.Enumeration;  
+import java.util.Vector;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        Vector v = new Vector();  
+        v.add(&quot;123&quot;);  
+        v.add(&quot;lwc&quot;);  
+        v.add(&quot;你好&quot;);  
+        // Vector转换为枚举  
+        Enumeration e = v.elements();  
+        while (e.hasMoreElements()) {  
+            System.out.println(e.nextElement());  
+        }  
+    }  
+}
+</code></pre><h2 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h2><pre><code>Vector的子类
+</code></pre><p>案例：</p>
+<pre><code>package com.itlwc;
+
+import java.util.Enumeration;  
+import java.util.Stack;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        Stack stack = new Stack();  
+        // 向栈里面压一个整数  
+        stack.push(new Integer(123));  
+        stack.push(&quot;lwc&quot;);  
+        stack.push(new Double(88.88));  
+        // 遍历  
+        Enumeration items = stack.elements();  
+        while (items.hasMoreElements()) {  
+            System.out.print(items.nextElement() + &quot; &quot;);  
+        }  
+        System.out.println();  
+        // 出栈  
+        while (stack.size() != 0) {  
+            System.out.print(stack.pop() + &quot; &quot;);  
+        }  
+    }  
+}  
+/* 
+打印结果: 
+    123 lwc 88.88  
+    88.88 lwc 123 
+*/  
+</code></pre><h2 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h2><pre><code>LinkedList功能与ArrayList,Vector相同,内部是依赖双链表实现的,  
+    因此有很好的插入和删除性能,但随机访问元素的性能很差  
+构造方法  
+    public LinkedList()  
+    public LinkedList(Collection c)  
+LinkedList类中有一个Entry内部类,Entry内部类包含3个部分向前的引用,向后的引用,数据  
+    header.next = header.previous = header;  
+</code></pre><h2 id="遍历LinkedList"><a href="#遍历LinkedList" class="headerlink" title="遍历LinkedList"></a>遍历LinkedList</h2><pre><code>package com.itlwc;  
+
+import java.util.LinkedList;  
+import java.util.List;  
+import java.util.ListIterator;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        List link = new LinkedList();  
+        link.add(123);  
+        link.add(&quot;lwc&quot;);  
+        link.add(8.8);  
+        link.add(&quot;nxj&quot;);  
+        link.add(520);  
+        printList(link);  
+        printReversedList(link);  
+    }  
+
+
+private static void printList(List link) {  
+    System.out.println(&quot;正序链表中的元素&quot;);  
+    // 的到链表的迭代器,位置指向链头  
+    ListIterator li = link.listIterator();  
+    // 判断迭代器中是否有下一个元素  
+    while (li.hasNext()) {  
+        // 返回下个元素  
+        System.out.print(li.next() + &quot; &quot;);  
+    }  
+    System.out.println();  
+}  
+
+private static void printReversedList(List link) {  
+    System.out.println(&quot;逆向链表中的元素&quot;);  
+    // 的到链表的迭代器,位置指向link.size()结尾  
+    ListIterator li = link.listIterator(link.size());  
+    // 判断迭代器中是否有前一个元素  
+    while (li.hasPrevious()) {  
+        // 返回前一个元素  
+        System.out.print(li.previous() + &quot; &quot;);  
+    }  
+    System.out.println();  
+}  
+}  
+/* 
+打印结果: 
+    正序链表中的元素 
+    123 lwc 8.8 nxj 520  
+    逆向链表中的元素 
+    520 nxj 8.8 lwc 123  
+*/
+</code></pre><h2 id="自定义LinkedList结构"><a href="#自定义LinkedList结构" class="headerlink" title="自定义LinkedList结构"></a>自定义LinkedList结构</h2><pre><code>package com.itlwc;  
+
+class Node {  
+    Node previous;// 前驱  
+    String data;// 数据  
+    Node next;// 后驱  
+
+    public Node(String data) {  
+        this.data = data;  
+    }  
+}  
+
+public class Test {  
+    public static void main(String[] args) {  
+        Node node1 = new Node(&quot;node1&quot;);  
+        Node node2 = new Node(&quot;node2&quot;);  
+        Node node3 = new Node(&quot;node3&quot;);  
+        node1.next = node2;  
+        node2.previous = node1;  
+        node2.next = node3;  
+        node3.previous = node2;  
+        node3.next = node1;  
+        node1.previous = node3;  
+
+        // 增加node4  
+        Node node4 = new Node(&quot;node4&quot;);  
+        node1.next = node4;  
+        node4.previous = node1;  
+        node4.next = node2;  
+        node2.previous = node4;  
+        // 删除node4  
+        node1.next = node2;  
+        node2.previous = node1;  
+        node4.previous = null;  
+        node4.next = null;  
+
+    }  
+}  
+</code></pre><h2 id="依赖倒置原理"><a href="#依赖倒置原理" class="headerlink" title="依赖倒置原理"></a>依赖倒置原理</h2><pre><code>依赖应该尽量在抽象层进行,避免在具体层进行,  
+    在实际开发中尽量使用接口类型的引用,避免采用具体类型的引用  
+</code></pre><p>案例：</p>
+<pre><code>package com.itlwc;  
+
+import java.util.LinkedList;  
+import java.util.List;  
+
+public class Test {  
+    //如果我们需要传入参数是ArrayList就需要改动代码  
+    public void printLinkedList(LinkedList ll){  
+        System.out.println(ll);  
+    }  
+    //如果我们传入参数是List的子类,我们不需要改动代码,灵活性大  
+    public void printList(List l){  
+        System.out.println(l);  
+    }  
+}
+</code></pre><h2 id="将数组转换为列表"><a href="#将数组转换为列表" class="headerlink" title="将数组转换为列表"></a>将数组转换为列表</h2><pre><code>package com.itlwc;  
+
+import java.util.Arrays;  
+import java.util.List;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        String[] str = { &quot;l&quot;, &quot;w&quot;, &quot;c&quot; };  
+        //使用Java类库中java.util.Arrays类的静态方法asList()  
+        List l = Arrays.asList(str);  
+        System.out.println(str);  
+    }  
+
+}  
+/* 
+打印结果: 
+    [l, w, c] 
+*/  
+</code></pre><h2 id="ArrayList-VS-LinkedList"><a href="#ArrayList-VS-LinkedList" class="headerlink" title="ArrayList VS LinkedList"></a>ArrayList VS LinkedList</h2><pre><code>ArrayList底层采用数组实现,LinkedList底层采用双链表实现  
+如果为列表增加对象  
+    ArrayList是ArrayList底层数组维护的,LinkedList是LinkedList底层Entry对象维护的  
+    LinkedList底层Entry结构  
+        Entry{  
+            Entry previous;  
+            Object element;  
+            Entry next;  
+        }  
+        其中element就是我们添加的元素,最后将生成的Entry对象加入到链表中  
+插入和删除操作时,采用LinkedList好,搜索时,采用ArrayList好  
+</code></pre><h2 id="List遍历"><a href="#List遍历" class="headerlink" title="List遍历"></a>List<map>遍历</map></h2><pre><code>package com.itlwc;  
+
+import java.util.ArrayList;  
+import java.util.HashMap;  
+import java.util.Iterator;  
+import java.util.List;  
+import java.util.Map;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        Map&lt;Integer, String&gt; map1 = new HashMap&lt;Integer, String&gt;();  
+        map1.put(new Integer(1), &quot;lwc&quot;);  
+        map1.put(new Integer(2), &quot;nxj&quot;);  
+        Map&lt;Integer, String&gt; map2 = new HashMap&lt;Integer, String&gt;();  
+        map2.put(new Integer(3), &quot;tom&quot;);  
+        map2.put(new Integer(4), &quot;cat&quot;);  
+        List&lt;Map&lt;Integer, String&gt;&gt; list = new ArrayList&lt;Map&lt;Integer, String&gt;&gt;();  
+        list.add(map1);  
+        list.add(map2);  
+        // 方法一  
+        Iterator&lt;Map&lt;Integer, String&gt;&gt; ite1 = list.iterator();  
+        while (ite1.hasNext()) {  
+            Map&lt;Integer, String&gt; m = ite1.next();  
+            System.out.println(m);  
+        }  
+        System.out.println(&quot;-----------------------------&quot;);  
+        // 方法二(方法一的变形)  
+        for (Iterator&lt;Map&lt;Integer, String&gt;&gt; ite2 = list.iterator(); ite2.hasNext();) {  
+            Map&lt;Integer, String&gt; m = ite2.next();  
+            System.out.println(m);  
+        }  
+        System.out.println(&quot;-----------------------------&quot;);  
+        // 方法三:  
+        for (Map&lt;Integer, String&gt; m : list) {  
+            System.out.println(m);  
+        }  
+    }  
+}  
+/*  
+打印结果:  
+    {1=lwc, 2=nxj} 
+    {3=tom, 4=cat} 
+    ----------------------------- 
+    {1=lwc, 2=nxj} 
+    {3=tom, 4=cat} 
+    ----------------------------- 
+    {1=lwc, 2=nxj} 
+    {3=tom, 4=cat} 
+*/  
+</code></pre><h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><pre><code>实现类  
+    HashSet,LinkedHashSet  
+子接口  
+    SortSet  
+    实现类  
+        TreeSet  
+不包含重复元素,最多包含一个null,元素没有顺序  
+</code></pre><h2 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h2><pre><code>HashSet不是Ordered也不是Sorted,存储对象引用时是按照哈希策略来实现的,  
+    HashSet中是否存在一个对象是通过equals()和hashCode()协同判断  
+不保证顺序  
+构造方法  
+    public HashSet()    
+    public HashSet(int initialCapacity)    
+    public HashSet(Collection c)  
+HashSet底层是使用HashMap实现的  
+HashSet的add()方法详解:  
+    判断已经存储在集合中的对象hashCode值是否与增加对象的hashCode值一致  
+    如果不一致,直接加进去  
+    如果一致,再进行equals()比较  
+        如果equals()返回true,对象已经存在不增加进去  
+        如果equals()返回false,把对象增加进去  
+</code></pre><h2 id="LinkedHashSet"><a href="#LinkedHashSet" class="headerlink" title="LinkedHashSet"></a>LinkedHashSet</h2><pre><code>LinkedHashSet是Ordered,采用双链表实现的  
+有固定顺序,也就是插入顺序  
+LinkedHashSet底层是使用LinkedHashMap实现的  
+构造方法  
+    public LinkedHashSet()    
+    public LinkedHashSet(int initialCapacity)    
+    public LinkedHashSet(Collection c)  
+</code></pre><h2 id="SortedSet接口"><a href="#SortedSet接口" class="headerlink" title="SortedSet接口"></a>SortedSet接口</h2><pre><code>保证迭代器按照元素递增顺序遍历的集合,可以按照元素的自然顺序进行排序  
+常用方法  
+    Object first()  
+         返回此有序集合中当前第一个(最小的)元素  
+    Object last()  
+        返回此有序集合中最后一个(最大的)元素  
+    SortedSet headSet(Object toElement)  
+        返回此有序集合的部分视图,其元素严格小于toElement  
+    SortedSet tailSet(Object fromElement)  
+        返回此有序集合的部分视图,其元素大于或等于fromElement  
+    SortedSet subSet(Object fromElement,Object toElement)  
+        返回此有序集合的部分视图,元素范围从fromElement(包括)到toElement(不包括)  
+    Comparator comparator()  
+        返回与此有序集合关联的比较器,如果使用元素的自然顺序,则返回 null  
+</code></pre><h2 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h2><pre><code>TreeSet是SortedSet接口的实现,元素不论以什么元素插入,在遍历的时候,都会以天然顺序遍历  
+TreeSet底层是使用TreeMap实现的  
+构造方法  
+    public TreeSet()  
+    public TreeSet(SortedSet s)    
+    public TreeSet(int initialCapacity)  
+    public TreeSet(Comparator&lt;? super E&gt;)  
+    public TreeSet(Collection c)  
+因为TreeSet是带排序的,所以想要为TreeSet增加自定义类型,必须指定排序规则
+</code></pre><h2 id="TreeSet排序规则Comparator案例"><a href="#TreeSet排序规则Comparator案例" class="headerlink" title="TreeSet排序规则Comparator案例"></a>TreeSet排序规则Comparator案例</h2><pre><code>package com.itlwc;  
+
+import java.util.Comparator;  
+import java.util.Iterator;  
+import java.util.TreeSet;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        TreeSet set = new TreeSet(new PersonComparator());  
+        set.add(new Person(&quot;lwc&quot;, 80));  
+        set.add(new Person(&quot;nxj&quot;, 70));  
+        set.add(new Person(&quot;lp&quot;, 60));  
+        set.add(new Person(&quot;fy&quot;, 75));  
+        Iterator ite = set.iterator();  
+        while (ite.hasNext()) {  
+            Person p = (Person)ite.next();  
+            System.out.println(p.name);  
+        }  
+    }  
+}  
+
+class Person {  
+    String name;  
+    int score;  
+
+    public Person(String name, int score) {  
+        this.name = name;  
+        this.score = score;  
+    }  
+}  
+
+class PersonComparator implements Comparator {  
+    public int compare(Object o1, Object o2) {  
+        Person p1 = (Person) o1;  
+        Person p2 = (Person) o2;  
+        return p1.score - p2.score;  
+    }  
+}  
+</code></pre><h2 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h2><p>操作Collection类的工具类,类中方法都是静态的</p>
+<h2 id="Collections常用方法"><a href="#Collections常用方法" class="headerlink" title="Collections常用方法"></a>Collections常用方法</h2><pre><code>package com.itlwc;  
+
+import java.util.ArrayList;  
+import java.util.Collections;  
+import java.util.Comparator;  
+
+public class Test {  
+    public static void main(String[] args) {  
+        // 将所有元素从一个列表复制到另一个列表  
+        Collections.copy(new ArrayList(), new ArrayList());  
+        // 如果两个指定collection中没有相同的元素,则返回 true  
+        Collections.disjoint(new ArrayList(), new ArrayList());  
+        // 使用指定元素替换指定列表中的所有元素  
+        Collections.fill(new ArrayList(), new Object());  
+        // 返回指定 collection 中等于指定对象的元素数  
+        Collections.frequency(new ArrayList(), new Object());  
+        // 返回指定源列表中第一次出现指定目标列表的起始位置,如果没有出现这样的列表,则返回 -1  
+        Collections.indexOfSubList(new ArrayList(), new ArrayList());  
+        // 根据元素的自然顺序，返回给定 collection 的最大元素  
+        Collections.max(new ArrayList());  
+        // //根据元素的自然顺序，返回给定 collection 的最大元素  
+        Collections.min(new ArrayList());  
+        // 使用另一个值替换列表中出现的所有某一指定值  
+        Collections.replaceAll(new ArrayList(), &quot;oldVal&quot;, &quot;newVal&quot;);  
+        // 反转指定列表中元素的顺序  
+        Collections.reverse(new ArrayList());  
+        // 返回一个比较器,它强行反转  
+        Collections.reverseOrder();  
+        // 返回一个比较器,它强行反转指定比较器的顺序  
+        Collections.reverseOrder(new Comparator() {  
+            @Override  
+            public int compare(Object o1, Object o2) {  
+                return 0;  
+            }  
+        });  
+        // 使用默认随机源随机更改指定列表的序列  
+        Collections.shuffle(new ArrayList());  
+        // 根据元素的自然顺序对指定列表按升序进行排序  
+        Collections.sort(new ArrayList());  
+        // 根据元素的自然顺序对指定列表按降序进行排序  
+        Collections.sort(new ArrayList(), Collections.reverseOrder());  
+        // 在指定列表的指定位置处交换元素  
+        Collections.swap(new ArrayList(), 1, 2);  
+
+    }  
+}  
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://escnqh.github.io/2017/06/06/Java-多态的性质/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大胖倪的慢灵魂">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Escnqh">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/06/Java-多态的性质/" itemprop="url">Java_多态的性质</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T20:09:53+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Java学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/06/Java-多态的性质/" class="leancloud_visitors" data-flag-title="Java_多态的性质">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>面向对象编程有三大特性：封装、继承、多态。</p>
+<p>封装隐藏了类的内部实现机制，可以在不影响使用的情况下改变类的内部结构，同时也保护了数据。对外界而已它的内部细节是隐藏的，暴露给外界的只是它的访问方法。</p>
+<p>继承是为了重用父类代码。两个类若存在IS-A的关系就可以使用继承。，同时继承也为实现多态做了铺垫。那么什么是多态呢？多态的实现机制又是什么？请看我一一为你揭开：</p>
+<p>所谓多态就是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。因为在程序运行时才确定具体的类，这样，不用修改源程序代码，就可以让引用变量绑定到各种不同的类实现上，从而导致该引用调用的具体方法随之改变，即不修改程序代码就可以改变程序运行时所绑定的具体代码，让程序可以选择多个运行状态，这就是多态性。</p>
+<p>比如你是一个酒神，对酒情有独钟。某日回家发现桌上有几个杯子里面都装了白酒，从外面看我们是不可能知道这是些什么酒，只有喝了之后才能够猜出来是何种酒。你一喝，这是剑南春、再喝这是五粮液、再喝这是酒鬼酒….在这里我们可以描述成如下：</p>
+<pre><code>酒 a = 剑南春
+
+酒 b = 五粮液
+
+酒 c = 酒鬼酒
+
+…
+</code></pre><p>这里所表现的的就是多态。剑南春、五粮液、酒鬼酒都是酒的子类，我们只是通过酒这一个父类就能够引用不同的子类，这就是多态——我们只有在运行的时候才会知道引用变量所指向的具体实例对象。</p>
+<p>诚然，要理解多态我们就必须要明白什么是“向上转型”。在继承中我们简单介绍了向上转型，这里就在啰嗦下：在上面的喝酒例子中，酒（Win）是父类，剑南春（JNC）、五粮液（WLY）、酒鬼酒（JGJ）是子类。我们定义如下代码：</p>
+<pre><code>JNC a = new  JNC();
+</code></pre><p>对于这个代码我们非常容易理解无非就是实例化了一个剑南春的对象嘛！但是这样呢？</p>
+<pre><code>Wine a = new JNC();
+</code></pre><p>在这里我们这样理解，这里定义了一个Wine类型的a，它指向JNC对象实例。由于JNC是继承与Wine，所以JNC可以自动向上转型为Wine，所以a是可以指向JNC实例对象的。这样做存在一个非常大的好处，在继承中我们知道子类是父类的扩展，它可以提供比父类更加强大的功能，如果我们定义了一个指向子类的父类引用类型，那么它除了能够引用父类的共性外，还可以使用子类强大的功能。<br>但是向上转型存在一些缺憾，那就是它必定会导致一些方法和属性的丢失，而导致我们不能够获取它们。所以父类类型的引用可以调用父类中定义的所有属性和方法，对于只存在与子类中的方法和属性它就望尘莫及了。</p>
+<pre><code>public class Wine {
+    public void fun1(){
+        System.out.println(&quot;Wine 的Fun.....&quot;);
+        fun2();
+    }
+
+    public void fun2(){
+        System.out.println(&quot;Wine 的Fun2...&quot;);
+    }
+}
+
+public class JNC extends Wine{
+    /**
+     * @desc 子类重载父类方法
+     *        父类中不存在该方法，向上转型后，父类是不能引用该方法的
+     * @param a
+     * @return void
+     */
+    public void fun1(String a){
+        System.out.println(&quot;JNC 的 Fun1...&quot;);
+        fun2();
+    }
+
+    /**
+     * 子类重写父类方法
+     * 指向子类的父类引用调用fun2时，必定是调用该方法
+     */
+    public void fun2(){
+        System.out.println(&quot;JNC 的Fun2...&quot;);
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Wine a = new JNC();
+        a.fun1();
+    }
+}
+-------------------------------------------------
+Output:
+Wine 的Fun.....
+JNC 的Fun2...
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://escnqh.github.io/2017/06/06/建造者模式（Builder-Pattern）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大胖倪的慢灵魂">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Escnqh">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/06/建造者模式（Builder-Pattern）/" itemprop="url">建造者模式（Builder Pattern）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T20:05:14+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Android学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/06/建造者模式（Builder-Pattern）/" class="leancloud_visitors" data-flag-title="建造者模式（Builder Pattern）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>建造者模式（Builder Pattern） 也叫生成器模式其定义如下：<br>将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</p>
+<p>四个要素：</p>
+<pre><code>产品类：一般是一个较为复杂的对象，也就是说创建对象的过程比较复杂，一般会有比较多的代码量。在本类图中，产品类是一个具体的类，而非抽象类。实际编程中，产品类可以是由一个抽象类与它的不同实现组成，也可以是由多个抽象类与他们的实现组成。
+
+抽象建造者：引入抽象建造者的目的，是为了将建造的具体过程交与它的子类来实现。这样更容易扩展。一般至少会有两个抽象方法，一个用来建造产品，一个是用来返回产品。
+
+建造者：实现抽象类的所有未实现的方法，具体来说一般是两项任务：组建产品；返回组建好的产品。
+
+导演类：负责调用适当的建造者来组建产品，导演类一般不与产品类发生依赖关系，与导演类直接交互的是建造者类。一般来说，导演类被用来封装程序中易变的部分。
+</code></pre><p>#一 Builder模式介绍及使用场景<br>Builder模式是一步一步创建一个复杂对象的创建者模式，它允许用户在不知道内部构建细节的情况下，可以更精细地控制对象的构造流程。该模式是为了将复杂对象的过程和它的部件解耦，使得构建过程和部件的表示隔离开来。</p>
+<p>因为一个复杂的对象有很多大量组成部分，如汽车，有车轮、方向盘、发动机，还有各种小零件，如何将这件部件装配成一辆汽车，这个装配过程很漫长，也很复杂，对于这种情况，为了在构建过程中对外部隐藏实现细节，也可以使用Builder模式将部件和组装过程分离，使得构建过程和部件都可以自有拓展，两者之间的耦合也降到最低。</p>
+<p>在项目中最常见到的两个使用Builder模式的案例，一个是AlertDialog.Builder的创建，另一个就是著名的图片加载框架ImageLoader的初始配置。</p>
+<p>ImageLoader的初始配置如下：</p>
+<pre><code>ImageLoaderConfiguration config = new ImageLoaderConfiguration  
+    .Builder(context)  
+    .memoryCacheExtraOptions(480, 800) // max width, max height，即保存的每个缓存文件的最大长宽  
+    .discCacheExtraOptions(480, 800, CompressFormat.JPEG, 75, null) // Can slow ImageLoader, use it carefully (Better don&apos;t use it)/设置缓存的详细信息，最好不要设置这个  
+    .threadPoolSize(3)//线程池内加载的数量  
+    .threadPriority(Thread.NORM_PRIORITY - 2)  
+    .memoryCache(new UsingFreqLimitedMemoryCache(2 * 1024 * 1024)) // You can pass your own memory cache implementation/你可以通过自己的内存缓存实现  
+    .memoryCacheSize(2 * 1024 * 1024)   //设置内存缓存的大小 
+    .discCacheSize(50 * 1024 * 1024)    //设置磁盘缓存的大小
+    .discCacheFileNameGenerator(new Md5FileNameGenerator())//将保存的时候的URI名称用MD5 加密   
+    .discCacheFileCount(100) //缓存的文件数量  
+    .discCache(new UnlimitedDiscCache(cacheDir))//自定义缓存路径      
+         .defaultDisplayImageOptions(DisplayImageOptions.createSimple())  
+    .imageDownloader(new BaseImageDownloader(context, 5 * 1000, 30 * 1000)) // connectTimeout (5 s), readTimeout (30 s)超时时间  
+    .writeDebugLogs() // Remove for release app  
+    .build();//开始构建
+//然后   
+ ImageLoader.getInstance().init(config);//全局初始化此配置  
+</code></pre><p>Builder模式的使用场景：<br>（1）多个部件或零件，不同的执行顺序，产生不同的事件结果时；<br>（2）多个部件或者零件，都可以装配到一个对象中，但是产生的运行结果又不相同时。<br>（3）当初始化一个对象特别复杂，参数多，且很多参数都具有默认值。</p>
+<p>#二 Builder模式的结构图</p>
+<p>结构图如下：<br>角色介绍：<br>（1）Product：产品的抽象类<br>（2）Builder：抽象的Builder类，规范产品的组件，一般由子类实现具体的组建过程。<br>（3）ConcreteBuilder: 具体的Builder类。<br>（4）Director：统一的组装过程。</p>
+<p><img src="http://img.blog.csdn.net/20160416154928614" alt="此处输入图片的描述"></p>
+<p>#三 Builder模式的简单DEMO：</p>
+<p><a href="http://blog.csdn.net/hello_haozi/article/details/38819935" target="_blank" rel="external">Builder模式的简单Demo</a></p>
+<p>看过了这个例子，可以发现这个例子和我们一开始看到的类似ImageLoade初始配置那样的链式调用是不一样的，因为忽略了Director的角色。</p>
+<p><a href="http://www.cnblogs.com/java-my-life/archive/2012/04/07/2433939.html" target="_blank" rel="external">深入理解一下Director的作用</a></p>
+<p>#四 分析源码<br>OkHttp</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://escnqh.github.io/2017/06/06/对RecyclerView-Item做动画/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大胖倪的慢灵魂">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Escnqh">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/06/对RecyclerView-Item做动画/" itemprop="url">对RecyclerView Item做动画</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T20:02:57+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Android学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/06/对RecyclerView-Item做动画/" class="leancloud_visitors" data-flag-title="对RecyclerView Item做动画">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>参考于：<a href="http://mp.weixin.qq.com/s?__biz=MzAxMTI4MTkwNQ==&amp;mid=2650820629&amp;idx=1&amp;sn=dafee7298419df6c9161368db7f7198d&amp;scene=4#wechat_redirect" target="_blank" rel="external">由Ru_Zhan投稿的微信文章</a></strong><br>添加动态位移，静态位移，缩放等动画，保证动画状态的平滑衔接。</p>
+<p>RecyclerView，ListView这些具有Item复用性的View，想要对其Item做动画，需要注意以下几点： </p>
+<ol>
+<li>如果要一点击，让所有Item做动画的效果。例如，上图的编辑和取消，这样的动态动画。可以对所有ViewHolder中的View直接做动画。但是需要在onBindViewHolder方法中对复用的item做静态动画，保证动画状态的平滑衔接。</li>
+<li>每一个Item的特有属性。例如，上图checkbox的选中状态，都需要把状态字段放到对应的Java bean中，<br>并在onBindViewHolder方法从java bean取出状态值，设置到view里。</li>
+</ol>
+<h1 id="1-对View的处理"><a href="#1-对View的处理" class="headerlink" title="1.对View的处理"></a>1.对View的处理</h1><p>首先，创建一个View，他是RecyclerView Item的根布局，名字为：SlideRelativeLayout，这里我们重写onFinishInflate，在View树创建完毕之后找到我们需要做动画的子View：</p>
+<pre><code>@Override
+protected void onFinishInflate() {
+    super.onFinishInflate();
+    mCheckBox = (CheckBox) findViewById(R.id.item_checkbox);
+    mContentSlide = (RelativeLayout) findViewById(R.id.item_content_rl);
+    setOffset(35);
+}
+</code></pre><p>然后，设计4个方法，分别为：<br>动态的打开动画</p>
+<pre><code>@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+public void openAnimation() {
+    ValueAnimator valueAnimator = new ValueAnimator();
+    valueAnimator.setIntValues(0, 1);
+    valueAnimator.setDuration(300);
+    valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+        @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
+        @Override
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            float fraction = valueAnimator.getAnimatedFraction();
+            int endX = (int) (-mOffset * fraction);
+            doAnimationSet(endX, fraction);
+        }
+    });
+    valueAnimator.start();
+}
+</code></pre><p>动态的关闭动画</p>
+<pre><code>@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+public void closeAnimation() {
+    ValueAnimator valueAnimator = new ValueAnimator();
+    valueAnimator.setIntValues(0, 1);
+    valueAnimator.setDuration(150);
+    valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+        @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
+        @Override
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            float fraction = valueAnimator.getAnimatedFraction();
+            int endX = (int) (-mOffset * (1 - fraction));
+            doAnimationSet(endX, (1 - fraction));
+        }
+    });
+    valueAnimator.start();
+}
+</code></pre><p>静态的打开动画</p>
+<pre><code>public void open() {
+    mContentSlide.scrollTo(-mOffset, 0);
+}
+</code></pre><p>静态的关闭动画</p>
+<pre><code>public void close() {
+        mContentSlide.scrollTo(0, 0);
+    }
+}
+</code></pre><p>对子View做动画我采取的策略是：使用属性动画，在每一帧动画里获取到对应的值，对子View做相应的动画，例如：动态的打开动画，onAnimationUpdate方法，显示每一贞动画都会回调一次。</p>
+<p>这样RecylerView Item带有动态动画和静态动画的View就设计好了。</p>
+<h1 id="2。对ViewHolder的处理"><a href="#2。对ViewHolder的处理" class="headerlink" title="2。对ViewHolder的处理"></a>2。对ViewHolder的处理</h1><p>在bind方法中使用静态动画，动态动画对外提供方法调用</p>
+<pre><code>private class SlideViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+    private SlideRelativeLayout mSlideRelativeLayout;
+    private CheckBox mCheckBox;
+    private ItemBean mItemBean;
+
+    public SlideViewHolder(View itemView) {
+        super(itemView);
+        mSlideRelativeLayout = (SlideRelativeLayout) itemView.findViewById(R.id.item_root);
+        mCheckBox = (CheckBox) itemView.findViewById(R.id.item_checkbox);
+        itemView.setOnClickListener(this);
+    }
+
+    public void bind(ItemBean itemBean) {
+        mItemBean = itemBean;
+        mCheckBox.setChecked(itemBean.isChecked());
+        switch (mState) {
+            case NORMAL:
+                mSlideRelativeLayout.close();
+                break;
+
+            case SLIDE:
+                mSlideRelativeLayout.open();
+                break;
+        }
+    }
+
+    public void openItemAnimation() {
+        mSlideRelativeLayout.openAnimation();
+    }
+
+    public void closeItemAnimation() {
+        mSlideRelativeLayout.closeAnimation();
+    }
+
+    public void setCheckBox() {
+        mCheckBox.setChecked(!mCheckBox.isChecked());
+        mItemBean.setChecked(mCheckBox.isChecked());
+    }
+
+    @Override
+    public void onClick(View view) {
+        setCheckBox();
+    }
+}
+</code></pre><p>可以看到静态动画在bind里调用，打开或者关闭是由mState变量决定的。而动态的滑动需要手动调用：</p>
+<p>那怎么来使用这些动画呢？ </p>
+<p>动态动画的使用方法：存储所有创建出来的ViewHolder，统一调用动态动画方法。并设置mState变量值，防止滑动时动画不能平滑衔接。</p>
+<pre><code>public void openItemAnimation() {
+    mState = SLIDE;
+    for (SlideViewHolder holder : mSlideViewHolders) {
+        holder.openItemAnimation();
+    }
+}
+
+public void closeItemAnimation() {
+    mState = NORMAL;
+    for (SlideViewHolder holder : mSlideViewHolders) {
+        holder.closeItemAnimation();
+    }
+}
+</code></pre><p>而外面又是这样调用的：</p>
+<pre><code>private void editItems(){
+    if (&quot;编辑&quot;.equals(mRightTV.getText().toString())) {
+        mRightTV.setText(&quot;取消&quot;);
+        mSlideAdapter.openItemAnimation();
+    } else if (&quot;取消&quot;.equals(mRightTV.getText().toString())) {
+        mRightTV.setText(&quot;编辑&quot;);
+        mSlideAdapter.closeItemAnimation();
+    }
+}
+</code></pre><p>总体就是：点击按钮 – 变量ViewHolder集合做动态动画，并设置mState变量 – 手机滑动屏幕走bind方法又是根据mState做静态动画，动画从而平滑的衔接起来。</p>
+<p>动态动画起先，设置状态值，引导处理正确的静态动画，RecyclerView item的动画处理是不是变简单了。</p>
+<p>还有，对item的特殊数据需要在对应的java bean里设置值，在bind方法取值设置到item中去。</p>
+<h1 id="在这个过程中遇到的问题"><a href="#在这个过程中遇到的问题" class="headerlink" title="在这个过程中遇到的问题"></a>在这个过程中遇到的问题</h1><pre><code>@Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        SlideViewHolder slideViewHolder;
+//        View view;
+//        view=inflater.inflate(R.layout.item, parent,false);
+        slideViewHolder = new SlideViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item,parent,false));
+        mSlideViewHolders.add(slideViewHolder);
+        return slideViewHolder;
+    }
+</code></pre><p>中<code>slideViewHolder = new SlideViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item,parent,false));</code><br>每次都会崩这里后来发现是XML里我自定义View的名称写错了，但是在改bug的时候并没有报错所以改了很久，然后就顺便学习了一下[什么是Context][2]我们总是用到，但是否想过Context到底是什么呢？</p>
+<h2 id="2-http-www-jianshu-com-p-94e0f9ab3f1d"><a href="#2-http-www-jianshu-com-p-94e0f9ab3f1d" class="headerlink" title="  [2]: http://www.jianshu.com/p/94e0f9ab3f1d"></a>  [2]: <a href="http://www.jianshu.com/p/94e0f9ab3f1d" target="_blank" rel="external">http://www.jianshu.com/p/94e0f9ab3f1d</a></h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://escnqh.github.io/2017/06/06/Android-多线程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大胖倪的慢灵魂">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Escnqh">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/06/Android-多线程/" itemprop="url">Android 多线程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T20:00:27+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Android学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/06/Android-多线程/" class="leancloud_visitors" data-flag-title="Android 多线程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在学习java的时候，你们一定对多线程这个词不陌生，而android多线程跟java相比并没有什么特殊的地方，基本都是相同的语法。<br>而线程的使用就是在执行一些耗时的操作，比如发起一条网络请求时，考虑到网速等原因，服务器不一定会立刻响应我们的请求，如果不把这些操作放在子线程中，会导致主线程被阻塞，从而影响用户对软件的正常使用。</p>
+<h1 id="线程的基本用法"><a href="#线程的基本用法" class="headerlink" title="线程的基本用法"></a>线程的基本用法</h1><p>下面先看一下android中，三种启用线程的方法</p>
+<h2 id="1-只需要新建一个类继承自Thread，然后重写父类的run-方法来实现一个线程："><a href="#1-只需要新建一个类继承自Thread，然后重写父类的run-方法来实现一个线程：" class="headerlink" title="1.只需要新建一个类继承自Thread，然后重写父类的run()方法来实现一个线程："></a>1.只需要新建一个类继承自Thread，然后重写父类的<code>run()</code>方法来实现一个线程：</h2><pre><code>public class MyThread extends Thread {  
+
+    //继承Thread类，并改写其run方法        
+    private final static String TAG = &quot;My Thread ===&gt; &quot;;      
+    public void run(){  
+        //具体的实现
+        Log.d(TAG, &quot;run&quot;);  
+        for(int i = 0; i&lt;100; i++)  
+        {  
+            Log.e(TAG, Thread.currentThread().getName() + &quot;i =  &quot; + i);  
+        }  
+    }  
+} 
+</code></pre><p>启动：</p>
+<pre><code>new MyThread().start();
+</code></pre><h2 id="2-创建一个实现Runnable接口的对象"><a href="#2-创建一个实现Runnable接口的对象" class="headerlink" title="2.创建一个实现Runnable接口的对象"></a>2.创建一个实现Runnable接口的对象</h2><pre><code>public class MyRunnable implements Runnable{  
+    private final static String TAG = &quot;My Runnable ===&gt; &quot;;  
+
+    @Override  
+    public void run() {  
+         //具体的逻辑
+        // TODO Auto-generated method stub  
+        Log.d(TAG, &quot;run&quot;);  
+        for(int i = 0; i&lt;1000; i++)  
+        {  
+            Log.e(TAG, Thread.currentThread().getName() + &quot;i =  &quot; + i);  
+        }  
+    }  
+} 
+</code></pre><p>启动：</p>
+<pre><code>new Thread(new MyRunnable()).start(); 
+</code></pre><p>可以看到，<code>Thread</code>的构造函数接受一个<code>Runnable</code>参数，而我们<code>new</code>出的<code>MyRunnable</code>正是一个实现了<code>Runnable</code>接口的对象，所以可以直接将他传入到<code>Thread</code>的构造函数里。接着调用<code>Thread</code>的<code>start()</code>方法，<code>run()</code>方法中的代码就会在子线程中运行了。</p>
+<h2 id="3-另外一种启用方式：匿名类（常见）"><a href="#3-另外一种启用方式：匿名类（常见）" class="headerlink" title="3.另外一种启用方式：匿名类（常见）"></a>3.另外一种启用方式：匿名类（常见）</h2><pre><code>btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                           //具体逻辑
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+            }
+        });
+</code></pre><p>#异步消息处理机制</p>
+<h2 id="1-尝试在子线程中更新UI"><a href="#1-尝试在子线程中更新UI" class="headerlink" title="1.尝试在子线程中更新UI"></a>1.尝试在子线程中更新UI</h2><pre><code>看代码
+</code></pre><p>和其他许多GUI库一样，Android的UI也是线程不安全的。也就是说，如果想要更新应用程序里的UI元素，则必须在主线程中进行，否则就会出现异常。<br>上面这个例子就恰好证明了android确实不能在子线程中进行UI操作的，但是有些时候，我们必须在子线程中执行一些耗时任务，然后再根据执行结果来更新UI，这时候就要用到异步消息处理机制。</p>
+<h2 id="2-Message，Handler，MessageQueue和Looper"><a href="#2-Message，Handler，MessageQueue和Looper" class="headerlink" title="2.Message，Handler，MessageQueue和Looper"></a>2.Message，Handler，MessageQueue和Looper</h2><pre><code>看代码
+</code></pre><p><img src="http://img.blog.csdn.net/20140805002935859?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvbG1qNjIzNTY1Nzkx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="Looper，Handler，message三者关系图"></p>
+<h2 id="3-进一步探究Handler-Looper机制"><a href="#3-进一步探究Handler-Looper机制" class="headerlink" title="3.进一步探究Handler Looper机制"></a>3.进一步探究Handler Looper机制</h2><p>要分析Handler Looper机制，自然想到去看Handler类和Looper类的源码(分别位于Handler.java和Looper.java两个文件中)。简单阅读两个类的描述后，在Looper类的描述中能找到以下一段示例代码。</p>
+<pre><code>&lt;p&gt;This is a typical example of the implementation of a Looper thread,
+* using the separation of {@link #prepare} and {@link #loop} to create an
+* initial Handler to communicate with the Looper.
+*
+* &lt;pre&gt;
+*  class LooperThread extends Thread {
+*      public Handler mHandler;
+*
+*      public void run() {
+*          Looper.prepare();
+*
+*          mHandler = new Handler() {
+*              public void handleMessage(Message msg) {
+*                  // process incoming messages here
+*              }
+*          };
+*
+*          Looper.loop();
+*      }
+*  }&lt;/pre&gt;
+*/
+</code></pre><p>这段代码给出了Handler Looper机制实现进程间通信的三大基本步骤，包括Looper的两个函数prepare()和loop()，以及Handler的handleMessage函数。<br><img src="http://s3.51cto.com/wyfs02/M00/4C/6D/wKioL1Q9Ep3hhE3cAAE6NKlEbfI860.jpg" alt="Handler Looper关系总结"><br> 由图可见，基于Handler Looper机制传递消息主要包括以下几个步骤。</p>
+<pre><code>(1)目标线程调用Looper.prepare()创建Looper对象和消息队列。
+
+(2)目标线程通过new Handler()创建handler对象，将Handler,Looper，消息队列三者关联起来。并覆盖其handleMessage函数。
+
+(3)目标线程调用Looper.loop()监听消息队列。
+
+(4)消息源线程调用Handler.sendMessage发送消息。
+
+(5)消息源线程调用MessageQueue.enqueueMessage将待发消息插入消息队列。
+
+(6)目标线程的loop()检测到消息队列有消息插入，将其取出。
+
+(7)目标线程将取出的消息通过Handler.dispatchMessage派发给Handler.handleMessage进行消息处理。
+</code></pre><h2 id="4-使用AsyncTask"><a href="#4-使用AsyncTask" class="headerlink" title="4.使用AsyncTask"></a>4.使用AsyncTask</h2><p>android提供了一个很好的工具，就比如AsyncTask。借助AsyncTask，即使你对异步消息处理机制完全不了解，也可以十分简单的从子线程切换到主线程。<br>首先来看一下AsyncTask的基本用法，由于AsyncTask是一个抽象类，所以如果我们想使用它，就必须要创建一个子类去继承它。在继承时我们可以为AsyncTask类指定三个泛型参数，这三个参数的用途如下：</p>
+<pre><code>1. Params
+在执行AsyncTask时需要传入的参数，可用于在后台任务中使用。
+2. Progress
+后台任务执行时，如果需要在界面上显示当前的进度，则使用这里指定的泛型作为进度单位。
+3. Result
+当任务执行完毕后，如果需要对结果进行返回，则使用这里指定的泛型作为返回值类型。
+</code></pre><p>因此，一个最简单的自定义AsyncTask就可以写成如下方式：</p>
+<pre><code>class DownloadTask extends AsyncTask&lt;Void, Integer, Boolean&gt; {  
+    ……  
+}
+</code></pre><p>这里我们把AsyncTask的第一个泛型参数指定为Void，表示在执行AsyncTask的时候不需要传入参数给后台任务。第二个泛型参数指定为Integer，表示使用整型数据来作为进度显示单位。第三个泛型参数指定为Boolean，则表示使用布尔型数据来反馈执行结果。</p>
+<p>当然，目前我们自定义的DownloadTask还是一个空任务，并不能进行任何实际的操作，我们还需要去重写AsyncTask中的几个方法才能完成对任务的定制。经常需要去重写的方法有以下四个：</p>
+<pre><code>1. onPreExecute()
+这个方法会在后台任务开始执行之间调用，用于进行一些界面上的初始化操作，比如显示一个进度条对话框等。
+2. doInBackground(Params...)
+这个方法中的所有代码都会在子线程中运行，我们应该在这里去处理所有的耗时任务。任务一旦完成就可以通过return语句来将任务的执行结果进行返回，如果AsyncTask的第三个泛型参数指定的是Void，就可以不返回任务执行结果。注意，在这个方法中是不可以进行UI操作的，如果需要更新UI元素，比如说反馈当前任务的执行进度，可以调用publishProgress(Progress...)方法来完成。
+3. onProgressUpdate(Progress...)
+当在后台任务中调用了publishProgress(Progress...)方法后，这个方法就很快会被调用，方法中携带的参数就是在后台任务中传递过来的。在这个方法中可以对UI进行操作，利用参数中的数值就可以对界面元素进行相应的更新。
+4. onPostExecute(Result)
+当后台任务执行完毕并通过return语句进行返回时，这个方法就很快会被调用。返回的数据会作为参数传递到此方法中，可以利用返回的数据来进行一些UI操作，比如说提醒任务执行的结果，以及关闭掉进度条对话框等。
+</code></pre><p>因此，一个比较完整的自定义AsyncTask就可以写成如下方式：</p>
+<pre><code>class DownloadTask extends AsyncTask&lt;Void, Integer, Boolean&gt; {  
+
+    @Override  
+    protected void onPreExecute() {  
+        progressDialog.show();  
+    }  
+
+    @Override  
+    protected Boolean doInBackground(Void... params) {  
+        try {  
+            while (true) {  
+                int downloadPercent = doDownload();  
+                publishProgress(downloadPercent);  
+                if (downloadPercent &gt;= 100) {  
+                    break;  
+                }  
+            }  
+        } catch (Exception e) {  
+            return false;  
+        }  
+        return true;  
+    }  
+
+    @Override  
+    protected void onProgressUpdate(Integer... values) {  
+        progressDialog.setMessage(&quot;当前下载进度：&quot; + values[0] + &quot;%&quot;);  
+    }  
+
+    @Override  
+    protected void onPostExecute(Boolean result) {  
+        progressDialog.dismiss();  
+        if (result) {  
+            Toast.makeText(context, &quot;下载成功&quot;, Toast.LENGTH_SHORT).show();  
+        } else {  
+            Toast.makeText(context, &quot;下载失败&quot;, Toast.LENGTH_SHORT).show();  
+        }  
+    }  
+}  
+</code></pre><p>这里我们模拟了一个下载任务，在doInBackground()方法中去执行具体的下载逻辑，在onProgressUpdate()方法中显示当前的下载进度，在onPostExecute()方法中来提示任务的执行结果。如果想要启动这个任务，只需要简单地调用以下代码即可：</p>
+<pre><code>new DownloadTask().execute(); 
+</code></pre><p> 如果想深入学习还是推荐研究一下源码。</p>
+<p>#浅谈服务<br>Service是Android中的四大组件之一，和windows中的服务是类似，服务一般没有用户操作界面，它运行于系统中不容易被用户发觉，可以使用它开发如监控之类的程序Service，手机中有的程序的更新，服务的推送。Android系统中，Service与Activity类似，都需要AndroidManifest.xml文件中配置，而且生命周期有点类似。Service不像Activity在前台运行，而是默默的在后台默默的工作</p>
+<p><a href="http://www.cnblogs.com/xiaofeixiang/p/4077587.html" target="_blank" rel="external">浅谈Android组件之Service</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://escnqh.github.io/2017/06/06/Android-传感器开发解析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大胖倪的慢灵魂">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Escnqh">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/06/Android-传感器开发解析/" itemprop="url">Android 传感器开发解析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T19:57:29+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Android学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/06/Android-传感器开发解析/" class="leancloud_visitors" data-flag-title="Android 传感器开发解析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Android为我们提供了传感器框架（Android sensor framework，简称ASF）可以用来访问当前Android设备内置的传感器。ASF提供了很多类和接口，帮助我们完成各种与传感器有关的任务。例如：</p>
+<p>1）确定当前Android设备内置了哪些传感器。<br>2）确定某一个传感器的技术指标。<br>3）获取传感器传回来的数据，以及定义传感器回传数据的精度。<br>4）注册和注销传感器事件监听器，这些监听器用于监听传感器的变化，通常从传感器回传的数据需要利用这些监听器完成。</p>
+<p>ASF允许我们访问很多传感器类型，这些传感器有一些是基于硬件的传感器，还有一些是基于软件的传感器。基于硬件的传感器就是直接以芯片形式嵌入到Android设备中，这些传感器直接从外部环境获取数据。基于软件的传感器并不是实际的硬件芯片，基于软件的传感器传回的数据本质上也来自于基于硬件的传感器，只是这些数据通常会经过二次加工。所以基于软件的传感器也可以称为虚拟（virtual）传感器或合成（synthetic）传感器。</p>
+<p>Android对每个设备的传感器都进行了抽象，其中SensorManger类用来控制传感器，Sensor用来描述具体的传感器，SensorEventListener用来监听传感器值的改变。</p>
+<p>（1）SensorManager类</p>
+<p>用于创建sensor service的实例。该类提供了很多用于访问和枚举传感器，注册和注销传感器监听器的方法。而且还提供了与传感器精度、扫描频率、校正有关的常量。</p>
+<p>（2）Sensor类</p>
+<p>Sensor类为我们提供了一些用于获取传感器技术参数的方法。如版本、类型、生产商等。例如所有传感器的TYPE类型如下：<br>序号  传感器 Sensor类中定义的TYPE常量<br>1   加速度传感器  TYPE_ACCELEROMETER<br>2   温度传感器   TYPE_AMBIENT_TEMPERATURE<br>3   陀螺仪传感器  TYPE_GYROSCOPE<br>4   光线传感器   TYPE_LIGHT<br>5   磁场传感器   TYPE_MAGNETIC_FIELD<br>6   压力传感器   TYPE_PRESSURE<br>7   临近传感器   TYPE_PROXIMITY<br>8   湿度传感器   TYPE_RELATIVE_HUMIDITY<br>9   方向传感器   TYPE_ORIENTATION<br>10  重力传感器   TYPE_GRAVITY<br>11  线性加速传感器 TYPE_LINEAR_ACCELERATION<br>12  旋转向量传感器 TYPE_ROTATION_VECTOR<br>注意：1-8是硬件传感器，9是软件传感器，其中方向传感器的数据来自重力和磁场传感器，10-12是硬件或软件传感器。</p>
+<p>（3）SensorEvent类</p>
+<p>系统使用该类创建传感器事件对象。该对象可以提供与传感器事件有关的信息。传感器事件对象包括的信息有原始的传感器回传数据、传感器类型、数据的精度以及触发事件的时间。</p>
+<p>（4）SensorEventListener接口</p>
+<p>该接口包含两个回调方法，当传感器的回传值或精度发生变化时，系统会调用这两个回调方法。</p>
+<pre><code>/**
+* 传感器精度变化时回调
+*/
+@Override
+public void onAccuracyChanged(Sensor sensor, int accuracy) {
+}
+/**
+* 传感器数据变化时回调
+*/
+@Override
+public void onSensorChanged(SensorEvent event) {
+}
+</code></pre><p>到了这里，我们就可以进行传感器开发工作了。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://escnqh.github.io/2017/06/06/在Blog中添加音乐/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="大胖倪的慢灵魂">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/0.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Escnqh">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/06/在Blog中添加音乐/" itemprop="url">在Blog中添加音乐</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T19:53:30+08:00">
+                2017-06-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术闲谈/" itemprop="url" rel="index">
+                    <span itemprop="name">技术闲谈</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/06/在Blog中添加音乐/" class="leancloud_visitors" data-flag-title="在Blog中添加音乐">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -598,7 +2409,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -609,7 +2420,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -620,7 +2431,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
