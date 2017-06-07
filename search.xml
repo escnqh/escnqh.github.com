@@ -3,6 +3,78 @@
   
     
     <entry>
+      <title><![CDATA[handler和AsyncTask学习笔记]]></title>
+      <url>/2017/06/07/handler%E5%92%8CAsyncTask%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      <content type="html"><![CDATA[<h2 id="AsyncTask实现的原理和适用的优缺点"><a href="#AsyncTask实现的原理和适用的优缺点" class="headerlink" title="AsyncTask实现的原理和适用的优缺点"></a>AsyncTask实现的原理和适用的优缺点</h2><p>AsyncTask,是android提供的轻量级的异步类,可以直接继承AsyncTask,在类中实现异步操作,并提供接口反馈当前异步执行的程度(可以通过接口实现UI进度更新),最后反馈执行的结果给UI主线程.</p>
+<ol>
+<li><p>使用的优点:</p>
+<p>简单，快捷，过程可控 </p>
+</li>
+</ol>
+<ol>
+<li><p>使用的缺点:</p>
+<p>在使用多个异步操作和并需要进行Ui变更时,就变得复杂起来.</p>
+</li>
+</ol>
+<h2 id="Handler异步实现的原理和适用的优缺点"><a href="#Handler异步实现的原理和适用的优缺点" class="headerlink" title="Handler异步实现的原理和适用的优缺点"></a>Handler异步实现的原理和适用的优缺点</h2><p>在Handler 异步实现时,涉及到 <code>Handler, Looper, Message,Thread</code>四个对象，实现异步的流程是主线程启动Thread（子线程）运行并生成Message-Looper获取Message并传递给HandlerHandler逐个获取Looper中的Message，并进行UI变更。</p>
+<ol>
+<li><p>使用的优点：</p>
+<p>结构清晰，功能定义明确<br>对于多个后台任务时，简单，清晰</p>
+</li>
+<li><p>使用的缺点：</p>
+<p> 在单个后台异步处理时，显得代码过多，结构过于复杂（相对性）</p>
+</li>
+</ol>
+<h2 id="AsyncTask介绍"><a href="#AsyncTask介绍" class="headerlink" title="AsyncTask介绍"></a>AsyncTask介绍</h2><p>Android的AsyncTask比Handler更轻量级一些（只是代码上轻量一些，而实际上要比handler更耗资源），适用于简单的异步处理。<br>首先明确Android之所以有Handler和AsyncTask，都是为了不阻塞主线程（UI线程），且UI的更新只能在主线程中完成，因此异步处理是不可避免的。</p>
+<p>Android为了降低这个开发难度，提供了AsyncTask。AsyncTask就是一个封装过的后台任务类，顾名思义就是异步任务。<br>AsyncTask直接继承于Object类，位置为android.os.AsyncTask。要使用AsyncTask工作我们要提供三个泛型参数，并重载几个方法(至少重载一个)。</p>
+<p>AsyncTask定义了三种泛型类型 Params，Progress和Result。</p>
+<pre><code>  ● Params 启动任务执行的输入参数，比如HTTP请求的URL。
+  ● Progress 后台任务执行的百分比。
+  ● Result 后台执行任务最终返回的结果，比如String。
+使用过AsyncTask 的同学都知道一个异步加载数据最少要重写以下这两个方法：
+  ● doInBackground(Params…) 后台执行，比较耗时的操作都可以放在这里。注意这里不能直接操作UI。此方法在后台线程执行，完成任务的主要工作，通常需要较长的时间。在执行过程中可以调用publicProgress(Progress…)来更新任务的进度。
+  ● onPostExecute(Result)  相当于Handler 处理UI的方式，在这里面可以使用在doInBackground 得到的结果处理操作UI。 此方法在主线程执行，任务执行的结果作为此方法的参数返回
+有必要的话你还得重写以下这三个方法，但不是必须的：
+  ● onProgressUpdate(Progress…)   可以使用进度条增加用户体验度。 此方法在主线程执行，用于显示任务执行的进度。
+  ● onPreExecute()        这里是最终用户调用Excute时的接口，当任务执行之前开始调用此方法，可以在这里显示进度对话框。
+  ● onCancelled()             用户调用取消时，要做的操作
+使用AsyncTask类，以下是几条必须遵守的准则：
+  ● Task的实例必须在UI thread中创建；
+  ● execute方法必须在UI thread中调用；
+  ● 不要手动的调用onPreExecute(), onPostExecute(Result)，doInBackground(Params...), onProgressUpdate(Progress...)这几个方法；
+  ● 该task只能被执行一次，否则多次调用时将会出现异常；
+</code></pre><h2 id="Handler介绍"><a href="#Handler介绍" class="headerlink" title="Handler介绍"></a>Handler介绍</h2><ol>
+<li><p>Handler主要接受子线程发送的数据, 并用此数据配合主线程更新UI.</p>
+<p>当应用程序启动时，Android首先会开启一个主线程,主线程为管理界面中的UI控件，进行事件分发,更新UI只能在主线程中更新，子线程中操作是危险的。这个时候，Handler就需要出来解决这个复杂的问题。由于Handler运行在主线程中(UI线程中),它与子线程可以通过Message对象来传递数据, 这个时候，Handler就承担着接受子线程传过来的(子线程用sedMessage()方法传递)Message对象(里面包含数据), 把这些消息放入主线程队列中，配合主线程进行更新UI。</p>
+</li>
+<li><p>Handler的特点</p>
+<p>Handler可以分发Message对象和Runnable对象到主线程中,每个Handler实例,都会绑定到创建他的线程中,它有两个作用:</p>
+<p> (1)安排消息或Runnable 在某个主线程中某个地方执行<br> (2)安排一个动作在不同的线程中执行</p>
+</li>
+<li><p>Handler中分发消息的一些方法</p>
+<p>post(Runnable)<br>postAtTime(Runnable,long)<br>postDelayed(Runnable long)<br>sendEmptyMessage(int)<br>sendMessage(Message)<br>sendMessageAtTime(Message,long)<br>sendMessageDelayed(Message,long)</p>
+</li>
+</ol>
+<p>以上post类方法允许你排列一个Runnable对象到主线程队列中,sendMessage类方法, 允许你安排一个带数据的Message对象到队列中，等待更新。</p>
+<p>综上所述：数据简单使用AsyncTask:实现代码简单，数据量多且复杂使用handler+thread:相比较AsyncTask来说能更好的利用系统资源且高效</p>
+]]></content>
+      
+        <categories>
+            
+            <category> Android学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> android基础 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[在Blog中添加音乐]]></title>
       <url>/2017/06/06/%E5%9C%A8Blog%E4%B8%AD%E6%B7%BB%E5%8A%A0%E9%9F%B3%E4%B9%90/</url>
       <content type="html"><![CDATA[<p>在Blog中添加音乐播放器有两种，一种是歌单另一种是在一篇文章中插入歌曲，以网易云为例介绍一下这两种方法</p>
