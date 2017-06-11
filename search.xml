@@ -3,6 +3,133 @@
   
     
     <entry>
+      <title><![CDATA[使用OkHttp]]></title>
+      <url>/2017/06/11/%E4%BD%BF%E7%94%A8OkHttp/</url>
+      <content type="html"><![CDATA[<p>首先就是导依赖：</p>
+<pre><code>compile &apos;com.zhy:okhttputils:2.0.0&apos;
+</code></pre><h2 id="HttpURLConnection和OkHttp的比较"><a href="#HttpURLConnection和OkHttp的比较" class="headerlink" title="HttpURLConnection和OkHttp的比较"></a>HttpURLConnection和OkHttp的比较</h2><pre><code>● HttpURLConnection有的API，OkHttp基本上都有（你有我有全都有呀，哈哈哈）
+● HttpURLConnection和OkHttp都支持Https，流的上传和下载，超时，IP6、连接池等等
+● OkHttp比HttpURLConnection具有更好的同步异步请求、缓存机制，支持HttpDNS、重定向、Gzip压缩，平台适应性、很好的服务器IP的转换、直接Socket通信，支持拦截器等等。
+</code></pre><p>看到这么多机制，是不是觉得很强大，通过Socket直接通信，以及很好的缓存机制，Gzip对于Http头部的压缩传输。自然对于网络请求这块使应用更加省流量、请求的更快。OkHttp对于Https和HttpDNS的支持，使得应用的网络通信安全性更高。当然说了它的好，现在也来说说它的不好之处：</p>
+<pre><code>● OkHttp不支持优先级请求
+● OkHttp不支持自签名证书
+● OkHttp header中不能传中文
+</code></pre><p>虽然是不好的地方，但是OkHttp已经比较成熟了，网上解决这几个问题的资料也很多了。所以这些都不是问题。</p>
+<h2 id="一个简单的Get请求例子"><a href="#一个简单的Get请求例子" class="headerlink" title="一个简单的Get请求例子"></a>一个简单的Get请求例子</h2><p>这里我们就以经典的官网提供的Get请求的例子来学习下，说大概的代码。<br>  ● 先在manifest加个网络权限，养成良好习惯</p>
+<pre><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;
+</code></pre><p>然后在build.gradle文件的dependencies添加库如下：</p>
+<pre><code>dependencies {
+    compile &apos;com.squareup.okhttp3:okhttp:3.2.0&apos;
+    compile &apos;com.squareup.okio:okio:1.7.0&apos;
+}
+</code></pre><p>同步Get请求：</p>
+<pre><code>final OkHttpClient okHttpClient = new OkHttpClient()
+           .newBuilder()
+           .build();
+   final Request request = new Request.Builder()
+           .url(&quot;https://www.publicobject.com/helloworld.txt&quot;)
+           .header(&quot;User-Agent&quot;,&quot;OkHttp Example&quot;)
+           .build();
+   new Thread(new Runnable() {
+       @Override
+       public void run() {
+           try {
+               Response response = okHttpClient.newCall(request).execute();
+               Log.d(&quot;zgx&quot;,&quot;response=====&quot;+response.body().string());
+               response.body().close();
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
+       }
+   }).start();
+</code></pre><h2 id="一些基本的知识"><a href="#一些基本的知识" class="headerlink" title="一些基本的知识"></a>一些基本的知识</h2><ul>
+<li>Http</li>
+</ul>
+<p>Http是一种基于TCP/IP连接的一套网络通信协议，它是一种一应一答的请求，它分为Get和Post请求，Get请求获取得是静态页面，它可以把参数放在URL字符串后面。而Post请求就不同了，它是把参数放在Http请求的正文的。<br>Get请求我们会这样请求：</p>
+<pre><code>private void HttpURLConnection_Get(){  
+        try{  
+            //通过openConnection 连接  
+            URL url = new java.net.URL(URL);  
+            urlConn=(HttpURLConnection)url.openConnection();  
+            //设置输入和输出流   
+            urlConn.setDoOutput(true);  
+            urlConn.setDoInput(true);  
+            //关闭连接  
+            urlConn.disconnect();  
+        }catch(Exception e){  
+            resultData = &quot;连接超时&quot;;  
+        }  
+    } 
+</code></pre><p>然后把获取到的urlConn连接的数据通过IO流把读取出来：</p>
+<pre><code>InputStreamReader in = new InputStreamReader(urlConn.getInputStream());    
+                   BufferedReader buffer = new BufferedReader(in);    
+                   String inputLine = null;    
+                   while (((inputLine = buffer.readLine()) != null)){  
+                       resultData += inputLine + &quot;\n&quot;;    
+                   }  
+                   System.out.println(resultData);  
+                   in.close();
+</code></pre><p>Post请求则会这样：</p>
+<pre><code>private void HttpURLConnection_Post(){  
+      try{  
+          //通过openConnection 连接  
+          URL url = new java.net.URL(URL_Post);  
+          urlConn=(HttpURLConnection)url.openConnection();  
+          //设置输入和输出流   
+          urlConn.setDoOutput(true);  
+          urlConn.setDoInput(true);  
+
+          urlConn.setRequestMethod(&quot;POST&quot;);  
+          urlConn.setUseCaches(false);  
+          // 配置本次连接的Content-type，配置为application/x-www-form-urlencoded的    
+          urlConn.setRequestProperty(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded&quot;);    
+          // 连接，从postUrl.openConnection()至此的配置必须要在connect之前完成，  
+          // 要注意的是connection.getOutputStream会隐含的进行connect。    
+          urlConn.connect();  
+          //DataOutputStream流  
+          DataOutputStream out = new DataOutputStream(urlConn.getOutputStream());  
+          //要上传的参数  
+          String content = &quot;par=&quot; + URLEncoder.encode(&quot;ylx_Post+中正&quot;, &quot;UTF_8&quot;);   
+          //将要上传的内容写入流中  
+          out.writeBytes(content);     
+          //刷新、关闭  
+          out.flush();  
+          out.close();     
+
+      }catch(Exception e){  
+          resultData = &quot;连接超时&quot;;  
+      }  
+  } 
+</code></pre><p>然后同上把获取到的urlConn连接的数据通过IO流把读取出来，大概的代码就是这样。</p>
+<ul>
+<li>缓存处理</li>
+</ul>
+<p>先来看看OkHttp的缓存怎么设置</p>
+<pre><code>int cacheSize = 10 * 1024 * 1024; // 10 MiB
+  //cacheDirectory保存缓存的目录，cacheSize缓存空间的大小
+  Cache cache = new Cache(context.getCacheDir(), cacheSize);
+  final OkHttpClient okHttpClient = new OkHttpClient()
+          .newBuilder()
+          .cache(cache)
+          .build();
+</code></pre>]]></content>
+      
+        <categories>
+            
+            <category> Android学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 依赖框架 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[使用Retrofit框架]]></title>
       <url>/2017/06/07/%E4%BD%BF%E7%94%A8Retrofit%E6%A1%86%E6%9E%B6/</url>
       <content type="html"><![CDATA[<p>先添加几个权限</p>
