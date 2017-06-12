@@ -37,8 +37,8 @@
 <li><p>名称空间的引用<br>（1）有前缀的名称空间：在开始标记和结束标记的名字前面添加名称空间的前缀和冒号来引用名称空间;<br>（2）无前缀的名称空间：该标记及其子标记都默认地隶属于这个名称空间;<br>（3）无前缀的名称空间：子标记也可以重新声明名称空间。</p>
 <h3>xml约束：</h3>
 </li>
-<li><p>DTD约束：（内部约束，外部约束）<br>内部约束：直接写在xml文档中</p>
-<p>&lt;?xml version=”1.0” encoding=”gbk”?&gt;<br>&lt;!DOCTYPE 书架（根元素）[</p>
+<li><p>DTD约束：（内部约束，外部约束）<br>内部约束：</p>
+<p>直接写在xml文档中:<br>&lt;?xml version=”1.0” encoding=”gbk”?&gt;<br>&lt;!DOCTYPE 书架（根元素）[</p>
 <pre><code>&lt;!ELEMENT 书架 (书+)&gt;//根元素包含的子元素书最少一个
 &lt;!ELEMENT 书 (书名,作者,售价)&gt;//子元素必须包含的子标签
 &lt;!ELEMENT 书名 (#PCDATA)&gt;//PCDATA表示元素的主体内容为普通文本
