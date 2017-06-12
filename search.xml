@@ -5,8 +5,7 @@
     <entry>
       <title><![CDATA[XML复习知识总结]]></title>
       <url>/2017/06/12/XML%E5%A4%8D%E4%B9%A0%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</url>
-      <content type="html"><![CDATA[<p>XML复习</p>
-<h2>java开发工具的使用</h2>
+      <content type="html"><![CDATA[<h2>java开发工具的使用</h2>
 
 <ul>
 <li>Intellij IDEA环境使用</li>
@@ -80,13 +79,21 @@
 </code></pre></blockquote>
 <p><strong><em>DTD语法：</em></strong><br><em>DTD的基本结构</em>：① DTD的开始标记定义元素，这是DTD中最主要注释；② 定义元素属性；<br><em>XML与DTD的关联</em>：外部DTD关联形式<code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;gb2312&quot; ?&gt;</code>私有DTD引用<code>&lt;!DOCTYPE 根元素名SYSTEM  “DTD文件的URI&quot;&gt;</code>；<br><em>公共DTD引用</em>：<code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;gb2312&quot; ?&gt;</code> <code>&lt;!DOCTYPE 根元素名PUBLIC“DTD名称” “DTD文件的URI&quot;&gt;</code><br><strong><em>用脚本校验xml是否符合DTD约束</em></strong></p>
 <ol>
-<li><p>Schema<br>Schema语法（会读就可以）<br>名称空间，著名名称空间<br><img src="/images/20170612172737.jpg" alt="此处输入图片的描述"><br></p><h3>xml解析：</h3><br>程序对xml的读写，生成相应的对象<br>dom解析：只需解析一次，生成对象，但加载完整的树之后才开始解析<br>—dom4j案例<p></p>
-<p> //xml文本<br> &lt;?xml version=”1.0” encoding=”UTF-8” standalone=”no”?&gt;</p>
- <state code="37" name="山东" description="省会"><br>     <city><br>         <name>济南</name><br>         <region>历下区</region><br>     </city><br>     <city>青岛</city><br>     <city>威海</city><br>     <city>泰安</city><br> </state>
-
-
-</li>
+<li>Schema<br>Schema语法（会读就可以）<br>名称空间，著名名称空间<br><img src="/images/20170612172737.jpg" alt="此处输入图片的描述"><br><h3>xml解析：</h3><br>程序对xml的读写，生成相应的对象<br>dom解析：只需解析一次，生成对象，但加载完整的树之后才开始解析<br>—dom4j案例</li>
 </ol>
+<blockquote>
+<pre><code>//xml文本
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;State Code=&quot;37&quot; Name=&quot;山东&quot; description=&quot;省会&quot;&gt;
+    &lt;City&gt;
+        &lt;Name&gt;济南&lt;/Name&gt;
+        &lt;Region&gt;历下区&lt;/Region&gt;
+    &lt;/City&gt;
+    &lt;City&gt;青岛&lt;/City&gt;
+    &lt;City&gt;威海&lt;/City&gt;
+    &lt;City&gt;泰安&lt;/City&gt;
+&lt;/State&gt;
+</code></pre></blockquote>
 <pre><code>import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Transformer;
