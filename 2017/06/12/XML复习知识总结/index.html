@@ -109,12 +109,13 @@
 <meta property="og:url" content="https://escnqh.github.io/2017/06/12/XML复习知识总结/index.html">
 <meta property="og:site_name" content="Escnqh">
 <meta property="og:description" content="XML复习 java开发工具的使用   Intellij IDEA环境使用 Tomcat使用  xml：平台语言沟通的桥梁 校验：使用浏览器xml语法：  XML（eXtensible Markup Language）,可扩展标记语言。“可扩展”，即用户可以自定义标记。   文档声明：&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;GB2312&amp;qu">
-<meta property="og:image" content="https://escnqh.github.io/images/20170612132124.png">
-<meta property="og:updated_time" content="2017-06-12T06:22:13.324Z">
+<meta property="og:image" content="https://escnqh.github.io/images/20170612132124.jpg">
+<meta property="og:image" content="https://escnqh.github.io/images/20170612172737.jpg">
+<meta property="og:updated_time" content="2017-06-12T09:31:08.747Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XML复习知识总结">
 <meta name="twitter:description" content="XML复习 java开发工具的使用   Intellij IDEA环境使用 Tomcat使用  xml：平台语言沟通的桥梁 校验：使用浏览器xml语法：  XML（eXtensible Markup Language）,可扩展标记语言。“可扩展”，即用户可以自定义标记。   文档声明：&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;GB2312&amp;qu">
-<meta name="twitter:image" content="https://escnqh.github.io/images/20170612132124.png">
+<meta name="twitter:image" content="https://escnqh.github.io/images/20170612132124.jpg">
 
 
 
@@ -461,7 +462,7 @@
 <h3>校验：</h3><br>使用浏览器<br><h3>xml语法：</h3>
 
 <pre><code>XML（eXtensible Markup Language）,可扩展标记语言。“可扩展”，即用户可以自定义标记。
-</code></pre><p><img src="/images/20170612132124.png" alt="此处输入图片的描述"></p>
+</code></pre><p><img src="/images/20170612132124.jpg" alt="此处输入图片的描述"></p>
 <ol>
 <li>文档声明：<br><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot;  standalone=&quot;yes&quot; ?&gt;</code><br>XML是一种元语言。<code>&lt;?xml version=“1.0”?&gt;</code>书写xml文件应注意：xml声明语句必须作为文件的第一行；</li>
 <li>根标记：<br>xml有且仅有一个跟标记，其他标记必须封装在根标记中，文件的标记必须形成树状结构；</li>
@@ -482,17 +483,22 @@
 <li><p>名称空间的引用<br>（1）有前缀的名称空间：在开始标记和结束标记的名字前面添加名称空间的前缀和冒号来引用名称空间;<br>（2）无前缀的名称空间：该标记及其子标记都默认地隶属于这个名称空间;<br>（3）无前缀的名称空间：子标记也可以重新声明名称空间。</p>
 <h3>xml约束：</h3>
 </li>
-<li><p>DTD约束：（内部约束，外部约束）<br>内部约束：</p>
-<p>直接写在xml文档中:<br>&lt;?xml version=”1.0” encoding=”gbk”?&gt;<br>&lt;!DOCTYPE 书架（根元素）[</p>
-<pre><code>&lt;!ELEMENT 书架 (书+)&gt;//根元素包含的子元素书最少一个
-&lt;!ELEMENT 书 (书名,作者,售价)&gt;//子元素必须包含的子标签
-&lt;!ELEMENT 书名 (#PCDATA)&gt;//PCDATA表示元素的主体内容为普通文本
-&lt;!ELEMENT 作者 (#PCDATA)&gt;
-&lt;!ELEMENT 售价 (#PCDATA)&gt;         
-</code></pre><p>]&gt;<br>&lt;书架&gt;</p>
+<li><p>DTD约束：（内部约束，外部约束）<br>内部约束：直接写在xml文档中</p>
 </li>
 </ol>
+<blockquote>
+<pre><code>&lt;?xml version=”1.0” encoding=”gbk”?&gt;
+&lt;!DOCTYPE 书架（根元素）[
+    &lt;!ELEMENT 书架 (书+)&gt;//根元素包含的子元素书最少一个
+    &lt;!ELEMENT 书 (书名,作者,售价)&gt;//子元素必须包含的子标签
+    &lt;!ELEMENT 书名 (#PCDATA)&gt;//PCDATA表示元素的主体内容为普通文本
+    &lt;!ELEMENT 作者 (#PCDATA)&gt;
+    &lt;!ELEMENT 售价 (#PCDATA)&gt;         
+]&gt;
+&lt;书架&gt;
+</code></pre></blockquote>
 <p>外部约束：外部引入.dtd作为单独的文件存在。文件扩展名.dtd,文件必须用UTF-8编码保存到磁盘上</p>
+<blockquote>
 <pre><code>//dtd文件在本地：
 &lt;!DOCTYPE 根元素 SYSTEM  “dtd文件的地址”&gt;
 //dtd文件在外地（网上）：
@@ -517,17 +523,109 @@
         &lt;/DAY&gt;
     &lt;/CHANNEL&gt;
 &lt;/TVSCHEDULE&gt;
-</code></pre><p> DTD语法：<br>DTD的基本结构：① DTD的开始标记定义元素，这是DTD中最主要注释；② 定义元素属性；<br>用脚本校验xml是否符合DTD约束<br>.dtd文件应使用UTF-8或Unicode编码  </p>
+</code></pre></blockquote>
+<p><strong><em>DTD语法：</em></strong><br><em>DTD的基本结构</em>：① DTD的开始标记定义元素，这是DTD中最主要注释；② 定义元素属性；<br><em>XML与DTD的关联</em>：外部DTD关联形式<code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;gb2312&quot; ?&gt;</code>私有DTD引用<code>&lt;!DOCTYPE 根元素名SYSTEM  “DTD文件的URI&quot;&gt;</code>；<br><em>公共DTD引用</em>：<code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;gb2312&quot; ?&gt;</code> <code>&lt;!DOCTYPE 根元素名PUBLIC“DTD名称” “DTD文件的URI&quot;&gt;</code><br><strong><em>用脚本校验xml是否符合DTD约束</em></strong></p>
 <ol>
-<li><p>Schema</p>
-<pre><code>Schema语法（会读就可以）  
-名称空间，著名名称空间
-</code></pre><p>xml解析：<br>程序对xml的读写，生成相应的对象  </p>
-<pre><code>dom解析：只需解析一次，生成对象，但加载完整的树之后才开始解析    ---dom4j案例  
-sax解析：（解析器和事件处理器）  
-</code></pre></li>
-</ol>
+<li><p>Schema<br>Schema语法（会读就可以）<br>名称空间，著名名称空间<br><img src="/images/20170612172737.jpg" alt="此处输入图片的描述"><br></p><h3>xml解析：</h3><br>程序对xml的读写，生成相应的对象<br>dom解析：只需解析一次，生成对象，但加载完整的树之后才开始解析<br>—dom4j案例<p></p>
+<p> //xml文本<br> &lt;?xml version=”1.0” encoding=”UTF-8” standalone=”no”?&gt;</p>
+ <state code="37" name="山东" description="省会"><br>     <city><br>         <name>济南</name><br>         <region>历下区</region><br>     </city><br>     <city>青岛</city><br>     <city>威海</city><br>     <city>泰安</city><br> </state>
 
+
+</li>
+</ol>
+<pre><code>import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+public class JaxpDemo {
+    public static void main(String[] args) throws Exception {   
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();//得到创建解析器的工厂：DocumentBuilderFactory
+        DocumentBuilder builder = factory.newDocumentBuilder();//通过工厂得到解析器：DocumentBuilder
+        Document document = builder.parse(&quot;xml文件路径&quot;);//加载xml文件：得到了Document对象    
+    }
+    public static void test1(Document document){//得到某个具体的节点内容
+        NodeList nl = document.getElementsByTagName(&quot;City&quot;);//得到所有的City元素，
+        Node node = nl.item(2);//索引从0开始
+        System.out.println(node.getTextContent());//打印获得节点的主体内容
+    }
+    public static void test2(Document document){//遍历所有元素节点。
+        Node rootNode = document.getElementsByTagName(&quot;State&quot;).item(0);
+        treewalk(rootNode);
+    }
+    public static void treewalk(Node node){//递归
+        if(node.getNodeType()==Node.ELEMENT_NODE){//是一个元素节点
+            System.out.println(node.getNodeName());//打印元素的名称
+        }
+        NodeList nl = node.getChildNodes();//看看他有没有孩子
+        for(int i=0;i&lt;nl.getLength();i++){
+            Node n = nl.item(i);
+            treewalk(n);//递归
+        }
+    }
+    public static void test3(Document document) throws Exception{//修改某个元素节点的主体内容
+        Node secondCityNode = document.getElementsByTagName(&quot;City&quot;).item(1);//找到第2个City元素
+        secondCityNode.setTextContent(&quot;威海&quot;);//设置主体内容为：威海
+        //把内存中的Document写到xml文件中
+        TransformerFactory tf = TransformerFactory.newInstance();
+        Transformer ts = tf.newTransformer();
+        ts.transform(new DOMSource(document), new StreamResult(&quot;src/LocList.xml&quot;));
+    }
+    public static void test4(Document document) throws Exception{//向指定元素节点中增加子元素节
+        Element e = document.createElement(&quot;City&quot;);//&lt;City&gt;&lt;/City&gt;//创建新元素
+        e.setTextContent(&quot;烟台&quot;);//&lt;City&gt;烟台&lt;/City&gt;
+        Node rootNode = document.getElementsByTagName(&quot;State&quot;).item(0);
+        rootNode.appendChild(e);//把新元素添加到State最后
+        //把内存中的Document写到xml文件中
+        TransformerFactory tf = TransformerFactory.newInstance();
+        Transformer ts = tf.newTransformer();
+        ts.transform(new DOMSource(document), new StreamResult(&quot;src/LocList.xml&quot;));
+    }
+    public static void test5(Document document) throws Exception{//向指定元素节点上增加同级元素节点
+        Element e = document.createElement(&quot;City&quot;);//创建新元素
+        e.setTextContent(&quot;青岛&quot;);
+        //调用inertBefore插入新节点：必须由父节点来调用
+        Node secondNode = document.getElementsByTagName(&quot;City&quot;).item(1);
+        secondNode.getParentNode().insertBefore(e, secondNode);
+        //把内存中的Document写到xml文件中
+        TransformerFactory tf = TransformerFactory.newInstance();
+        Transformer ts = tf.newTransformer();
+        ts.transform(new DOMSource(document), new StreamResult(&quot;src/LocList.xml&quot;));
+    }
+    public static void test6(Document document) throws Exception{//删除指定元素节点
+        Node ytNode = document.getElementsByTagName(&quot;City&quot;).item(4);//得到烟台节点
+        ytNode.getParentNode().removeChild(ytNode);//用父节点删除 
+        //把内存中的Document写到xml文件中
+        TransformerFactory tf = TransformerFactory.newInstance();
+        Transformer ts = tf.newTransformer();
+        ts.transform(new DOMSource(document), new StreamResult(&quot;src/LocList.xml&quot;));
+    }
+    public static void test7(Document document) throws Exception{//操作XML文件属性
+        Node stateNode = document.getElementsByTagName(&quot;State&quot;).item(0);//看成元素
+        if(stateNode.getNodeType()==Node.ELEMENT_NODE){
+            Element e = (Element)stateNode;
+            System.out.println(e.getAttribute(&quot;Name&quot;));
+        }
+    }
+    public static void test8(Document document) throws Exception{//8、添加属性
+        Node stateNode = document.getElementsByTagName(&quot;State&quot;).item(0);//看成元素
+        if(stateNode.getNodeType()==Node.ELEMENT_NODE){
+            Element e = (Element)stateNode;
+            e.setAttribute(&quot;description&quot;, &quot;省会&quot;);
+        }
+        //把内存中的Document写到xml文件中
+        TransformerFactory tf = TransformerFactory.newInstance();
+        Transformer ts = tf.newTransformer();
+        ts.transform(new DOMSource(document), new StreamResult(&quot;src/LocList.xml&quot;));
+    }
+}
+</code></pre>
       
     </div>
 
@@ -783,7 +881,7 @@ sax解析：（解析器和事件处理器）
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">java开发工具的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">xml：平台语言沟通的桥梁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">校验：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">xml语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">xml约束：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">java开发工具的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">xml：平台语言沟通的桥梁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">校验：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">xml语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">xml约束：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">xml解析：</span></a></li></ol></li></ol></div>
             
 
           </div>
