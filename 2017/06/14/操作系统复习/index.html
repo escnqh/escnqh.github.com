@@ -102,13 +102,13 @@
 
 
 
-<meta name="description" content="操作系统复习标签（空格分隔）： 未分类  复习时听的歌    主要整理了考试/考研大纲中的重点内容，根据课件笔记和一些帖子整理   对于Hello World程序，操作系统做了什么？#include &amp;lt;stdio.h&amp;gt;  int main(int argc, char *argv[])  {     printf(&amp;quot;hello world&amp;quot;);      retur">
+<meta name="description" content="复习时听的歌    主要整理了考试/考研大纲中的重点内容，根据课件笔记和一些帖子整理   对于Hello World程序，操作系统做了什么？#include &amp;lt;stdio.h&amp;gt;  int main(int argc, char *argv[])  {     printf(&amp;quot;hello world&amp;quot;);      return 0;   } 用户告诉操作系统执行he">
 <meta name="keywords" content="OS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统复习">
 <meta property="og:url" content="https://escnqh.github.io/2017/06/14/操作系统复习/index.html">
 <meta property="og:site_name" content="Escnqh">
-<meta property="og:description" content="操作系统复习标签（空格分隔）： 未分类  复习时听的歌    主要整理了考试/考研大纲中的重点内容，根据课件笔记和一些帖子整理   对于Hello World程序，操作系统做了什么？#include &amp;lt;stdio.h&amp;gt;  int main(int argc, char *argv[])  {     printf(&amp;quot;hello world&amp;quot;);      retur">
+<meta property="og:description" content="复习时听的歌    主要整理了考试/考研大纲中的重点内容，根据课件笔记和一些帖子整理   对于Hello World程序，操作系统做了什么？#include &amp;lt;stdio.h&amp;gt;  int main(int argc, char *argv[])  {     printf(&amp;quot;hello world&amp;quot;);      return 0;   } 用户告诉操作系统执行he">
 <meta property="og:image" content="https://escnqh.github.io/images/20170613194924.jpg">
 <meta property="og:image" content="https://escnqh.github.io/images/20170613200116.jpg">
 <meta property="og:image" content="https://escnqh.github.io/images/20170614142157.jpg">
@@ -119,10 +119,10 @@
 <meta property="og:image" content="https://escnqh.github.io/images/20170614151323.jpg">
 <meta property="og:image" content="https://escnqh.github.io/images/20170614151359.jpg">
 <meta property="og:image" content="https://escnqh.github.io/images/20170614151555.jpg">
-<meta property="og:updated_time" content="2017-06-14T07:34:26.651Z">
+<meta property="og:updated_time" content="2017-06-14T07:56:58.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="操作系统复习">
-<meta name="twitter:description" content="操作系统复习标签（空格分隔）： 未分类  复习时听的歌    主要整理了考试/考研大纲中的重点内容，根据课件笔记和一些帖子整理   对于Hello World程序，操作系统做了什么？#include &amp;lt;stdio.h&amp;gt;  int main(int argc, char *argv[])  {     printf(&amp;quot;hello world&amp;quot;);      retur">
+<meta name="twitter:description" content="复习时听的歌    主要整理了考试/考研大纲中的重点内容，根据课件笔记和一些帖子整理   对于Hello World程序，操作系统做了什么？#include &amp;lt;stdio.h&amp;gt;  int main(int argc, char *argv[])  {     printf(&amp;quot;hello world&amp;quot;);      return 0;   } 用户告诉操作系统执行he">
 <meta name="twitter:image" content="https://escnqh.github.io/images/20170613194924.jpg">
 
 
@@ -459,10 +459,8 @@
       
 
       
-        <h1 id="操作系统复习"><a href="#操作系统复习" class="headerlink" title="操作系统复习"></a>操作系统复习</h1><p>标签（空格分隔）： 未分类</p>
-<hr>
-<p>复习时听的歌</p>
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="450" src="//music.163.com/outchain/player?type=0&id=450041212&auto=0&height=430"></iframe>
+        <p>复习时听的歌</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=450041212&auto=0&height=66"></iframe>
 
 <blockquote>
 <p>主要整理了考试/考研大纲中的重点内容，根据课件笔记和一些帖子整理</p>
@@ -476,37 +474,34 @@ int main(int argc, char *argv[])
  }
 </code></pre><p>用户告诉操作系统执行hello程序<br>操作系统找到该程序，检查其类型<br>检查程序首部，找出正文和数据的地址<br>文件系统找到第一个磁盘块<br>父进程需要创建一个新的子进程，执行hello程序<br>操作系统需要将执行文件映射到进程结构<br>操作系统设置CPU上下文环境，并跳到程序开始处<br>程序的第一条指令执行，失败，缺页中断发生<br>操作系统分配一页内存，并将代码从磁盘读入，继续执行<br>更多的缺页中断，读入更多的页面<br>操作系统检查字符串的位置是否正确<br>操作系统找到字符串被送往的设备<br>设备是一个伪终端，由一个进程控制<br>操作系统将字符串送给该进程<br>该进程告诉窗口系统它要显示字符串<br>窗口系统确定这是一个合法的操作，然后将字符串转换 成像素<br>窗口系统将像素写入存储映像区<br>视频硬件将像素表示转换成一组模拟信号控制显示器 （重画屏幕）<br>显示器发射电子束<br>你在屏幕上看到hello world</p>
 <hr>
-<p>##第一章 操作系统引论</p>
-<p>计算机系统的组成：<br><img src="/images/20170613194924.jpg" alt="此处输入图片的描述"><br>操作系统在计算机系统中的地位：<br><img src="/images/20170613200116.jpg" alt="此处输入图片的描述"></p>
-<p>###操作系统的作用<br>操作系统通过其接口作用管理软件和硬件资源，实现了对计算机资源的抽象。</p>
-<p>###操作系统发展历程<br><a href="http://baike.baidu.com/link?url=VsvbKRwY_wL4bFRE9u4pODJx31dbTEajbZZm8WaDEuxknx5ZgN6RiVLhEj7t3ltpWQlqrCJZ4DwKQCMU89Npn0C7E4kgT13eydsA6v7C1axaCtTzk7afkSWyZZNm9pdUirQ2eybDbB33LITnO-PFt9d_0BosKlJvFxUBBq-vOUi" target="_blank" rel="external">百度百科</a></p>
-<p>###操作系统的基本特性</p>
-<p>####<strong><em>并发(concurrency)</em></strong><br>多个事件在<strong>同一时间段</strong>内发生。操作系统是一个并发系统，各进程间的并发，系统与应用间的并发。操作系统要完成这些并发过程的管理。并行(parallel) 是指在<strong>同一时刻</strong>发生。<br>（1）在多道程序处理时，宏观上并发，<strong>微观上交替执行</strong>（在单处理器情况下，程序抢占资源啥的）（在有多个处理机时，这些由并发执行的程序便可以分配到多个处理机上，实现并行执行）；<br>（2）程序的静态实体是可执行文件，而动态实体是进程（Process）（或称作任务），并发指的是进程；<br>（3）在一个未引入进程的系统中，在属于同一个应用程序的计算程序和I/O程序之间只能是顺序执行，但在为计算程序和I/O程序分别建立一个Process之后即可并发执行，极大提高了系统资源的利用率；<br>（4）进程：指在系统中能独立运行并作为资源分配的基本单位，它由一组机器指令、数据和堆栈等组成的，是一个能独立运行的活动实体。多个进程之间可以并发执行和交换信息。（详细见第二章）</p>
-<p>####<strong><em>共享(sharing)</em></strong><br>多个进程共享有限的计算机系统资源。操作系统要对系统资源进行合理分配和使用。资源在一个时间段内交替被多个进程所用。<br>（1）互斥共享（如视频设备）：资源分配后到释放前，不能被其他进程所用（应建立一种机制来保证这种互斥访问）；<br>（2）同时访问（磁盘文件，数据库）（单处理机环境中还是宏观概念，微观上还是交替进行）；<br>（3）资源分配难以达到最优化（问题所在）。</p>
-<p>####<strong><em>虚拟(virtual)</em></strong><br>一个物理实体映射为若干个对应的逻辑实体——分时或分空间。虚拟是操作系统管理系统资源的 重要手段，可提高资源利用率。<br>在操作系统中利用了多种虚拟技术，分别用来实现虚拟处理器、虚拟内存和虚拟外部设备等。<br>此时，虽然只有一个处理器，但它能同时为多个用户服务，使每个终端用户都感觉有一个中央处理器（CPU）在专门为它服务。利用多道程序设计技术，把一个物理上的CPU虚拟为多个逻辑上的CPU，称为虚拟处理器。类似地，可以通过虚拟存储器技术，将一台机器的物理存储器变为虚拟存储器，以便从逻辑上来扩充存储器的容量。因此，操作系统的虚拟技术可归纳为：时分复用技术，如处理器的分时共享；空分复用技术，如虚拟存储器。<br>（1）CPU——每个用户（进程）的”虚处理机”；<br>（2）存储器——每个进程都占有的地址空间（指令 ＋数据＋堆栈）</p>
-<p>####<strong><em>异步性(asynchronism)</em></strong><br>也称不确定性，指进程的执行顺序和执行时间的不确定性<br>进程的运行速度不可预知：分时系统中，多个进程并发执行，程序是以走走停停的方式运行的。系统中的每个程序何时执行，执行顺序，完成时间都是 不确定的。<br>异步性使得操作系统运行在一种随机的环境下，可能导致进程产生与时间有关的错误。<br>但是只要运行环境相同，操作系统必须保证多次运行进程，都获得相同的结果。</p>
-<p>###操作系统的主要功能<br>引入OS的主要目的是为多道程序的运行提供良好的运行环境。</p>
-<p>####<strong><em>处理机管理</em></strong><br>完成处理机资源的分配调度等功能。处理机调度的单位可为进程或线程。<br>（1）进程控制：创建、撤销、状态转换<br>（2）进程同步：对并发执行的进程进行协调<br>常用的两种：<br>    1.进程互斥方式：为每个临界资源配置一把锁W，当锁打开时，进程可以对该临界资源进行访问；而当锁关上时，则禁止进程访问资源；<br>    2.进程同步方式：最常用的机制是信号量机制；<br>（3）进程通信：负责完成进程间的信息交换：通常采用直接通信方式，即由源进程利用发送命令直接将消息（message）挂到目标进程的消息队列（Looper？）上，以后由目标进程利用接收命令从队列中取出消息；<br>（4）进程调度：包括作业调度和进程调度（按一定算法进行处理机分配）两步；</p>
-<p>####<strong><em>存储管理</em></strong><br>（1）内存分配：按一定的策略分配（以及动态分配）内存（提高利用率）并负责回收<br>（2）内存保护：保证进程间互不干扰、相互保密<br>一种简单的内存保护机制：设置两个界限寄存器，分别放在正在执行程序的上界和下界，在程序运行时，系统对每条指令的访问请求地址进行检查，如果发生越界，便发出越界中断请求，停止该程序运行；<br>（3）地址映射：进程逻辑地址到内存物理地址的映射；<br>（4）内存扩充：为允许大型作业或多个作业运行，借助<em>虚拟技术</em>获得更大逻辑内存的效果；</p>
-<p>####<strong><em>设备管理</em></strong><br>（1）设备分配：为了使设备与主机并行工作，根据一定的分配原则对设备进行分配，常常采用缓冲技术和虚拟技术<br>（2）设备传输控制：实现物理的输入/输出操作<br>（3）设备独立性：用户向系统申请的设备和实际操作的设备无关</p>
-<p>####<strong><em>文件管理</em></strong><br>（1）文件存储空间管理：存储空间的分配和回收<br>（2）目录管理：解决信息检索问题<br>（3）文件操作管理：实现文件的操作，负责完成数据的读写<br>（4）文件保护：提供文件保护功能，防止文件遭到破坏</p>
-<p>####<strong><em>用户接口</em></strong><br>目标：提供一个友好的用户访问操作系统的接口。 操作系统向上提供两种接口：<br>（1）命令接口：提供一组命令给用户，图形化接口<br>（2）程序接口：提供一组系统调用供用户程序或其 他系统程序调用，比如库函数；</p>
-<p>##第二章 操作系统的硬件环境<br>简单个人计算机中的部件：<br><img src="/images/20170614142157.jpg" alt="此处输入图片的描述"></p>
-<p>###中央处理器</p>
-<p>####1.CPU的构成与基本工作方式<br>处理器由运算器、控制器、一系列的寄存器以及高速缓存构成</p>
+<h2 id="第一章-操作系统引论"><a href="#第一章-操作系统引论" class="headerlink" title="第一章 操作系统引论"></a>第一章 操作系统引论</h2><p>计算机系统的组成：<br><img src="/images/20170613194924.jpg" alt="此处输入图片的描述"><br>操作系统在计算机系统中的地位：<br><img src="/images/20170613200116.jpg" alt="此处输入图片的描述"></p>
+<h3 id="操作系统的作用"><a href="#操作系统的作用" class="headerlink" title="操作系统的作用"></a>操作系统的作用</h3><p>操作系统通过其接口作用管理软件和硬件资源，实现了对计算机资源的抽象。</p>
+<h3 id="操作系统发展历程"><a href="#操作系统发展历程" class="headerlink" title="操作系统发展历程"></a>操作系统发展历程</h3><p><a href="http://baike.baidu.com/link?url=VsvbKRwY_wL4bFRE9u4pODJx31dbTEajbZZm8WaDEuxknx5ZgN6RiVLhEj7t3ltpWQlqrCJZ4DwKQCMU89Npn0C7E4kgT13eydsA6v7C1axaCtTzk7afkSWyZZNm9pdUirQ2eybDbB33LITnO-PFt9d_0BosKlJvFxUBBq-vOUi" target="_blank" rel="external">百度百科</a></p>
+<h3 id="操作系统的基本特性"><a href="#操作系统的基本特性" class="headerlink" title="操作系统的基本特性"></a>操作系统的基本特性</h3><h4 id="并发-concurrency"><a href="#并发-concurrency" class="headerlink" title="并发(concurrency)"></a><strong><em>并发(concurrency)</em></strong></h4><p>多个事件在<strong>同一时间段</strong>内发生。操作系统是一个并发系统，各进程间的并发，系统与应用间的并发。操作系统要完成这些并发过程的管理。并行(parallel) 是指在<strong>同一时刻</strong>发生。<br>（1）在多道程序处理时，宏观上并发，<strong>微观上交替执行</strong>（在单处理器情况下，程序抢占资源啥的）（在有多个处理机时，这些由并发执行的程序便可以分配到多个处理机上，实现并行执行）；<br>（2）程序的静态实体是可执行文件，而动态实体是进程（Process）（或称作任务），并发指的是进程；<br>（3）在一个未引入进程的系统中，在属于同一个应用程序的计算程序和I/O程序之间只能是顺序执行，但在为计算程序和I/O程序分别建立一个Process之后即可并发执行，极大提高了系统资源的利用率；<br>（4）进程：指在系统中能独立运行并作为资源分配的基本单位，它由一组机器指令、数据和堆栈等组成的，是一个能独立运行的活动实体。多个进程之间可以并发执行和交换信息。（详细见第二章）</p>
+<h4 id="共享-sharing"><a href="#共享-sharing" class="headerlink" title="共享(sharing)"></a><strong><em>共享(sharing)</em></strong></h4><p>多个进程共享有限的计算机系统资源。操作系统要对系统资源进行合理分配和使用。资源在一个时间段内交替被多个进程所用。<br>（1）互斥共享（如视频设备）：资源分配后到释放前，不能被其他进程所用（应建立一种机制来保证这种互斥访问）；<br>（2）同时访问（磁盘文件，数据库）（单处理机环境中还是宏观概念，微观上还是交替进行）；<br>（3）资源分配难以达到最优化（问题所在）。</p>
+<h4 id="虚拟-virtual"><a href="#虚拟-virtual" class="headerlink" title="虚拟(virtual)"></a><strong><em>虚拟(virtual)</em></strong></h4><p>一个物理实体映射为若干个对应的逻辑实体——分时或分空间。虚拟是操作系统管理系统资源的 重要手段，可提高资源利用率。<br>在操作系统中利用了多种虚拟技术，分别用来实现虚拟处理器、虚拟内存和虚拟外部设备等。<br>此时，虽然只有一个处理器，但它能同时为多个用户服务，使每个终端用户都感觉有一个中央处理器（CPU）在专门为它服务。利用多道程序设计技术，把一个物理上的CPU虚拟为多个逻辑上的CPU，称为虚拟处理器。类似地，可以通过虚拟存储器技术，将一台机器的物理存储器变为虚拟存储器，以便从逻辑上来扩充存储器的容量。因此，操作系统的虚拟技术可归纳为：时分复用技术，如处理器的分时共享；空分复用技术，如虚拟存储器。<br>（1）CPU——每个用户（进程）的”虚处理机”；<br>（2）存储器——每个进程都占有的地址空间（指令 ＋数据＋堆栈）</p>
+<h4 id="异步性-asynchronism"><a href="#异步性-asynchronism" class="headerlink" title="异步性(asynchronism)"></a><strong><em>异步性(asynchronism)</em></strong></h4><p>也称不确定性，指进程的执行顺序和执行时间的不确定性<br>进程的运行速度不可预知：分时系统中，多个进程并发执行，程序是以走走停停的方式运行的。系统中的每个程序何时执行，执行顺序，完成时间都是 不确定的。<br>异步性使得操作系统运行在一种随机的环境下，可能导致进程产生与时间有关的错误。<br>但是只要运行环境相同，操作系统必须保证多次运行进程，都获得相同的结果。</p>
+<h3 id="操作系统的主要功能"><a href="#操作系统的主要功能" class="headerlink" title="操作系统的主要功能"></a>操作系统的主要功能</h3><p>引入OS的主要目的是为多道程序的运行提供良好的运行环境。</p>
+<h4 id="处理机管理"><a href="#处理机管理" class="headerlink" title="处理机管理"></a><strong><em>处理机管理</em></strong></h4><p>完成处理机资源的分配调度等功能。处理机调度的单位可为进程或线程。<br>（1）进程控制：创建、撤销、状态转换<br>（2）进程同步：对并发执行的进程进行协调<br>常用的两种：<br>    1.进程互斥方式：为每个临界资源配置一把锁W，当锁打开时，进程可以对该临界资源进行访问；而当锁关上时，则禁止进程访问资源；<br>    2.进程同步方式：最常用的机制是信号量机制；<br>（3）进程通信：负责完成进程间的信息交换：通常采用直接通信方式，即由源进程利用发送命令直接将消息（message）挂到目标进程的消息队列（Looper？）上，以后由目标进程利用接收命令从队列中取出消息；<br>（4）进程调度：包括作业调度和进程调度（按一定算法进行处理机分配）两步；</p>
+<h4 id="存储管理"><a href="#存储管理" class="headerlink" title="存储管理"></a><strong><em>存储管理</em></strong></h4><p>（1）内存分配：按一定的策略分配（以及动态分配）内存（提高利用率）并负责回收<br>（2）内存保护：保证进程间互不干扰、相互保密<br>一种简单的内存保护机制：设置两个界限寄存器，分别放在正在执行程序的上界和下界，在程序运行时，系统对每条指令的访问请求地址进行检查，如果发生越界，便发出越界中断请求，停止该程序运行；<br>（3）地址映射：进程逻辑地址到内存物理地址的映射；<br>（4）内存扩充：为允许大型作业或多个作业运行，借助<em>虚拟技术</em>获得更大逻辑内存的效果；</p>
+<h4 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a><strong><em>设备管理</em></strong></h4><p>（1）设备分配：为了使设备与主机并行工作，根据一定的分配原则对设备进行分配，常常采用缓冲技术和虚拟技术<br>（2）设备传输控制：实现物理的输入/输出操作<br>（3）设备独立性：用户向系统申请的设备和实际操作的设备无关</p>
+<h4 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a><strong><em>文件管理</em></strong></h4><p>（1）文件存储空间管理：存储空间的分配和回收<br>（2）目录管理：解决信息检索问题<br>（3）文件操作管理：实现文件的操作，负责完成数据的读写<br>（4）文件保护：提供文件保护功能，防止文件遭到破坏</p>
+<h4 id="用户接口"><a href="#用户接口" class="headerlink" title="用户接口"></a><strong><em>用户接口</em></strong></h4><p>目标：提供一个友好的用户访问操作系统的接口。 操作系统向上提供两种接口：<br>（1）命令接口：提供一组命令给用户，图形化接口<br>（2）程序接口：提供一组系统调用供用户程序或其 他系统程序调用，比如库函数；</p>
+<h2 id="第二章-操作系统的硬件环境"><a href="#第二章-操作系统的硬件环境" class="headerlink" title="第二章 操作系统的硬件环境"></a>第二章 操作系统的硬件环境</h2><p>简单个人计算机中的部件：<br><img src="/images/20170614142157.jpg" alt="此处输入图片的描述"></p>
+<h3 id="中央处理器"><a href="#中央处理器" class="headerlink" title="中央处理器"></a>中央处理器</h3><h4 id="1-CPU的构成与基本工作方式"><a href="#1-CPU的构成与基本工作方式" class="headerlink" title="1.CPU的构成与基本工作方式"></a>1.CPU的构成与基本工作方式</h4><p>处理器由运算器、控制器、一系列的寄存器以及高速缓存构成</p>
 <ul>
 <li>运算器实现指令中的算术和逻辑运算</li>
 <li>控制器负责控制程序运行的流程</li>
 <li>寄存器，它具有最快的访问速度</li>
-<li>高速缓存处于CPU和物理内存之间， 访问速度快于内存，低于寄存器<br><img src="/images/20170614143604.jpg" alt="此处输入图片的描述"><br>处理器中的寄存器：有两类寄存器<br>（1）用户编程寄存器（数据寄存器，地址寄存器，条件码寄存器）<br>（2）控制状态寄存器（程序计数器PC，指令寄存器IR，程序状态字PSW，终端现场保护寄存器）<br><img src="/images/20170614143937.jpg" alt="此处输入图片的描述"><br>####2.处理器的状态与特权指令</li>
+<li>高速缓存处于CPU和物理内存之间， 访问速度快于内存，低于寄存器<br><img src="/images/20170614143604.jpg" alt="此处输入图片的描述"><br>处理器中的寄存器：有两类寄存器<br>（1）用户编程寄存器（数据寄存器，地址寄存器，条件码寄存器）<br>（2）控制状态寄存器（程序计数器PC，指令寄存器IR，程序状态字PSW，终端现场保护寄存器）<br><img src="/images/20170614143937.jpg" alt="此处输入图片的描述"><h4 id="2-处理器的状态与特权指令"><a href="#2-处理器的状态与特权指令" class="headerlink" title="2.处理器的状态与特权指令"></a>2.处理器的状态与特权指令</h4></li>
 </ul>
 <blockquote>
 <p>管态：操作系统管理程序运行的状态，较高的特 权级别，又称为特权态（特态）、系统态<br>目态：用户程序运行时的状态，较低的特权级 别，又称为普通态（普态）、用户态<br>特权指令：只能由操作系统使用的指令</p>
 </blockquote>
 <p><strong><em>管态和目态的差别：</em></strong><br>处理器处于管态时：全部指令（包括特权指令）可以执行；可使用所有资源； 并具有改变处理器状态的能力 处理器处于目态时：只有非特权指令能执行。<br><strong><em>CPU状态的转换：</em></strong><br>目态——–管态：其转换的唯一途径就是通过中断<br>管态——–目态：可用设置PSW实现</p>
-<p>####3.程序状态字PSW<br>特殊寄存器，用以表明处理器当前的工作状态。 通常包括以下状态码：<br>（1）CPU的工作状态码——指明管态还是目态<br>（2）条件码——反映指令执行后的结果特征<br>（3）中断屏蔽码——指出是否允许中断</p>
-<p>###存储系统<br><img src="/images/20170614150801.jpg" alt="此处输入图片的描述"></p>
-<p>####存储访问局部性原理<br><strong>提高存储系统效能关键点：</strong>程序存储访问局部性原理</p>
+<h4 id="3-程序状态字PSW"><a href="#3-程序状态字PSW" class="headerlink" title="3.程序状态字PSW"></a>3.程序状态字PSW</h4><p>特殊寄存器，用以表明处理器当前的工作状态。 通常包括以下状态码：<br>（1）CPU的工作状态码——指明管态还是目态<br>（2）条件码——反映指令执行后的结果特征<br>（3）中断屏蔽码——指出是否允许中断</p>
+<h3 id="存储系统"><a href="#存储系统" class="headerlink" title="存储系统"></a>存储系统</h3><p><img src="/images/20170614150801.jpg" alt="此处输入图片的描述"></p>
+<h4 id="存储访问局部性原理"><a href="#存储访问局部性原理" class="headerlink" title="存储访问局部性原理"></a>存储访问局部性原理</h4><p><strong>提高存储系统效能关键点：</strong>程序存储访问局部性原理</p>
 <blockquote>
 <p>程序执行时，有很多的循环和子程序调用，一旦进入这样的程序段，就会重复存取相同的指令集合<br>对数据存取也有局部性，在较短的时间内，稳定地保持在一个存储器的局部区域</p>
 </blockquote>
@@ -516,28 +511,25 @@ int main(int argc, char *argv[])
 第II级包含1MB，存取时间为1μs
 </code></pre><p>存取I级中的内容，直接存取<br>存取II级，首先被转移到I级，然后再存取</p>
 <p>若在I级存储器中发现存取对象的概率是95%，则平均访问时间为：<br><img src="/images/20170614151115.jpg" alt="此处输入图片的描述"><br>结果非常接近I级存储的存取时间</p>
-<p>####存储保护（界限寄存器）<br>实现方法：</p>
+<h4 id="存储保护（界限寄存器）"><a href="#存储保护（界限寄存器）" class="headerlink" title="存储保护（界限寄存器）"></a>存储保护（界限寄存器）</h4><p>实现方法：</p>
 <blockquote>
 <p>在CPU中设置一对下限寄存器和上限寄存器存放用户作业在主存中的下限和上限地址<br>也可将一个寄存器作为基址寄存器，另一寄存器作为限长寄存器（指示存储区长度）<br>每当CPU要访问主存，硬件自动将被访问的主存地址与界限寄存器的内容进行比较，以判断是否越界<br>如果未越界，则按此地址访问主存，否则将产生程序中断——越界中断（存储保护中断）</p>
 </blockquote>
 <p><img src="/images/20170614151323.jpg" alt="此处输入图片的描述"><br><img src="/images/20170614151359.jpg" alt="此处输入图片的描述"></p>
-<p>###中断机制<br>中断机制是操作系统得以正常工作的最重 要的手段</p>
+<h3 id="中断机制"><a href="#中断机制" class="headerlink" title="中断机制"></a>中断机制</h3><p>中断机制是操作系统得以正常工作的最重 要的手段</p>
 <blockquote>
 <p>它使得OS可以捕获普通程序发出的系统功能调用<br>及时处理设备的中断请求<br>防止用户程序中破坏性的活动等等</p>
 </blockquote>
-<p>####中断定义<br>CPU对系统发生的某个事件作出的一种反应<br>CPU暂停正在执行的程序，保留现场后自动转去执行相应事件的处理程序，处理完成后返回断点，继续执行被打断的程序<br><img src="/images/20170614151555.jpg" alt="此处输入图片的描述"></p>
-<p>####引入中断的目的 </p>
-<blockquote>
+<h4 id="中断定义"><a href="#中断定义" class="headerlink" title="中断定义"></a>中断定义</h4><p>CPU对系统发生的某个事件作出的一种反应<br>CPU暂停正在执行的程序，保留现场后自动转去执行相应事件的处理程序，处理完成后返回断点，继续执行被打断的程序<br><img src="/images/20170614151555.jpg" alt="此处输入图片的描述"></p>
+<h4 id="引入中断的目的"><a href="#引入中断的目的" class="headerlink" title="引入中断的目的"></a>引入中断的目的</h4><blockquote>
 <p>解决主机与外设的并行工作问题<br>提高可靠性<br>实现实时控制</p>
 </blockquote>
 <p>特点：<br>1) 中断是随机的<br>2) 中断是可恢复的<br>3) 中断是自动处理的</p>
-<p>####中断的有关概念</p>
-<blockquote>
+<h4 id="中断的有关概念"><a href="#中断的有关概念" class="headerlink" title="中断的有关概念"></a>中断的有关概念</h4><blockquote>
 <p>中断源：引起中断发生的事件<br>中断寄存器：记录中断<br>中断字：中断寄存器的内容</p>
 </blockquote>
 <p>系统堆栈: 在内存开辟的一块区域，用于临时保存现场</p>
-<p>##第三章</p>
-
+<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2>
       
     </div>
 
@@ -793,7 +785,7 @@ int main(int argc, char *argv[])
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#操作系统复习"><span class="nav-number">1.</span> <span class="nav-text">操作系统复习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对于Hello-World程序，操作系统做了什么？"><span class="nav-number">1.1.</span> <span class="nav-text">对于Hello World程序，操作系统做了什么？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对于Hello-World程序，操作系统做了什么？"><span class="nav-number">1.</span> <span class="nav-text">对于Hello World程序，操作系统做了什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章-操作系统引论"><span class="nav-number">2.</span> <span class="nav-text">第一章 操作系统引论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统的作用"><span class="nav-number">2.1.</span> <span class="nav-text">操作系统的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统发展历程"><span class="nav-number">2.2.</span> <span class="nav-text">操作系统发展历程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统的基本特性"><span class="nav-number">2.3.</span> <span class="nav-text">操作系统的基本特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#并发-concurrency"><span class="nav-number">2.3.1.</span> <span class="nav-text">并发(concurrency)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#共享-sharing"><span class="nav-number">2.3.2.</span> <span class="nav-text">共享(sharing)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚拟-virtual"><span class="nav-number">2.3.3.</span> <span class="nav-text">虚拟(virtual)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步性-asynchronism"><span class="nav-number">2.3.4.</span> <span class="nav-text">异步性(asynchronism)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作系统的主要功能"><span class="nav-number">2.4.</span> <span class="nav-text">操作系统的主要功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#处理机管理"><span class="nav-number">2.4.1.</span> <span class="nav-text">处理机管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储管理"><span class="nav-number">2.4.2.</span> <span class="nav-text">存储管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设备管理"><span class="nav-number">2.4.3.</span> <span class="nav-text">设备管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件管理"><span class="nav-number">2.4.4.</span> <span class="nav-text">文件管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用户接口"><span class="nav-number">2.4.5.</span> <span class="nav-text">用户接口</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章-操作系统的硬件环境"><span class="nav-number">3.</span> <span class="nav-text">第二章 操作系统的硬件环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中央处理器"><span class="nav-number">3.1.</span> <span class="nav-text">中央处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-CPU的构成与基本工作方式"><span class="nav-number">3.1.1.</span> <span class="nav-text">1.CPU的构成与基本工作方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-处理器的状态与特权指令"><span class="nav-number">3.1.2.</span> <span class="nav-text">2.处理器的状态与特权指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-程序状态字PSW"><span class="nav-number">3.1.3.</span> <span class="nav-text">3.程序状态字PSW</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储系统"><span class="nav-number">3.2.</span> <span class="nav-text">存储系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#存储访问局部性原理"><span class="nav-number">3.2.1.</span> <span class="nav-text">存储访问局部性原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储保护（界限寄存器）"><span class="nav-number">3.2.2.</span> <span class="nav-text">存储保护（界限寄存器）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#中断机制"><span class="nav-number">3.3.</span> <span class="nav-text">中断机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#中断定义"><span class="nav-number">3.3.1.</span> <span class="nav-text">中断定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#引入中断的目的"><span class="nav-number">3.3.2.</span> <span class="nav-text">引入中断的目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中断的有关概念"><span class="nav-number">3.3.3.</span> <span class="nav-text">中断的有关概念</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章"><span class="nav-number">4.</span> <span class="nav-text">第三章</span></a></li></ol></div>
             
 
           </div>
