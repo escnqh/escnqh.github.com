@@ -451,7 +451,12 @@
           
           停了有些日子没有管我的博客，这段时间经历了期末考试和服务外包的比赛。今天刚刚结束，刚从武汉回到家里休息了一天，今天早上还约了人来把家里的光纤修好了。现在可以好好整理一下在比赛时候的一些小小的总结。这次的比赛收获的更多是一种应用和熟练，把自己之前学过的一些知识得以运用（才发现是如此的生疏。和队友的构想，讨论，舍弃太自我的想法，长时间的配合和解决一个一个问题，熬过一个一个夜，慢慢整理出的作品。也算是费尽一番心血。
 这篇博客就选取其中的一点心得作为记录，作为对观察者模式的学习和应用总结。
-何为观察者模
+何为观察者模式
+
+观察者模式定义了对象间的一种一对多依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并被自动更新。
+它将观察者和被观察者的对象分离开。提高了应用程序的可维护性和重用性。
+实现观察者模式有很多形式，一种是“注册—通知—撤销注册”的形式。
+观察者Observer：所有潜在的观察者必须实现观察者接口，这个接口只有update方法，当主题改变时，它被调用。具体观察者Concrete
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -625,7 +630,10 @@ xml：平台语言沟通的桥梁
 XML（eXtensible Markup Language）,可扩展标记语言。“可扩展”，即用户可以自定义标记。
 
 
-文档声明：&lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot;  standalone=&quot;yes&quot; ?&gt;XML是一种元语言。&lt;?xml 
+文档声明：&lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot;  standalone=&quot;yes&quot; ?&gt;XML是一种元语言。&lt;?xml version=“1.0”?&gt;书写xml文件应注意：xml声明语句必须作为文件的第一行；
+根标记：xml有且仅有一个跟标记，其他标记必须封装在根标记中，文件的标记必须形成树状结构；
+规范的XML：符合W3C制定的规则；
+xml和HTML的主要区别：① HTML的标记是固定的，预定义的，不可扩展的；而XML的标记是可扩展的，是可以由用户自定义的；② HTML的标记说明了信息的显示格式；而XML
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -791,7 +799,9 @@ XML（eXtensible Markup Language）,可扩展标记语言。“可扩展”，�
 compile &apos;com.zhy:okhttputils:2.0.0&apos;
 HttpURLConnection和OkHttp的比较● HttpURLConnection有的API，OkHttp基本上都有（你有我有全都有呀，哈哈哈）
 ● HttpURLConnection和OkHttp都支持Https，流的上传和下载，超时，IP6、连接池等等
-● OkHttp比HttpURLConnection具有更好的同步异步请求、缓存机制，支持HttpDNS、重定向、Gzip
+● OkHttp比HttpURLConnection具有更好的同步异步请求、缓存机制，支持HttpDNS、重定向、Gzip压缩，平台适应性、很好的服务器IP的转换、直接Socket通信，支持拦截器等等。
+看到这么多机制，是不是觉得很强大，通过Socket直接通信，以及很好的缓存机制，Gzip对于Http头部的压缩传输。自然对于网络请求这块使应用更加省流量、请求的更快。OkHttp对于Https和HttpDNS的支持，使得应用的网络通信安全性更高。当然说了它的好，现在也来说说它的不好之处：
+● OkHttp不支持优先级
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -957,7 +967,11 @@ HttpURLConnection和OkHttp的比较● HttpURLConnection有的API，OkHttp基本
 &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
 &lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
 build.gradle添加依赖，下面会用到的也在这里了：
-compile &apos;com.android.support:appcompa
+compile &apos;com.android.support:appcompat-v7:23.4.0&apos;
+compile &apos;com.android.support:design:23.4.0&apos;
+compile &apos;com.squareup.retrofit2:retrofit:2.0.2&apos;
+compile &apos;com.squareup.retrofit2:converter-gson:2.0.2&apos;
+compil
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1120,7 +1134,8 @@ compile &apos;com.android.support:appcompa
         
           
           ButterKnife-- 项目地址：https://github.com/Jak eWharton/butterknife
-都说程序员都是比较懒的，什么事情都想着让程序自动化帮忙减轻工作量，这个开源库可以让我们从大量的findViewById()和setonclicktListener()解放出来，其对性能的影响微乎其微（查看过Butter Knife的源码，其自定义注解的实现都是限定为RetentionPolicy.CLASS，也就是到编译出.class文件为止有效，在运行时不额外消耗性能，
+都说程序员都是比较懒的，什么事情都想着让程序自动化帮忙减轻工作量，这个开源库可以让我们从大量的findViewById()和setonclicktListener()解放出来，其对性能的影响微乎其微（查看过Butter Knife的源码，其自定义注解的实现都是限定为RetentionPolicy.CLASS，也就是到编译出.class文件为止有效，在运行时不额外消耗性能，其是通过java注解自动生成java代码的形式来完成工作），其也有一个明显的缺点，那就是代码的可读性差一些，但了解了之后，上手也很快。。。
+解放控件对象实例化也就是 findViewById()，一直以来的做法都是一个个定义，然后在 setContentView() 或 inflate() 之后一一来findViewById()进行实例化，而使用 ButterKnife，你只需要在代码中 使用注解
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1293,7 +1308,16 @@ compile &apos;com.android.support:appcompa
 在使用多个异步操作和并需要进行Ui变更时,就变得复杂起来.
 
 
-Handler异步实现的原理和适用的优缺点在Handler 异步实现时,涉及到 Handler, Looper, Messa
+Handler异步实现的原理和适用的优缺点在Handler 异步实现时,涉及到 Handler, Looper, Message,Thread四个对象，实现异步的流程是主线程启动Thread（子线程）运行并生成Message-Looper获取Message并传递给HandlerHandler逐个获取Looper中的Message，并进行UI变更。
+
+使用的优点：
+结构清晰，功能定义明确对于多个后台任务时，简单，清晰
+
+使用的缺点：
+ 在单个后台异步处理时，显得代码过多，结构过于复杂（相对性）
+
+
+AsyncTask介绍
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1461,7 +1485,11 @@ Handler异步实现的原理和适用的优缺点在Handler 异步实现时,涉�
 
 
 代码如下：
-&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=450 src=&quot;//music.163.com
+&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=450 src=&quot;//music.163.com/outchain/player?type=0&amp;id=427685783&amp;auto=1&amp;height=430&quot;&gt;&lt;/iframe&gt;
+效果如下，可以在Blog相应的位置中添加代码段即可显示播放器效果，修改歌单只需要在网易云音乐中将相应的歌单修改即可。
+
+
+嘿嘿其实这里有一个坑就是你拿到我上面的示例代码后直接粘贴会发现音乐是自动播放的，其实在代码中将
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1633,7 +1661,16 @@ Ordered与Sorted接口Ordered排序,按照某种由具体情况决定的顺序�
 Sorted排序,按照天然顺序进行排序,是先天指定的  
 List实现类包括  
     LinkedList,Vector,ArrayList  
-列表接口,继承与Collection
+列表接口,继承与Collection,可以按索引的顺序访问,有索引的Collection  
+    具有列表的功能,元素顺序均是按添加的先后进行排列的,  
+    允许重复的元素,允许多个null元素  
+List常用方法package com.itlwc;  
+
+import java.util.ArrayList;  
+import java.util.List;  
+
+public class Test {  
+    p
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1798,7 +1835,8 @@ List实现类包括
           面向对象编程有三大特性：封装、继承、多态。
 封装隐藏了类的内部实现机制，可以在不影响使用的情况下改变类的内部结构，同时也保护了数据。对外界而已它的内部细节是隐藏的，暴露给外界的只是它的访问方法。
 继承是为了重用父类代码。两个类若存在IS-A的关系就可以使用继承。，同时继承也为实现多态做了铺垫。那么什么是多态呢？多态的实现机制又是什么？请看我一一为你揭开：
-所谓多态就是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底
+所谓多态就是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。因为在程序运行时才确定具体的类，这样，不用修改源程序代码，就可以让引用变量绑定到各种不同的类实现上，从而导致该引用调用的具体方法随之改变，即不修改程序代码就可以改变程序运行时所绑定的具体代码，让程序可以选择多个运行状态，这就是多态性。
+比如你是一个酒神，对酒情有独钟。某日回家发现桌上有几个杯子里
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1961,7 +1999,15 @@ List实现类包括
         
           
           Java关键字final、static使用总结
-一、final根据程序上下文环境，Java关键字final有“这是无法改变的”或者“终态的”含义，它可以修饰非抽象类、非抽象类成员方法和变量。你可能出于两种理解而需要阻止改变：设计或效率。final类不能被继承，没有子类，final类中的方法默认是final的。final方法不能被子类的方法覆盖，但可以被继承。final成员变量表示常量，只能被赋值一次，赋值后值不再改变。final不能用于修饰构造方法。注意：父类的private成员方法是不能被子类
+一、final根据程序上下文环境，Java关键字final有“这是无法改变的”或者“终态的”含义，它可以修饰非抽象类、非抽象类成员方法和变量。你可能出于两种理解而需要阻止改变：设计或效率。final类不能被继承，没有子类，final类中的方法默认是final的。final方法不能被子类的方法覆盖，但可以被继承。final成员变量表示常量，只能被赋值一次，赋值后值不再改变。final不能用于修饰构造方法。注意：父类的private成员方法是不能被子类方法覆盖的，因此private类型的方法默认是final类型的。
+
+1、final类
+ final类不能被继承，因此final类的成员方法没有机会被覆盖，默认都是final的。在设计类时候，如果这个类不需要有子类，类的实现细节不允许改变，并且确信这个类不会载被扩展，那么就设计为final类。
+
+2、final方法
+
+
+如果一个类不允许其子类覆盖某个方法，则可以把这个方法声明为final方法。使用f
           ...
           <!--noindex-->
           <div class="post-button text-center">
