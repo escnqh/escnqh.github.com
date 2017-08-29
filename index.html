@@ -449,7 +449,9 @@
       
         
           
-          停了有些日子没有管我的博客，这段时间经历了期末考试和服务外包的比赛。今天刚刚结束，刚从武汉回到家里休息了一天，今天早上还约了人来把家里的光纤修好了。现在可以好好整理一下在比赛时候的一些小小的总结。这次的比赛收获的更多是一种应用和熟练，把自己之前学过的一些知识得以运用（才发现是如此的生疏。和队友的构想
+          停了有些日子没有管我的博客，这段时间经历了期末考试和服务外包的比赛。今天刚刚结束，刚从武汉回到家里休息了一天，今天早上还约了人来把家里的光纤修好了。现在可以好好整理一下在比赛时候的一些小小的总结。这次的比赛收获的更多是一种应用和熟练，把自己之前学过的一些知识得以运用（才发现是如此的生疏。和队友的构想，讨论，舍弃太自我的想法，长时间的配合和解决一个一个问题，熬过一个一个夜，慢慢整理出的作品。也算是费尽一番心血。
+这篇博客就选取其中的一点心得作为记录，作为对观察者模式的学习和应用总结。
+何为观察者模
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -623,7 +625,7 @@ xml：平台语言沟通的桥梁
 XML（eXtensible Markup Language）,可扩展标记语言。“可扩展”，即用户可以自定义标记。
 
 
-文档声明：&lt;?xml vers
+文档声明：&lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot;  standalone=&quot;yes&quot; ?&gt;XML是一种元语言。&lt;?xml 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -788,7 +790,8 @@ XML（eXtensible Markup Language）,可扩展标记语言。“可扩展”，�
           首先就是导依赖：
 compile &apos;com.zhy:okhttputils:2.0.0&apos;
 HttpURLConnection和OkHttp的比较● HttpURLConnection有的API，OkHttp基本上都有（你有我有全都有呀，哈哈哈）
-● HttpURLConnecti
+● HttpURLConnection和OkHttp都支持Https，流的上传和下载，超时，IP6、连接池等等
+● OkHttp比HttpURLConnection具有更好的同步异步请求、缓存机制，支持HttpDNS、重定向、Gzip
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -952,7 +955,9 @@ HttpURLConnection和OkHttp的比较● HttpURLConnection有的API，OkHttp基本
           
           先添加几个权限
 &lt;uses-permission android:name=&quot;android.permission.INTERNET&quot; /&gt;
-&lt;uses-permission android:name=&quot;android.permission.ACCES
+&lt;uses-permission android:name=&quot;android.permission.ACCESS_NETWORK_STATE&quot; /&gt;
+build.gradle添加依赖，下面会用到的也在这里了：
+compile &apos;com.android.support:appcompa
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1115,7 +1120,7 @@ HttpURLConnection和OkHttp的比较● HttpURLConnection有的API，OkHttp基本
         
           
           ButterKnife-- 项目地址：https://github.com/Jak eWharton/butterknife
-都说程序员都是比较懒的，什么事情都想着让程序自动化帮忙减轻工作量，这个开源库可以让我们从大量的findViewById()和setonclicktListener()解放出来
+都说程序员都是比较懒的，什么事情都想着让程序自动化帮忙减轻工作量，这个开源库可以让我们从大量的findViewById()和setonclicktListener()解放出来，其对性能的影响微乎其微（查看过Butter Knife的源码，其自定义注解的实现都是限定为RetentionPolicy.CLASS，也就是到编译出.class文件为止有效，在运行时不额外消耗性能，
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1284,7 +1289,11 @@ HttpURLConnection和OkHttp的比较● HttpURLConnection有的API，OkHttp基本
 
 
 
-使
+使用的缺点:
+在使用多个异步操作和并需要进行Ui变更时,就变得复杂起来.
+
+
+Handler异步实现的原理和适用的优缺点在Handler 异步实现时,涉及到 Handler, Looper, Messa
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1452,7 +1461,7 @@ HttpURLConnection和OkHttp的比较● HttpURLConnection有的API，OkHttp基本
 
 
 代码如下：
-&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot;
+&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=450 src=&quot;//music.163.com
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1620,7 +1629,11 @@ Collection子接口
     Set,List  
 集合中只能放置对象的引用,不能放置原生数据类型,  
     我们需要使用原生数据类型的封装类才能加入到集合中  
-Ordered与Sorted接口Ordered排序,按照某种由具体情况决定的顺序排序,是后
+Ordered与Sorted接口Ordered排序,按照某种由具体情况决定的顺序排序,是后天指定的  
+Sorted排序,按照天然顺序进行排序,是先天指定的  
+List实现类包括  
+    LinkedList,Vector,ArrayList  
+列表接口,继承与Collection
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1784,7 +1797,8 @@ Ordered与Sorted接口Ordered排序,按照某种由具体情况决定的顺序�
           
           面向对象编程有三大特性：封装、继承、多态。
 封装隐藏了类的内部实现机制，可以在不影响使用的情况下改变类的内部结构，同时也保护了数据。对外界而已它的内部细节是隐藏的，暴露给外界的只是它的访问方法。
-继承是为了重用父类代码。两个类若存在IS-A的关系就可以使用继承。，同时继承也为实现多态做了铺垫。那么什
+继承是为了重用父类代码。两个类若存在IS-A的关系就可以使用继承。，同时继承也为实现多态做了铺垫。那么什么是多态呢？多态的实现机制又是什么？请看我一一为你揭开：
+所谓多态就是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1947,7 +1961,7 @@ Ordered与Sorted接口Ordered排序,按照某种由具体情况决定的顺序�
         
           
           Java关键字final、static使用总结
-一、final根据程序上下文环境，Java关键字final有“这是无法改变的”或者“终态的”含义，它可以修饰非抽象类、非抽象类成员方法和变量。你可能出于两种理解而需要阻止改变：设计或效率。final类不能被继承，没有子类，final类中的方法默认是fi
+一、final根据程序上下文环境，Java关键字final有“这是无法改变的”或者“终态的”含义，它可以修饰非抽象类、非抽象类成员方法和变量。你可能出于两种理解而需要阻止改变：设计或效率。final类不能被继承，没有子类，final类中的方法默认是final的。final方法不能被子类的方法覆盖，但可以被继承。final成员变量表示常量，只能被赋值一次，赋值后值不再改变。final不能用于修饰构造方法。注意：父类的private成员方法是不能被子类
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2059,7 +2073,7 @@ Ordered与Sorted接口Ordered排序,按照某种由具体情况决定的顺序�
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
