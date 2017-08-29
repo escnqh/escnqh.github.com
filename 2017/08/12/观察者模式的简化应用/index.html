@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="XML," />
+  <meta name="keywords" content="设计模式," />
 
 
 
@@ -102,20 +102,19 @@
 
 
 
-<meta name="description" content="java开发工具的使用   Intellij IDEA环境使用 Tomcat使用  xml：平台语言沟通的桥梁 校验：使用浏览器xml语法：  XML（eXtensible Markup Language）,可扩展标记语言。“可扩展”，即用户可以自定义标记。   文档声明：&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;GB2312&amp;quot;  s">
-<meta name="keywords" content="XML">
+<meta name="description" content="停了有些日子没有管我的博客，这段时间经历了期末考试和服务外包的比赛。今天刚刚结束，刚从武汉回到家里休息了一天，今天早上还约了人来把家里的光纤修好了。现在可以好好整理一下在比赛时候的一些小小的总结。这次的比赛收获的更多是一种应用和熟练，把自己之前学过的一些知识得以运用（才发现是如此的生疏。和队友的构想，讨论，舍弃太自我的想法，长时间的配合和解决一个一个问题，熬过一个一个夜，慢慢整理出的作品。也算是费">
+<meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="XML复习知识总结">
-<meta property="og:url" content="https://escnqh.github.io/2017/06/12/XML复习知识总结/index.html">
+<meta property="og:title" content="观察者模式的学习和应用">
+<meta property="og:url" content="https://escnqh.github.io/2017/08/12/观察者模式的简化应用/index.html">
 <meta property="og:site_name" content="Escnqh">
-<meta property="og:description" content="java开发工具的使用   Intellij IDEA环境使用 Tomcat使用  xml：平台语言沟通的桥梁 校验：使用浏览器xml语法：  XML（eXtensible Markup Language）,可扩展标记语言。“可扩展”，即用户可以自定义标记。   文档声明：&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;GB2312&amp;quot;  s">
-<meta property="og:image" content="https://escnqh.github.io/images/20170612132124.jpg">
-<meta property="og:image" content="https://escnqh.github.io/images/20170612172737.jpg">
-<meta property="og:updated_time" content="2017-06-12T09:44:22.175Z">
+<meta property="og:description" content="停了有些日子没有管我的博客，这段时间经历了期末考试和服务外包的比赛。今天刚刚结束，刚从武汉回到家里休息了一天，今天早上还约了人来把家里的光纤修好了。现在可以好好整理一下在比赛时候的一些小小的总结。这次的比赛收获的更多是一种应用和熟练，把自己之前学过的一些知识得以运用（才发现是如此的生疏。和队友的构想，讨论，舍弃太自我的想法，长时间的配合和解决一个一个问题，熬过一个一个夜，慢慢整理出的作品。也算是费">
+<meta property="og:image" content="https://escnqh.github.io/images/20170829180613.jpg">
+<meta property="og:updated_time" content="2017-08-29T12:07:28.632Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="XML复习知识总结">
-<meta name="twitter:description" content="java开发工具的使用   Intellij IDEA环境使用 Tomcat使用  xml：平台语言沟通的桥梁 校验：使用浏览器xml语法：  XML（eXtensible Markup Language）,可扩展标记语言。“可扩展”，即用户可以自定义标记。   文档声明：&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;GB2312&amp;quot;  s">
-<meta name="twitter:image" content="https://escnqh.github.io/images/20170612132124.jpg">
+<meta name="twitter:title" content="观察者模式的学习和应用">
+<meta name="twitter:description" content="停了有些日子没有管我的博客，这段时间经历了期末考试和服务外包的比赛。今天刚刚结束，刚从武汉回到家里休息了一天，今天早上还约了人来把家里的光纤修好了。现在可以好好整理一下在比赛时候的一些小小的总结。这次的比赛收获的更多是一种应用和熟练，把自己之前学过的一些知识得以运用（才发现是如此的生疏。和队友的构想，讨论，舍弃太自我的想法，长时间的配合和解决一个一个问题，熬过一个一个夜，慢慢整理出的作品。也算是费">
+<meta name="twitter:image" content="https://escnqh.github.io/images/20170829180613.jpg">
 
 
 
@@ -143,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="https://escnqh.github.io/2017/06/12/XML复习知识总结/"/>
+  <link rel="canonical" href="https://escnqh.github.io/2017/08/12/观察者模式的简化应用/"/>
 
 
 
 
 
-  <title>XML复习知识总结 | Escnqh</title>
+  <title>观察者模式的学习和应用 | Escnqh</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -343,7 +342,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://escnqh.github.io/2017/06/12/XML复习知识总结/">
+    <link itemprop="mainEntityOfPage" href="https://escnqh.github.io/2017/08/12/观察者模式的简化应用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="大胖倪的慢灵魂">
@@ -360,7 +359,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">XML复习知识总结</h1>
+          <h1 class="post-title" itemprop="name headline">观察者模式的学习和应用</h1>
         
 
         <div class="post-meta">
@@ -372,8 +371,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T14:16:19+08:00">
-                2017-06-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-12T14:16:19+08:00">
+                2017-08-12
               </time>
             
 
@@ -395,8 +394,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/技术笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">技术笔记</span>
+                  <a href="/categories/Android学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Android学习笔记</span>
                   </a>
                 </span>
 
@@ -414,8 +413,8 @@
                 <i class="fa fa-comment-o"></i>
               </span>
               
-                <a href="/2017/06/12/XML复习知识总结/#SOHUCS" itemprop="discussionUrl">
-                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/06/12/XML复习知识总结/" itemprop="commentsCount"></span>
+                <a href="/2017/08/12/观察者模式的简化应用/#SOHUCS" itemprop="discussionUrl">
+                  <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="2017/08/12/观察者模式的简化应用/" itemprop="commentsCount"></span>
                 </a>
               
             
@@ -423,7 +422,7 @@
 
           
           
-             <span id="/2017/06/12/XML复习知识总结/" class="leancloud_visitors" data-flag-title="XML复习知识总结">
+             <span id="/2017/08/12/观察者模式的简化应用/" class="leancloud_visitors" data-flag-title="观察者模式的学习和应用">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -451,188 +450,32 @@
       
 
       
-        <h2>java开发工具的使用</h2>
+        <p>停了有些日子没有管我的博客，这段时间经历了<code>期末考试</code>和<code>服务外包</code>的比赛。今天刚刚结束，刚从武汉回到家里休息了一天，今天早上还约了人来把家里的光纤修好了。现在可以好好整理一下在比赛时候的一些小小的总结。这次的比赛收获的更多是一种应用和熟练，把自己之前学过的一些知识得以运用（才发现是如此的生疏。和队友的构想，讨论，舍弃太自我的想法，长时间的配合和解决一个一个问题，熬过一个一个夜，慢慢整理出的作品。也算是费尽一番心血。</p>
+<p>这篇博客就选取其中的一点心得作为记录，作为对<code>观察者模式</code>的学习和应用总结。</p>
+<h2>何为观察者模式</h2>
 
-<ul>
-<li>Intellij IDEA环境使用</li>
-<li>Tomcat使用</li>
-</ul>
-<p></p><h2>xml：平台语言沟通的桥梁</h2><p></p>
-<h3>校验：</h3><br>使用浏览器<br><h3>xml语法：</h3>
+<pre><code>观察者模式定义了对象间的一种一对多依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并被自动更新。
+</code></pre><p>它将观察者和被观察者的对象分离开。提高了应用程序的可维护性和重用性。</p>
+<p>实现观察者模式有很多形式，一种是“注册—通知—撤销注册”的形式。</p>
+<p><code>观察者Observer：</code>所有潜在的观察者必须实现观察者接口，这个接口只有update方法，当主题改变时，它被调用。<br><code>具体观察者ConcreteObserver:</code> 具体观察者可以是任何实现了Observer接口的类。观察者必须注册具体主题，一边接收更新。<br><code>可观察者Subject:</code> 主题接口，即可观察者Observable，对象使用此接口注册为观察者，或者把自己从观察者中删除，每个主题可以有多个观察者。<br><code>具体可观察者ConcreteSubject:</code> 一个具体主题实现了主题接口，除了注册和撤销之外，具体主题还实现了notifyObservers()方法，这个方法用来在主题状态改变时更新所有观察者。具体主题也可能有设置和获取状态的方法。<br><img src="/images/20170829180613.jpg" alt="类图"><br>常见的例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">float</span> temprature)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteObserver</span> <span class="keyword">implements</span> <span class="title">Observer</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> temperature;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Subject subject;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ConcreteObserver</span><span class="params">(<span class="keyword">final</span> Subject subject)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.subject = subject;</div><div class="line">        <span class="keyword">this</span>.subject.registerObserver(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getTemperature</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> temperature;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTemperature</span><span class="params">(<span class="keyword">final</span> <span class="keyword">float</span> temperature)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.temperature = temperature;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">final</span> <span class="keyword">float</span> temperature)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.temperature = temperature;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Subject</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(Observer o)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(Observer o)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteSubject</span> <span class="keyword">implements</span> <span class="title">Subject</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> List&lt;Observer&gt; observers;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> temperature;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">getTemperature</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> temperature;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">temperatureChanged</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.notifyObservers();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTemperature</span><span class="params">(<span class="keyword">final</span> <span class="keyword">float</span> temperature)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">this</span>.temperature = temperature;</div><div class="line">        <span class="keyword">this</span>.temperatureChanged();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ConcreteSubject</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        observers = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">(<span class="keyword">final</span> Observer o)</span></span></div><div class="line">    &#123;</div><div class="line">        observers.add(o);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">removeObserver</span><span class="params">(<span class="keyword">final</span> Observer o)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (observers.indexOf(o) &gt;= <span class="number">0</span>)</div><div class="line">        &#123;</div><div class="line">            observers.remove(o);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">final</span> Observer o : observers)</div><div class="line">        &#123;</div><div class="line">            o.update(temperature);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">final</span> String[] args)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">final</span> ConcreteSubject sb = <span class="keyword">new</span> ConcreteSubject();</div><div class="line">        sb.setTemperature((<span class="keyword">float</span>) <span class="number">20.00</span>);</div><div class="line"></div><div class="line">        <span class="keyword">final</span> Observer o = <span class="keyword">new</span> ConcreteObserver(sb);</div><div class="line">        sb.setTemperature((<span class="keyword">float</span>) <span class="number">21.00</span>);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p> 观察者模式的应用场景：</p>
+<p>1、 对一个对象状态的更新，需要其他对象同步更新，而且其他对象的数量动态可变。</p>
+<p>2、 对象仅需要将自己的更新通知给其他对象而不需要知道其他对象的细节。</p>
+<p>观察者模式的优点：</p>
+<p>1、 Subject和Observer之间是松偶合的，分别可以各自独立改变。</p>
+<p>2、 Subject在发送广播通知的时候，无须指定具体的Observer，Observer可以自己决定是否要订阅Subject的通知。</p>
+<p>3、 遵守大部分GRASP原则和常用设计原则，高内聚、低偶合。</p>
+<p>观察者模式的缺陷：</p>
+<p>1、 松偶合导致代码关系不明显，有时可能难以理解。(废话)</p>
+<p>2、 如果一个Subject被大量Observer订阅的话，在广播通知的时候可能会有效率问题。（毕竟只是简单的遍历）</p>
+<p></p><h2>为何使用观察者模式</h2><br>在进行<code>校园广播</code>项目的时候，我遇到了一个问题，那就是我自定义实现了一个<code>Dialog</code>，这个<code>Dialog</code>用来展示举报界面并且携带信息返回。我要在<code>Dialog</code>show之后拿到返回的值，但是由于时间上的异步性，我没有办法准确的控制好时间，等待信息返回之后再进行别的操作，于是乎这个时间差我只能够通过一个简化的观察者模式来解决。<p></p>
+<p>我的思路就是利用自定义Dialog类中的接口定义拿的这个步骤，通过这个接口传递信息。在目标类实现这个接口中拿的操作，通过监听使得可观察者在信息改变时获取到改变。</p>
+<p>废话少说，具体代码在下面，通过一个简化过的观察者模式（伪）的例子来了解我的方法。</p>
+<p></p><h2>一个简化的例子</h2><br>自定义<code>Dialog</code>：<p></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReportDialog</span> </span>&#123;</div><div class="line"></div><div class="line">    Context act = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> result = <span class="number">7</span>;</div><div class="line">    <span class="keyword">private</span> ReportResult reportResult;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ReportDialog</span><span class="params">(Context act)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.act = act;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(act);</div><div class="line">        builder.setTitle(<span class="string">"选择一项举报该电台:"</span>);</div><div class="line">        builder.setIcon(R.drawable.report_icon);</div><div class="line">        <span class="keyword">final</span> String[] items = <span class="keyword">new</span> String[]&#123;<span class="string">"含有暴力色情等内容。"</span>, <span class="string">"言论有不当、虚假内容。"</span>, <span class="string">"含有引起不适的内容。"</span>&#125;;</div><div class="line">        builder.setSingleChoiceItems(items,<span class="number">3</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;<span class="comment">/*设置单选条件的点击事件*/</span></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</div><div class="line">                result = which;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        builder.setPositiveButton(<span class="string">"OK"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</div><div class="line">                Toast.makeText(act, <span class="string">"感谢您的举报~"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">                reportResult.getResult(result);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        builder.setNegativeButton(<span class="string">"CANCEL"</span>, <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</div><div class="line">                Toast.makeText(act, <span class="string">"举报取消啦~"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">                result = <span class="number">7</span>;</div><div class="line">                reportResult.getResult(result);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        builder.setCancelable(<span class="keyword">false</span>);</div><div class="line">        builder.show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ReportResult</span></span>&#123;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getResult</span><span class="params">(<span class="keyword">int</span> result)</span></span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getReportResultListener</span><span class="params">(ReportResult reportResult)</span></span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.reportResult=reportResult;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>具体的实现类部分：<br>（一部分是使用retrofit2和后台进行交互）<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Report</span> <span class="keyword">implements</span> <span class="title">ReportDialog</span>.<span class="title">ReportResult</span> </span>&#123;</div><div class="line"></div><div class="line">       Context context;</div><div class="line"></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="title">Report</span><span class="params">(Context context, View v)</span> </span>&#123;</div><div class="line">           <span class="keyword">this</span>.context = context;</div><div class="line">           ReportDialog reportDialog = <span class="keyword">new</span> ReportDialog(context);</div><div class="line">           reportDialog.show(v);</div><div class="line">           reportDialog.getReportResultListener(<span class="keyword">this</span>);</div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="meta">@Override</span></div><div class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getResult</span><span class="params">(<span class="keyword">int</span> result)</span> </span>&#123;</div><div class="line">           <span class="keyword">if</span> (result != <span class="number">7</span>) &#123;</div><div class="line">               Date now = <span class="keyword">new</span> Date();</div><div class="line">               <span class="keyword">long</span> nowtime = now.getTime();</div><div class="line">               ReportApi reportApi = <span class="keyword">new</span> ReportApi();</div><div class="line">               ReportService reportService = reportApi.getService();</div><div class="line">               ReportBean reportBean = <span class="keyword">new</span> ReportBean();</div><div class="line">               reportBean.setChannelID(channelId);</div><div class="line">               reportBean.setEvent(result);</div><div class="line">               reportBean.setTime(nowtime);</div><div class="line">               reportBean.setUserID(channelHostId);</div><div class="line">               Gson gson = <span class="keyword">new</span> Gson();</div><div class="line">               <span class="keyword">final</span> RequestBody requestBody = RequestBody.create(MediaType.parse(<span class="string">"application/json; charset=utf-8"</span>), gson.toJson(reportBean));</div><div class="line">               Call&lt;isTrueBean&gt; call_beginBroadcast = reportService.getState(requestBody);</div><div class="line">               call_beginBroadcast.enqueue(<span class="keyword">new</span> Callback&lt;isTrueBean&gt;() &#123;</div><div class="line">                   <span class="meta">@Override</span></div><div class="line">                   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call&lt;isTrueBean&gt; call, Response&lt;isTrueBean&gt; response)</span> </span>&#123;</div><div class="line">                       <span class="keyword">if</span> (response.body() != <span class="keyword">null</span>) &#123;</div><div class="line">                           <span class="keyword">int</span> result = response.body().getSign();</div><div class="line">                           <span class="keyword">if</span> (result == <span class="number">1</span>) &#123;</div><div class="line">                               Log.i(TAG, <span class="string">"举报成功"</span>);</div><div class="line">                           &#125; <span class="keyword">else</span> &#123;</div><div class="line">                               Log.i(TAG, <span class="string">"举报失败"</span>);</div><div class="line">                           &#125;</div><div class="line">                       &#125; <span class="keyword">else</span> &#123;</div><div class="line">                           Log.i(TAG, <span class="string">"举报返回空"</span>);</div><div class="line">                       &#125;</div><div class="line">                   &#125;</div><div class="line"></div><div class="line">                   <span class="meta">@Override</span></div><div class="line">                   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call&lt;isTrueBean&gt; call, Throwable t)</span> </span>&#123;</div><div class="line">                       Log.i(TAG, <span class="string">"举报返回失败"</span>);</div><div class="line">                   &#125;</div><div class="line">               &#125;);</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>这样应该很明显的看我是用什么方法解决了问题的。可能跟经典的的观察者模式有些出入，但是达到了实际需要的效果。</p>
 
-<pre><code>XML（eXtensible Markup Language）,可扩展标记语言。“可扩展”，即用户可以自定义标记。
-</code></pre><p><img src="/images/20170612132124.jpg" alt="此处输入图片的描述"></p>
-<ol>
-<li>文档声明：<br><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;GB2312&quot;  standalone=&quot;yes&quot; ?&gt;</code><br>XML是一种元语言。<code>&lt;?xml version=“1.0”?&gt;</code>书写xml文件应注意：xml声明语句必须作为文件的第一行；</li>
-<li>根标记：<br>xml有且仅有一个跟标记，其他标记必须封装在根标记中，文件的标记必须形成树状结构；</li>
-<li>规范的XML：符合W3C制定的规则；</li>
-<li>xml和HTML的主要区别：<br>① HTML的标记是固定的，预定义的，不可扩展的；而XML的标记是可扩展的，是可以由用户自定义的；<br>② HTML的标记说明了信息的显示格式；而XML标记表示了数据的逻辑结构及语义；</li>
-<li>字符集(Charset)：<br>一组抽象字符的集合。其中字符(Character)是文字与符号的总称，包括文字、图形符号、数学符号等。英文字符集、繁体汉字字符集、日文汉字字符集；<br>被编码过的字符集(Coded Character Set) ：每种编码都限定了一个明确的字符集合；</li>
-<li>ASCII：<br>美国信息交换标准码； ISO 8859，全称ISO/IEC 8859: ISO8859-1；</li>
-<li>Unicode:<br>UTF-8,Unicode转换格式（Unicode Translation Format，简称UTF）；<br>Unicode的实现方式不同于编码方式。 Unicode的实现方式称为Unicode转换格式(UnicodeTranslationFormat，简称为UTF)。一个字符的Unicode编码是确定的，但是在实际传输过程中，由于不同系统平台的设计不一定一致，以及出于节省空间的目的，Unicode编码的实现方式就有所不同。</li>
-<li>UTF-8:大多数常用字符(ASCII中0～127字符)它只使用单字节，而对其它常用字符(特别是朝鲜和汉语会意文字)，它使用3字节；</li>
-<li>汉字编码：<br>GB2312、BIG5；<br>GB2312：简体中文字符集，全称为GB2312(80)字符集，共包括国标简体汉字6763个<br>ANSI:美国国家标准局</li>
-<li><code>&lt;?xml version=“1.0”encoding=“UTF-8”?&gt;</code>以“UTF-8”编码保存 默认；<br><code>&lt;?xml version=“1.0”encoding=“gb2312”?&gt;</code>以“ANSI”编码保存 ASCII、汉字；<br><code>&lt;?xml version=“1.0”encoding=“ISO-8859- 1”?&gt;</code>以“ANSI”编码保存ASCII；</li>
-<li><code>&lt;!--此处为注释信息--&gt;</code>注释根标记</li>
-<li>标记的命名规则：<br>必须以字母、下划线(_)或冒号(:)开头；<br>后面可以跟有效的名字符，有效名字符除了前面的，还包含数字、连接符(-)、句点(.)；<br>英文字母大小写敏感的；<br>名称不能含有空格；<br>名称中不能有字符串“xml”，“XML”或以任何顺序排列的这三个字母的组合。W3C保留对三个字母的命名的使用权；</li>
-<li>五种特殊字符：<br>“ &lt; ”、“ &gt; ”、“ &amp; ”、“ ‘ ”、“ “ ”；<br>&amp;lt &lt;；&amp;gt &gt;；&amp;amp &amp;;&amp;apos ‘；&amp;quot “;</li>
-<li>以“<code>&lt;![CDATA[</code>”作为段开始，以“<code>]]&gt;</code>”作为段结束，段开始和段结束之间称为CDATA段的内容。<br>CDATA段中的内容可以包含任意的字符。<br>标记内容可以由两个部分构成：文本数据部分和子标记部分。 一个标记的文本数据包括：普通字符、<br>CDATA段的内容、字符引用和实体引用。</li>
-<li>名称空间：有效区分名字相同的标记；<br>名称空间声明有两种形式：<br>有前缀名称空间 ：<code>xmlns：person=“2203026”</code>；<br>无前缀名称空：<code>xmlns=“www.tup.com”</code>;<br>当且仅当它们的名字相同时称两个名称空间相同; URI只是形式上的标识符，唯一的目的是提供一个唯一的名字，并不需要指向一个有效的内容，在URI所标识的位置上，可以不存在任何东西。</li>
-<li>URI（Uniform Resource Identifier），作为名称空间的名字。名称空间的名字不必是有效的，它仅仅是为了区分名称空间的名字而已;</li>
-<li><p>名称空间的引用<br>（1）有前缀的名称空间：在开始标记和结束标记的名字前面添加名称空间的前缀和冒号来引用名称空间;<br>（2）无前缀的名称空间：该标记及其子标记都默认地隶属于这个名称空间;<br>（3）无前缀的名称空间：子标记也可以重新声明名称空间。</p>
-<h3>xml约束：</h3>
-</li>
-<li><p>DTD约束：（内部约束，外部约束）<br>内部约束：直接写在xml文档中</p>
-</li>
-</ol>
-<blockquote>
-<pre><code>&lt;?xml version=”1.0” encoding=”gbk”?&gt;
-&lt;!DOCTYPE 书架（根元素）[
-    &lt;!ELEMENT 书架 (书+)&gt;//根元素包含的子元素书最少一个
-    &lt;!ELEMENT 书 (书名,作者,售价)&gt;//子元素必须包含的子标签
-    &lt;!ELEMENT 书名 (#PCDATA)&gt;//PCDATA表示元素的主体内容为普通文本
-    &lt;!ELEMENT 作者 (#PCDATA)&gt;
-    &lt;!ELEMENT 售价 (#PCDATA)&gt;         
-]&gt;
-&lt;书架&gt;
-</code></pre></blockquote>
-<p>外部约束：外部引入.dtd作为单独的文件存在。文件扩展名.dtd,文件必须用UTF-8编码保存到磁盘上</p>
-<blockquote>
-<pre><code>//dtd文件在本地：
-&lt;!DOCTYPE 根元素 SYSTEM  “dtd文件的地址”&gt;
-//dtd文件在外地（网上）：
-&lt;!DOCTYPE 根元素 PUBLIC “dtd的名称” “dtd的路径”&gt;
-//示例：
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;gbk&quot;?&gt;
-&lt;!DOCTYPE TVSCHEDULE SYSTEM &quot;tet.dtd&quot;&gt;
-&lt;TVSCHEDULE NAME=&quot;CCTV&quot;&gt;
-    &lt;CHANNEL CHAN=&quot;zh&quot;&gt;
-        &lt;BANNER&gt;文本&lt;/BANNER&gt;
-        &lt;DAY&gt;
-            &lt;DATE&gt;文本&lt;/DATE&gt;
-            &lt;HOLIDAY&gt;文本&lt;/HOLIDAY&gt;
-        &lt;/DAY&gt;
-        &lt;DAY&gt;
-            &lt;DATE&gt;文本&lt;/DATE&gt;
-            &lt;PROGRAMSLOT&gt;
-                &lt;TIME&gt;文本&lt;/TIME&gt;
-                &lt;TITLE&gt;文本&lt;/TITLE&gt;
-                &lt;DESCRIPTION&gt;文本&lt;/DESCRIPTION&gt;
-            &lt;/PROGRAMSLOT&gt;
-        &lt;/DAY&gt;
-    &lt;/CHANNEL&gt;
-&lt;/TVSCHEDULE&gt;
-</code></pre></blockquote>
-<p><strong><em>DTD语法：</em></strong><br><em>DTD的基本结构</em>：① DTD的开始标记定义元素，这是DTD中最主要注释；② 定义元素属性；<br><em>XML与DTD的关联</em>：外部DTD关联形式<code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;gb2312&quot; ?&gt;</code>私有DTD引用<code>&lt;!DOCTYPE 根元素名SYSTEM  “DTD文件的URI&quot;&gt;</code>；<br><em>公共DTD引用</em>：<code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;gb2312&quot; ?&gt;</code> <code>&lt;!DOCTYPE 根元素名PUBLIC“DTD名称” “DTD文件的URI&quot;&gt;</code><br><strong><em>用脚本校验xml是否符合DTD约束</em></strong></p>
-<ol>
-<li>Schema<br>Schema语法（会读就可以）<br>名称空间，著名名称空间<br><img src="/images/20170612172737.jpg" alt="此处输入图片的描述"><br><h3>xml解析：</h3><br>程序对xml的读写，生成相应的对象<br>dom解析：只需解析一次，生成对象，但加载完整的树之后才开始解析<br>—dom4j案例</li>
-</ol>
-<blockquote>
-<pre><code>//xml文本
-&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
-&lt;State Code=&quot;37&quot; Name=&quot;山东&quot; description=&quot;省会&quot;&gt;
-    &lt;City&gt;
-        &lt;Name&gt;济南&lt;/Name&gt;
-        &lt;Region&gt;历下区&lt;/Region&gt;
-    &lt;/City&gt;
-    &lt;City&gt;青岛&lt;/City&gt;
-    &lt;City&gt;威海&lt;/City&gt;
-    &lt;City&gt;泰安&lt;/City&gt;
-&lt;/State&gt;
-</code></pre></blockquote>
-<pre><code>import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-public class JaxpDemo {
-    public static void main(String[] args) throws Exception {   
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();//得到创建解析器的工厂：DocumentBuilderFactory
-        DocumentBuilder builder = factory.newDocumentBuilder();//通过工厂得到解析器：DocumentBuilder
-        Document document = builder.parse(&quot;xml文件路径&quot;);//加载xml文件：得到了Document对象    
-    }
-    public static void test1(Document document){//得到某个具体的节点内容
-        NodeList nl = document.getElementsByTagName(&quot;City&quot;);//得到所有的City元素，
-        Node node = nl.item(2);//索引从0开始
-        System.out.println(node.getTextContent());//打印获得节点的主体内容
-    }
-    public static void test2(Document document){//遍历所有元素节点。
-        Node rootNode = document.getElementsByTagName(&quot;State&quot;).item(0);
-        treewalk(rootNode);
-    }
-    public static void treewalk(Node node){//递归
-        if(node.getNodeType()==Node.ELEMENT_NODE){//是一个元素节点
-            System.out.println(node.getNodeName());//打印元素的名称
-        }
-        NodeList nl = node.getChildNodes();//看看他有没有孩子
-        for(int i=0;i&lt;nl.getLength();i++){
-            Node n = nl.item(i);
-            treewalk(n);//递归
-        }
-    }
-    public static void test3(Document document) throws Exception{//修改某个元素节点的主体内容
-        Node secondCityNode = document.getElementsByTagName(&quot;City&quot;).item(1);//找到第2个City元素
-        secondCityNode.setTextContent(&quot;威海&quot;);//设置主体内容为：威海
-        //把内存中的Document写到xml文件中
-        TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer ts = tf.newTransformer();
-        ts.transform(new DOMSource(document), new StreamResult(&quot;src/LocList.xml&quot;));
-    }
-    public static void test4(Document document) throws Exception{//向指定元素节点中增加子元素节
-        Element e = document.createElement(&quot;City&quot;);//&lt;City&gt;&lt;/City&gt;//创建新元素
-        e.setTextContent(&quot;烟台&quot;);//&lt;City&gt;烟台&lt;/City&gt;
-        Node rootNode = document.getElementsByTagName(&quot;State&quot;).item(0);
-        rootNode.appendChild(e);//把新元素添加到State最后
-        //把内存中的Document写到xml文件中
-        TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer ts = tf.newTransformer();
-        ts.transform(new DOMSource(document), new StreamResult(&quot;src/LocList.xml&quot;));
-    }
-    public static void test5(Document document) throws Exception{//向指定元素节点上增加同级元素节点
-        Element e = document.createElement(&quot;City&quot;);//创建新元素
-        e.setTextContent(&quot;青岛&quot;);
-        //调用inertBefore插入新节点：必须由父节点来调用
-        Node secondNode = document.getElementsByTagName(&quot;City&quot;).item(1);
-        secondNode.getParentNode().insertBefore(e, secondNode);
-        //把内存中的Document写到xml文件中
-        TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer ts = tf.newTransformer();
-        ts.transform(new DOMSource(document), new StreamResult(&quot;src/LocList.xml&quot;));
-    }
-    public static void test6(Document document) throws Exception{//删除指定元素节点
-        Node ytNode = document.getElementsByTagName(&quot;City&quot;).item(4);//得到烟台节点
-        ytNode.getParentNode().removeChild(ytNode);//用父节点删除 
-        //把内存中的Document写到xml文件中
-        TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer ts = tf.newTransformer();
-        ts.transform(new DOMSource(document), new StreamResult(&quot;src/LocList.xml&quot;));
-    }
-    public static void test7(Document document) throws Exception{//操作XML文件属性
-        Node stateNode = document.getElementsByTagName(&quot;State&quot;).item(0);//看成元素
-        if(stateNode.getNodeType()==Node.ELEMENT_NODE){
-            Element e = (Element)stateNode;
-            System.out.println(e.getAttribute(&quot;Name&quot;));
-        }
-    }
-    public static void test8(Document document) throws Exception{//8、添加属性
-        Node stateNode = document.getElementsByTagName(&quot;State&quot;).item(0);//看成元素
-        if(stateNode.getNodeType()==Node.ELEMENT_NODE){
-            Element e = (Element)stateNode;
-            e.setAttribute(&quot;description&quot;, &quot;省会&quot;);
-        }
-        //把内存中的Document写到xml文件中
-        TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer ts = tf.newTransformer();
-        ts.transform(new DOMSource(document), new StreamResult(&quot;src/LocList.xml&quot;));
-    }
-}
-</code></pre>
       
     </div>
 
@@ -666,7 +509,7 @@ public class JaxpDemo {
       
         <div class="post-tags">
           
-            <a href="/tags/XML/" rel="tag"># XML</a>
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
           
         </div>
       
@@ -679,8 +522,8 @@ public class JaxpDemo {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/11/使用OkHttp/" rel="next" title="使用OkHttp">
-                <i class="fa fa-chevron-left"></i> 使用OkHttp
+              <a href="/2017/06/12/XML复习知识总结/" rel="next" title="XML复习知识总结">
+                <i class="fa fa-chevron-left"></i> XML复习知识总结
               </a>
             
           </div>
@@ -688,10 +531,6 @@ public class JaxpDemo {
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/12/观察者模式的简化应用/" rel="prev" title="观察者模式的学习和应用">
-                观察者模式的学习和应用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -892,7 +731,7 @@ public class JaxpDemo {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">java开发工具的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">xml：平台语言沟通的桥梁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">校验：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">xml语法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">xml约束：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">xml解析：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">何为观察者模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">为何使用观察者模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">一个简化的例子</span></a></li></ol></div>
             
 
           </div>
