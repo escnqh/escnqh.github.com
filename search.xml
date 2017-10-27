@@ -3,6 +3,63 @@
   
     
     <entry>
+      <title><![CDATA[在你的Android项目中使用cpp/cpp第三方库]]></title>
+      <url>/2017/10/10/%E5%9C%A8%E4%BD%A0%E7%9A%84Android%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8cpp%E6%88%96cpp%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/</url>
+      <content type="html"><![CDATA[<p>今天终于跑完了Google协同育人项目的协议签署，茫然四顾发现自己在一个巨坑之中==<br>这段时间要加班加点学习NDK学习混编，我的初步的思路是利用orb-SLAM算法进行建模，拿到模型再做其他的都好说，好歹是一个开始，要接着往前走。<br>下面就开始将我学习的过程中一些笔记和心得记录下来。</p>
+<p></p><h2>相关概念</h2><br>首先我们要使用的工具是NDK<br>使用<code>Android NDK</code>可以构建任何一段原生代码将其与Android应用一起打包。<p></p>
+<p></p><h3>什么是NDK</h3><br>Native Development Kit（NDK）是一系列工具的集合。它提供了一系列的工具，帮助开发者快速开发C/C++的动态库，并能自动将so和java一起打包成apk。<br>详情查看官方文档：<a href="https://developer.android.com/ndk/index.html" target="_blank" rel="external">https://developer.android.com/ndk/index.html</a><br>（实际上Android Developer官方提供的只有<code>Android.mk</code>和<code>Application.mk</code>对项目构建的方法==，后面再仔细叙述）<p></p>
+<p>而使用java原生接口（<code>JNI</code>，<code>Java Native Interface</code>）可以实现java应用程序和原生代码之间的通信。</p>
+<p></p><h3>什么是JNI</h3><br>Java Native Interface（JNI）标准是java平台的一部分，JNI是Java语言提供的Java和C/C++相互沟通的机制，Java可以通过JNI调用C/C++代码，C/C++的代码也可以调用java代码。<p></p>
+<pre><code>我们主要说说在项目中使用java调用cpp的方法
+</code></pre><p>想要用java调用cpp首先要解决的一个问题是，必须要让cpp函数按着命名规则来。<br>命名规则为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">返回值 Java_包路径_类名_函数名(JNIEnv* env,jobject obj);</div></pre></td></tr></table></figure>
+<p>对应如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function">jint <span class="title">Java_com_ndk_testndk_TestHello_jnia</span><span class="params">(JNIEnv* env,jobject obj)</span></span>;</div></pre></td></tr></table></figure></p>
+<p>其中第二个参数为该类的对象，也就是TestHello的对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestHello</span> </span>&#123;  </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">jnia</span><span class="params">()</span></span>;  </div><div class="line">    <span class="keyword">static</span> &#123;  </div><div class="line">        <span class="comment">// 加载libAppConfig.so库文件  </span></div><div class="line">        <span class="comment">// AppConfig是添加 Android Native Support时输入的名称  </span></div><div class="line">        <span class="comment">// 另外，通过修改Android.mk中的LOCAL_MODULE可以修改这个名称  </span></div><div class="line">        System.loadLibrary(<span class="string">"TestNDK"</span>);  </div><div class="line">    &#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//C++代码  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string h=""&gt;  </span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni h=""&gt;  </span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;android log="" h=""&gt;  </span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"TestNDK.h"</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus  <span class="comment">//最好有这个，否则被编译器改了函数名字找不到不要怪我  </span></span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span>  </span></div><div class="line"><span class="function">jint <span class="title">Java_com_ndk_testndk_TestHello_jnia</span><span class="params">(JNIEnv* env,jobject obj)</span></span>&#123;  </div><div class="line">    <span class="keyword">return</span> <span class="number">12</span>;  </div><div class="line">&#125;  </div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus  </span></div><div class="line">&#125;  </div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
+<p></p><h3>JNI与NDK的关系</h3><br>NDK可以为我们生成了C/C++的动态链接库，JNI是java和C/C++沟通的接口，两者与android没有半毛钱关系，只因为安卓是java程序语言开发，然后通过JNI又能与C/C++沟通，所以我们可以使用NDK+JNI来实现“Java+C”的开发方式。<p></p>
+<p></p><h3>为什么要NDK开发</h3><br>NDK开发具有以下优点：<p></p>
+<ol>
+<li>项目需要调用底层的一些C/C++的一些东西（java无法直接访问到操作系统底层（如系统硬件等）），或者已经在C/C++环境下实现了功能代码（大部分现存的开源库都是用C/C++代码编写的。），直接使用即可。NDK开发常用于驱动开发、无线热点共享、数学运算、实时渲染的游戏、音视频处理、文件压缩、人脸识别、图片处理等。</li>
+<li>为了效率更加高效些。将要求高性能的应用逻辑使用C/C++开发，从而提高应用程序的执行效率。但是C/C++代码虽然是高效的，在java与C/C++相互调用时却增大了开销；</li>
+<li>基于安全性的考虑。防止代码被反编译，为了安全起见，使用C/C++语言来编写重要的部分以增大系统的安全性，最后生成so库（用过第三方库的应该都不陌生）便于给人提供方便。（任何有效的代码混淆对于会smail语法反编译你apk是分分钟的事，即使你加壳也不能幸免高手的攻击）</li>
+<li>便于移植。用C/C++写得库可以方便在其他的嵌入式平台上再次使用。</li>
+</ol>
+<p></p><h3>什么是CMake</h3><br>脱离 Android 开发来看，c/c++的编译文件在不同平台是不一样的。Unix下会使用<code>makefile</code>文件编译，Windows下会使用 project 文件编译。而<code>CMake</code>则是一个跨平台的编译工具，它并不会直接编译出对象，而是根据自定义的语言规则（<code>CMakeLists.txt</code>）生成对应<code>makefile</code>或<code>project</code>文件，然后再调用底层的编译。<p></p>
+<p>在Android Studio 2.2 之后，工具中增加了<code>CMake</code>的支持，你可以这么认为，在 Android Studio 2.2 之后你有2种选择来编译你写的c/c++代码。一个是<code>ndk-build</code>+<code>Android.mk</code>+<code>Application.mk</code>组合，另一个是<code>CMake</code>+<code>CMakeLists.txt</code>组合。这2个组合与Android代码和c/c++代码无关，只是不同的构建脚本和构建命令。<br>更多详细的参见<a href="https://developer.android.com/studio/projects/add-native-code.html" target="_blank" rel="external">AndroidStudio官方文档</a>。</p>
+<p></p><h3>ABI是什么</h3><br><code>ABI</code>（Application binary interface）应用程序二进制接口。不同的CPU 与指令集的每种组合都有定义的 ABI (应用程序二进制接口)，一段程序只有遵循这个接口规范才能在该 CPU 上运行，所以同样的程序代码为了兼容多个不同的CPU，需要为不同的 ABI 构建不同的库文件。当然对于CPU来说，不同的架构并不意味着一定互不兼容。<p></p>
+<pre><code>armeabi设备只兼容armeabi；//默认都是这个，大多数的Android手机
+
+armeabi-v7a设备兼容armeabi-v7a、armeabi；
+
+arm64-v8a设备兼容arm64-v8a、armeabi-v7a、armeabi；
+
+X86设备兼容X86、armeabi；
+
+X86_64设备兼容X86_64、X86、armeabi；
+
+mips64设备兼容mips64、mips；
+
+mips只兼容mips；
+</code></pre><p></p><h2>通过一个例子来说明</h2><br><a href="https://github.com/escnqh/PracticeProject4NDK.git" target="_blank" rel="external">github仓库链接</a><br>我在这个例子里自己模拟了一个cpp写的第三方库，通过NDK打包成apk，在CPP和java之间使用JNI层来调用Cpp库中的方法；并且配置了<code>Gradle</code>和<code>Cmakelist</code>.<br>在这个项目里，我通过项目本身的示例作用和一些注释，标注了一些容易出现问题的地方和值得注意的地方。<br>详细的问题还是看项目吧。<p></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Android学习笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[新思路团队Android小组技术栈]]></title>
       <url>/2017/09/17/Newthread_Android%E5%B0%8F%E7%BB%84%E6%8A%80%E6%9C%AF%E6%A0%88/</url>
       <content type="html"><![CDATA[<p></p><h2>一、  基础篇</h2><p></p>
